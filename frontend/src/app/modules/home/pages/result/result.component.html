@@ -1,0 +1,13 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <app-filter #filter [filtersSources]="filtersCharts"></app-filter>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-card>
+  <mat-card-content>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est sint nesciunt voluptates necessitatibus fugiat. Magni assumenda, reiciendis vitae nihil nulla maiores quisquam tempora suscipit? Culpa ipsum impedit sunt quidem porro.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum maiores quam asperiores, atque id perspiciatis quas voluptatibus, aperiam animi quidem vero neque voluptate quos quibusdam minima! Ex quod ut ab!
+  </mat-card-content>
+</mat-card>
+<app-report [data]="categories" [type]="filter.value"></app-report>
+

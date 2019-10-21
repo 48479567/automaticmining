@@ -1,0 +1,18 @@
+:host {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 2;
+  height: 30px;
+}
+
+:host, mat-toolbar-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+mat-toolbar-row {
+  font-size: 12px;
+}

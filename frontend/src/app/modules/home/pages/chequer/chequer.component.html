@@ -1,0 +1,32 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <app-filter #filter
+    [filtersSources]="filtersIcon"></app-filter>
+  </mat-toolbar-row>
+</mat-toolbar>
+<app-table
+  *ngIf="filter.value === 'list'; else cardView"
+  [dataSource]="chequers"></app-table>
+<ng-template #cardView>
+  <mat-card
+    class="product-card"
+    *ngFor="let chequer of chequers">
+    <mat-card-header>
+      <div
+        mat-card-avatar
+        class="product-header-image"></div>
+      <mat-card-title>{{ chequer.name }}</mat-card-title>
+      <mat-card-subtitle>{{ chequer.name }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <img mat-card-image
+      [src]="chequer.image" width="300" height="150" alt="Product Image" />
+    <p>{{ chequer.quantity }}  in stock</p>
+
+    <mat-card-actions>
+      <button mat-button (click)="openFormDialog(chequer)">ENTER</button>
+      <button mat-button>CANCEL</button>
+    </mat-card-actions>
+
+  </mat-card>
+</ng-template>

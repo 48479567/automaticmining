@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+.product-card {
+  display: inline-block;
+  width: 300px;
+  margin: 5px;
+}
+.product-header-image {
+  background-size: cover;
+}

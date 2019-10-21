@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "set": "pc",
+    "name": "PC ASUS",
+    "mark": "ASUS",
+    "quantity": 5
+  },
+  {
+    "id": 2,
+    "set": "laptop",
+    "name": "Laptop",
+    "mark": "ASUS",
+    "quantity": 5
+  },
+  {
+    "id": 3,
+    "set": "mouse",
+    "name": "Mickey mouse",
+    "mark": "rat",
+    "quantity": 5
+  },
+  {
+    "id": 4,
+    "set": "harddisk",
+    "name": "HD323",
+    "mark": "ASUS",
+    "quantity": 5
+  },
+  {
+    "id": 5,
+    "set": "ram",
+    "name": "Laptop",
+    "mark": "ASUS",
+    "quantity": 5
+  },
+  {
+    "id": 6,
+    "set": "motherboard",
+    "name": "MB 5",
+    "mark": "ASUS",
+    "quantity": 5
+  }
+]
