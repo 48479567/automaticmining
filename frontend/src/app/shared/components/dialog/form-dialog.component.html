@@ -1,21 +1,14 @@
-
-<h2 mat-dialog-title>{{ data.title }}</h2>
 <mat-dialog-content class="typografic">
   <mat-card>
-    <mat-card-header>
-    <mat-card-title>{{ data.content.name }}</mat-card-title>
-    <mat-card-subtitle>
-      {{ date | date:'medium' }} {{ data.content.quantity }}
-    </mat-card-subtitle>
-    </mat-card-header>
     <mat-card-content>
-        <img mat-card-image [src]="data.content.image" alt="Product Image" />
-        <p>{{ data.content.quantity }}  in stock</p>
+      <app-dynamic-form #dynamicForm [questions]="questions"></app-dynamic-form>
     </mat-card-content>
   </mat-card>
-  <mat-card>
-    <mat-card-content>
-      <app-dynamic-form [questions]="data.questions"></app-dynamic-form>
-    </mat-card-content>
-  </mat-card>
+  <app-item
+    [item]="dynamicForm.form.value"
+  ></app-item>
+  <mat-card-actions>
+    <button mat-button [disabled]="!dynamicForm.form.valid" (click)="update(dynamicForm.form.value)">Save</button>
+    <button mat-button (click)="onClose()">Cancel</button>
+  </mat-card-actions>
 </mat-dialog-content>

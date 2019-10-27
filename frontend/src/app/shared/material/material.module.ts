@@ -20,6 +20,7 @@ import {
   MatSortModule,
   MatPaginatorModule,
   MatTooltipModule,
+  MatSnackBarModule,
 
 } from '@angular/material';
 
@@ -47,6 +48,7 @@ import {
     MatSortModule,
     MatPaginatorModule,
     MatTooltipModule,
+    MatSnackBarModule,
 
   ],
   providers: [],

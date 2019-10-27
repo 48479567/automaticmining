@@ -1,0 +1,26 @@
+:host {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-flow: row wrap;
+}
+
+.product-card {
+  display: inline-block;
+  width: 300px;
+  margin: 5px;
+}
+.product-header-image {
+  background-size: cover;
+}
+
+app-filter {
+  position: fixed;
+  right: 15px;
+  z-index: 15;
+}
+
+mat-toolbar {
+  width: 100%;
+  height: 64px;
+}

@@ -29,7 +29,7 @@ export class ReportComponent implements OnInit {
     this.type = 'bar';
     this.barChartData = [
       { data: this.data.map(d => d.quantity) , label: 'Stock' },
-      { data: this.data.map(d => d.sales), label: 'Sale' }
+      { data: this.data.map(d => d.investment), label: 'Sale' }
     ];
   }
 

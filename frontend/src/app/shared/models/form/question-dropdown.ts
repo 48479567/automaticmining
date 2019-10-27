@@ -11,3 +11,10 @@ export class DropdownQuestion extends QuestionBase<string> {
     this.options = options[optionsString] || [];
   }
 }
+
+export class DropdownFormat {
+  constructor(
+    public key: string,
+    public value: string
+  ) { }
+}

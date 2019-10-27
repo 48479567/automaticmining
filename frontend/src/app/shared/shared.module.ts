@@ -13,6 +13,8 @@ import {
   DialogComponent,
   FormDialogComponent,
   TableComponent,
+  ItemComponent,
+  ContentComponent,
 
 } from './components';
 
@@ -24,7 +26,9 @@ const COMPONENTS = [
   FilterComponent,
   DialogComponent,
   FormDialogComponent,
-  TableComponent
+  TableComponent,
+  ItemComponent,
+  ContentComponent,
 
 ];
 

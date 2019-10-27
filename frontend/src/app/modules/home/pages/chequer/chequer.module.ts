@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { ChequerRoutingModule } from './chequer-routing.module';
-import { ChequerComponent } from './chequer.component';
-import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ChequerComponent } from './chequer.component';
+
 
 @NgModule({
-  imports: [ChequerRoutingModule, CommonModule, SharedModule],
-  exports: [],
   declarations: [ChequerComponent],
-  providers: [],
+  imports: [
+    CommonModule,
+    ChequerRoutingModule,
+    SharedModule,
+  ]
 })
-export class ChequerModule { }
-
+export class ChequeModule { }

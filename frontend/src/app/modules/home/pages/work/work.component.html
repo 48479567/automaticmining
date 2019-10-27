@@ -1,32 +1,3 @@
-<mat-toolbar>
-  <mat-toolbar-row>
-    <app-filter #filter
-    [filtersSources]="filtersIcon"></app-filter>
-  </mat-toolbar-row>
-</mat-toolbar>
-<app-table
-  *ngIf="filter.value === 'list'; else cardView"
-  [dataSource]="works"></app-table>
-<ng-template #cardView>
-  <mat-card
-    class="product-card"
-    *ngFor="let work of works">
-    <mat-card-header>
-      <div
-        mat-card-avatar
-        class="product-header-image"></div>
-      <mat-card-title>{{ work.name }}</mat-card-title>
-      <mat-card-subtitle>{{ work.name }}</mat-card-subtitle>
-    </mat-card-header>
-
-    <img mat-card-image
-      [src]="work.image" width="300" height="150" alt="Work Image" />
-    <p>{{ work.quantity }}  in stock</p>
-
-    <mat-card-actions>
-      <button mat-button (click)="openFormDialog(work)">ENTER</button>
-      <button mat-button>CANCEL</button>
-    </mat-card-actions>
-
-  </mat-card>
-</ng-template>
+<app-content
+  [sources]="works"
+></app-content>

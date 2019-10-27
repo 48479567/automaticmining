@@ -1,0 +1,14 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <app-filter #filter [filtersSources]="filtersIcon"></app-filter>
+  </mat-toolbar-row>
+</mat-toolbar>
+<app-table
+  *ngIf="filter.value === 'list'; else cardView"
+  [dataSource]="sources"></app-table>
+<ng-template #cardView>
+  <app-item
+    *ngFor="let source of sources"
+    [item]="source"
+  ></app-item>
+</ng-template>

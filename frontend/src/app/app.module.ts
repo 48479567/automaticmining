@@ -14,6 +14,7 @@ import {
   SigninComponent,
   SignupComponent
 } from './modules/home/pages/authentication';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AppRoutingModule,
     CoreModule,
     SharedModule,

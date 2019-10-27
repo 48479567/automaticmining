@@ -5,4 +5,6 @@ export * from './report/chart/chart.component';
 export * from './filter/filter.component';
 export * from './dialog/dialog.component';
 export * from './table/table.component';
+export * from './item/item.component';
+export * from './content/content.component';
 

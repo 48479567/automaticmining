@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { CarrierRoutingModule } from './carrier-routing.module';
-import { CarrierComponent } from './carrier.component';
-import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { CarrierComponent } from './carrier.component';
+
 
 @NgModule({
-  imports: [CarrierRoutingModule, CommonModule, SharedModule],
-  exports: [],
   declarations: [CarrierComponent],
-  providers: [],
+  imports: [
+    CommonModule,
+    CarrierRoutingModule,
+    SharedModule,
+  ]
 })
 export class CarrierModule { }

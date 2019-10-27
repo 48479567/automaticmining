@@ -5,7 +5,6 @@ import {
   DropdownQuestion
 } from 'src/app/shared/models';
 import { Observable, of } from 'rxjs';
-import { transports } from '../../mocks/data';
 
 @Injectable({
   providedIn: 'root'
@@ -41,23 +40,23 @@ export class QuestionService {
 
   }
 
-  getQuestionsDialog(data: any): Observable<QuestionBase<any>[]>  {
-    const categoryQuestions: QuestionBase<any>[] = data.map((d: any) => {
-      const key: string = d.name.replace(/\s+/g, '').toLowerCase();
-      return {
-        key,
-        label: d.name,
-        value: key,
-        required: true,
-        type: 'text'
-
-      };
-    });
-    return of(categoryQuestions);
-  }
-
-  getProductsQuestions() {
-
+  getSchemaQuestions(schema: any): Observable<Array<QuestionBase<any>>> {
+    delete schema.__v;
+    delete schema.updatedat;
+    delete schema._id;
+    delete schema.createdat;
+    const questions: QuestionBase<any>[] = [];
+    // tslint:disable-next-line: forin
+    for (const sch in schema) {
+      questions.push(new TextboxQuestion({
+        key: sch,
+        label: sch,
+        value: schema[sch],
+        type: typeof schema[sch],
+        required: true
+      }));
+    }
+    return of(questions);
   }
 
   getQuestionsProducts() {

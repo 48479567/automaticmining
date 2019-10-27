@@ -12,4 +12,6 @@ import { FormGroup } from '@angular/forms';
 export class DynamicFormQuestionComponent {
   @Input() question: QuestionBase<any>;
   @Input() form: FormGroup;
+
 }
+

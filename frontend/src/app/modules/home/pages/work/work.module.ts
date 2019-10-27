@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { WorkRoutingModule } from './work-routing.module';
-import { WorkComponent } from './work.component';
-import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { WorkComponent } from './work.component';
+
 
 @NgModule({
-  imports: [WorkRoutingModule, CommonModule, SharedModule],
-  exports: [],
   declarations: [WorkComponent],
-  providers: [],
+  imports: [
+    CommonModule,
+    WorkRoutingModule,
+    SharedModule,
+  ]
 })
 export class WorkModule { }
