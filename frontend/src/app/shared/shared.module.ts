@@ -2,38 +2,62 @@ import { NgModule } from '@angular/core';
 import { MaterialModule } from './material/material.module';
 import { ChartsModule } from 'ng2-charts';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {
   DynamicFormComponent,
   DynamicFormQuestionComponent,
+  DynamicFormAuthComponent,
+  DynamicFormAuthQuestionComponent,
+  EmailFieldComponent,
+  PasswordFieldComponent,
+  DynamicFormObjectComponent,
+  DynamicFormObjectQuestionComponent,
+  DynamicFormScalableComponent,
   ReportComponent,
   ChartComponent,
   FilterComponent,
-  DialogComponent,
+  FilterListComponent,
+  DialogCreateResourceComponent,
   FormDialogComponent,
   TableComponent,
   ItemComponent,
+  ItemCreateComponent,
   ContentComponent,
+  TextareaComponent,
+  TextboxComponent,
+  SelectComponent,
 
 } from './components';
 
 const COMPONENTS = [
   DynamicFormComponent,
   DynamicFormQuestionComponent,
+  DynamicFormAuthComponent,
+  DynamicFormAuthQuestionComponent,
+  EmailFieldComponent,
+  PasswordFieldComponent,
+  DynamicFormObjectComponent,
+  DynamicFormObjectQuestionComponent,
+  DynamicFormScalableComponent,
   ReportComponent,
   ChartComponent,
   FilterComponent,
-  DialogComponent,
+  FilterListComponent,
+  DialogCreateResourceComponent,
   FormDialogComponent,
   TableComponent,
   ItemComponent,
+  ItemCreateComponent,
   ContentComponent,
+  TextareaComponent,
+  TextboxComponent,
+  SelectComponent,
 
 ];
 
 const ENTRY_COMPONENTS = [
-  DialogComponent,
+  DialogCreateResourceComponent,
   FormDialogComponent,
 
 ];
@@ -46,7 +70,7 @@ const ENTRY_COMPONENTS = [
     ChartsModule,
 
   ],
-  exports: [MaterialModule, ...COMPONENTS],
+  exports: [MaterialModule, ...COMPONENTS, ReactiveFormsModule, FormsModule],
   declarations: [...COMPONENTS],
   entryComponents: [...ENTRY_COMPONENTS],
   providers: [],

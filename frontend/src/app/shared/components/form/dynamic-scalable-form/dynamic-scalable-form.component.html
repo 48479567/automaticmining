@@ -1,0 +1,51 @@
+<h3 mat-panel-title>{{ nameObject | titlecase }} Section</h3>
+
+<div [formGroup]="form">
+  <div class="group-field" [formGroupName]="nameObject">
+    <mat-form-field
+      *ngFor="let propery of section.controls | keyvalue"
+      appearance="outline"
+      hideRequiredMarker="required">
+
+      <mat-label>{{ propery.key | titlecase }}</mat-label>
+      <input
+        matInput
+        [placeholder]="propery.key | titlecase"
+        [formControlName]="propery.key"
+        aria-describedby="enter"
+        autocomplete="off"
+        [value]="section.controls[propery.key].value"
+        [id]="propery.key"
+        type="text"
+        required />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="removeControl(propery.key)">
+        <mat-icon>clear</mat-icon>
+      </button>
+
+      <mat-error
+        *ngIf="!section.valid"
+        >Field {{ errorInput(section.controls[propery.key].errors) }}
+      </mat-error>
+    </mat-form-field>
+
+  </div>
+</div>
+<mat-divider></mat-divider>
+<mat-form-field appearance="fill">
+  <mat-label>New {{ nameObject | titlecase }}</mat-label>
+  <input
+    matInput
+    #newControlName
+    [placeholder]="nameObject"/>
+  <button
+    mat-icon-button
+    matSuffix
+    (click)="addControl(newControlName.value);
+             newControlName.value = ''">
+    <mat-icon>add</mat-icon>
+  </button>
+</mat-form-field>
+

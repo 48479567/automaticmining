@@ -1,4 +1,24 @@
 :host {
   width: 400px;
+
 }
 
+.canvas-content {
+  position: relative;
+  width: 490px;
+  height: 550px;
+  padding: 0 15px;
+  overflow-y: auto;
+}
+
+canvas {
+  height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .canvas-content {
+    position: relative;
+    width: 350px;
+    height: 600px;
+  }
+}

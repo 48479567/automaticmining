@@ -1,14 +1,22 @@
-<mat-dialog-content class="typografic">
-  <mat-card>
-    <mat-card-content>
-      <app-dynamic-form #dynamicForm [questions]="questions"></app-dynamic-form>
-    </mat-card-content>
-  </mat-card>
+<h2 mat-dialog-title>Item Details</h2>
+<mat-dialog-content class="mat-typography">
+  <app-dynamic-form #dynamicForm [questions]="questions">
+  </app-dynamic-form>
   <app-item
-    [item]="dynamicForm.form.value"
+  [item]="dynamicForm.form.value"
+  [showActions]="false"
   ></app-item>
-  <mat-card-actions>
-    <button mat-button [disabled]="!dynamicForm.form.valid" (click)="update(dynamicForm.form.value)">Save</button>
-    <button mat-button (click)="onClose()">Cancel</button>
-  </mat-card-actions>
+  <ng-container *ngFor="let propery of data.content | keyvalue">
+    <app-form-scalable
+      *ngIf="isTypeOfObject(propery.value)"
+      [form]="dynamicForm.form"
+      [object]="propery.value"
+      [nameObject]="propery.key"></app-form-scalable>
+    <!-- <app-form-object [form]="dynamicForm.form" [resource]="this.data.content"></app-form-object> -->
+  </ng-container>
+
 </mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [disabled]="!dynamicForm.form.valid" (click)="updateItem(dynamicForm.form.value)">Save</button>
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

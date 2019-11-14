@@ -1,4 +1,4 @@
-import { QuestionBase } from './question-base';
+import { QuestionBase, OptionsQuestion } from './question-base';
 
 const optionsString = 'options';
 
@@ -6,7 +6,7 @@ export class DropdownQuestion extends QuestionBase<string> {
   controlType = 'dropdown';
   options: { key: string, value: string }[] = [];
 
-  constructor(options: {} = {}) {
+  constructor(options: OptionsQuestion<string> = {}) {
     super(options);
     this.options = options[optionsString] || [];
   }

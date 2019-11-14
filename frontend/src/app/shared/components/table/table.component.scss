@@ -1,11 +1,33 @@
 :host {
-  width: 100%;
-  height: 100%;
-}
-table {
-  width: 100%
+  width: 90%;
+  height: 88%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow: auto;
+
 }
 
-th, td {
-  width: 25%;
+div {
+  width: 90%;
+  height: 80%;
+  margin: auto;
+  overflow-x: auto;
 }
+
+.mat-table {
+  border-spacing: 5px;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+mat-paginator {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+}
+

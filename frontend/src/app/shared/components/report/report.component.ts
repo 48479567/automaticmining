@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ChartOptions } from 'chart.js';
 
 @Component({
   selector: 'app-report',
@@ -6,31 +7,24 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./report.component.scss']
 })
 export class ReportComponent implements OnInit {
-  @Input() data: any[];
+  @Input() data: any[] = [];
+  @Input() barChartLabels: string[] = [];
   @Input() type: string;
 
-  public barChartOptions = {
-    scaleShowVerticalLines: false,
+  public barChartOptions: ChartOptions = {
+    showLines: true,
     responsive: true,
 
   };
 
-  public barChartLabels = [
-    '2015', '2016', '2017', '2018', '2019'
-  ];
 
   public barChartLegend = true;
-
-  public barChartData = [];
 
   constructor() { }
 
   ngOnInit() {
-    this.type = 'bar';
-    this.barChartData = [
-      { data: this.data.map(d => d.quantity) , label: 'Stock' },
-      { data: this.data.map(d => d.investment), label: 'Sale' }
-    ];
+    this.type = 'line';
+    console.log('data in OnInit', this.data);
   }
 
 }

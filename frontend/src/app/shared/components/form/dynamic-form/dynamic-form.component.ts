@@ -13,7 +13,6 @@ export class DynamicFormComponent implements OnInit {
   @Input() questions: QuestionBase<any>[] = [];
 
   form: FormGroup;
-  payLoad = '';
 
   constructor(
     private qcs: QuestionControlService,
@@ -25,7 +24,7 @@ export class DynamicFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.router.navigateByUrl('/home/product');
+    this.router.navigateByUrl('/home/category');
   }
 
 }

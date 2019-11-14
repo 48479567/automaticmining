@@ -1,25 +1,6 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
 
-export interface PeriodicElement {
-  position: number;
-  name: string;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-];
 
 @Component({
   selector: 'app-table',
@@ -29,8 +10,9 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class TableComponent implements OnInit {
   @Input() dataSource: any;
   data: MatTableDataSource<any>;
+  dataRelevant: any[];
 
-  displayedColumns: string[] = [];
+  @Input() displayedColumns: string[] = [];
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -39,12 +21,34 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.data = new MatTableDataSource(this.dataSource);
-    this.displayedColumns = Object.keys(this.dataSource[0]);
+    this.dataRelevant = this.deleteIrrelevantFields(this.dataSource);
+    this.data = new MatTableDataSource(this.dataRelevant);
+    this.displayedColumns = Object.keys(this.dataRelevant[0]);
     this.data.paginator = this.paginator;
     this.data.sort = this.sort;
+    console.log(this.data);
 
   }
+
+  deleteIrrelevantFields(data: any[]): Array<any> {
+    const dataRelevant: any[] = data.map((d: any, index: number) => {
+      const order = index + 1;
+      const {
+        name = '-',
+        mark = '-',
+        quantity =  '-',
+        investment = '-',
+        sale = '-',
+        price = '-',
+        description = '-',
+      } = d;
+
+      return { order, name, mark, quantity, investment, sale, price, description };
+    });
+    return dataRelevant;
+  }
+
+
 
   applyFilter(filterValue: string) {
     this.data.filter = filterValue.trim().toLowerCase();

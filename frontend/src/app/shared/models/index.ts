@@ -1,6 +1,9 @@
-export { QuestionBase } from './form/question-base';
-export { TextboxQuestion } from './form/question-textbox';
-export { DropdownQuestion } from './form/question-dropdown';
+export * from './form/question-base';
+export * from './form/question-textbox';
+export * from './form/question-dropdown';
+export * from './filter/filter.model';
+export * from './dialog/dialog.model';
+export * from './menu/page.model';
 
 export * from './schema/carrier/carrier.schema';
 export * from './schema/chequer/chequer.schema';
@@ -14,6 +17,3 @@ export * from './schema/truck/truck.schema';
 export * from './schema/work/work.schema';
 export * from './schema/user/user.schema';
 
-export { FilterToggle, FilterToggleIcon } from './filter/filter.model';
-export { DialogData } from './dialog/dialog.model';
-export { Page, PageIcon } from './menu/page.model';

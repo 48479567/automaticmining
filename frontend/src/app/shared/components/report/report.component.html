@@ -1,11 +1,12 @@
 <div
-  style="position:relative;width: 350px; height:600px;"
+  class="canvas-content"
+  *ngIf="data"
 >
   <canvas
-    height="550px"
+    height="380px"
     width="345px"
     baseChart
-    [datasets]="barChartData"
+    [datasets]="data"
     [labels]="barChartLabels"
     [options]="barChartOptions"
     [legend]="barChartLegend"
