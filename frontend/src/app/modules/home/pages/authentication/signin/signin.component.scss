@@ -7,10 +7,21 @@
   align-items: center;
 }
 
-mat-card-actions {
+mat-card {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  width: 400px;
+  height: 50%;
+}
+
+mat-card-actions, mat-card-header, mat-card-content {
   display: flex;
   justify-content: center;
 }
+
+
 
 a {
   display: block;

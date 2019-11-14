@@ -1,16 +1,25 @@
 :host {
   display: flex;
-  height: 100%;
   flex-direction: column;
   justify-content: center;
+  height: 100%;
   align-content: center;
   align-items: center;
 }
 
-mat-card-actions {
+mat-card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 400px;
+  padding: 85px 0;
+}
+
+mat-card-actions, mat-card-header, mat-card-content {
   display: flex;
   justify-content: center;
 }
+
 
 a {
   display: block;

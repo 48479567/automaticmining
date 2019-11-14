@@ -16,4 +16,4 @@ export * from './schema/user/user.schema';
 
 export { FilterToggle, FilterToggleIcon } from './filter/filter.model';
 export { DialogData } from './dialog/dialog.model';
-export { Page } from './menu/page.model';
+export { Page, PageIcon } from './menu/page.model';

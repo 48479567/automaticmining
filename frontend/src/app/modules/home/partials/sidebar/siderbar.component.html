@@ -1,9 +1,7 @@
-<mat-expansion-panel *ngFor="let page of pages">
-  <mat-expansion-panel-header>
-    <mat-panel-title>{{ page.title }}</mat-panel-title>
-  </mat-expansion-panel-header>
-  <mat-list>
-    <mat-list-item [routerLink]="'./'+page.path">Info</mat-list-item>
-    <mat-list-item>Stadistical</mat-list-item>
-  </mat-list>
-</mat-expansion-panel>
+<mat-nav-list role="navigator">
+  <mat-list-item *ngFor="let page of pagesIcon"
+    [routerLink]="'./'+page.path">
+  <mat-icon mat-list-icon>{{ page.icon }}</mat-icon>
+  <span mat-list>{{ page.title }}</span>
+  </mat-list-item>
+</mat-nav-list>
