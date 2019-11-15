@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyHttpService } from 'src/app/core/http/schema/company/company.http.service';
 import { CompanyService } from 'src/app/core/services/schema/company.service';
-import { CompanySchema } from 'src/app/shared/models';
+import { CompanySchema, CompanySchemaForm } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-company',
@@ -10,6 +10,7 @@ import { CompanySchema } from 'src/app/shared/models';
 })
 export class CompanyComponent implements OnInit {
   companies: CompanySchema[];
+  companyCreate: CompanySchemaForm = new CompanySchemaForm();
 
   constructor(
     private companyHttp: CompanyHttpService,
@@ -17,15 +18,15 @@ export class CompanyComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCategories();
+    this.getCompanies();
   }
 
-  getCategories(): any {
+  getCompanies(): any {
     if (this.companyService.companies) {
       return this.companies = this.companyService.companies;
     }
 
-    this.companyHttp.getCategories().subscribe(
+    this.companyHttp.getCompanies().subscribe(
       (companies: CompanySchema[]) => this.companies = companies
     );
   }

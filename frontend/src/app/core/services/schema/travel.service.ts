@@ -8,7 +8,7 @@ import { TravelSchema } from 'src/app/shared/models';
 export class TravelService {
   travels: TravelSchema[];
 
-  getCategories(): Observable<Array<TravelSchema>> {
+  getTravels(): Observable<Array<TravelSchema>> {
     return of(this.travels);
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { QuestionGeneratorService } from 'src/app/core/services/form/question-generator.service';
 
 @Component({
   selector: 'app-dialog-create',
@@ -8,7 +9,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   <mat-dialog-content class="mat-typography">
     <app-form-object-question
       #formObj
-      [objectItem]="question"
+      [objectItem]="questions"
     ></app-form-object-question>
     <div class="mat-elevation-z2"
       *ngIf="formObj.formFromObject.value.image">
@@ -23,7 +24,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 
 export class DialogCreateComponent implements OnInit {
-  question = {
+  questions = {
     a: 'enter',
     b: 2,
     c: true,
@@ -32,10 +33,12 @@ export class DialogCreateComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<DialogCreateComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.questions = this.data.content;
+  }
 
   createItem(formValue: any) {
     console.log(formValue);

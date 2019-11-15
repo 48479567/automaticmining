@@ -15,7 +15,7 @@ const PriceSchema = new Schema({
     type: Number,
     required: true
   },
-  carrier: {
+  carrierid: {
     type: Schema.Types.ObjectId,
     ref: 'Carrier',
     required: true

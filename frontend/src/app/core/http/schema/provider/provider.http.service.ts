@@ -17,7 +17,7 @@ export class ProviderHttpService {
   ) { }
 
 
-  getCategories(): Observable<Array<ProviderSchema>> {
+  getProviders(): Observable<Array<ProviderSchema>> {
     return this.http.get<Array<ProviderSchema>>(`${URL}/provider`)
       .pipe(
         tap((providers: ProviderSchema[]) => {

@@ -8,7 +8,7 @@ import { PriceSchema } from 'src/app/shared/models';
 export class PriceService {
   prices: PriceSchema[];
 
-  getCategories(): Observable<Array<PriceSchema>> {
+  getPrices(): Observable<Array<PriceSchema>> {
     return of(this.prices);
   }
 

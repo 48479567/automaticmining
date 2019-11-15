@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocationHttpService } from 'src/app/core/http/schema/location/location.http.service';
 import { LocationService } from 'src/app/core/services/schema/location.service';
-import { LocationSchema } from 'src/app/shared/models';
+import { LocationSchema, LocationSchemaForm } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-location',
@@ -10,6 +10,7 @@ import { LocationSchema } from 'src/app/shared/models';
 })
 export class LocationComponent implements OnInit {
   locations: LocationSchema[];
+  locationCreate: LocationSchemaForm = new LocationSchemaForm();
 
   constructor(
     private locationHttp: LocationHttpService,
@@ -17,15 +18,15 @@ export class LocationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCategories();
+    this.getLocations();
   }
 
-  getCategories(): any {
+  getLocations(): any {
     if (this.locationService.locations) {
       return this.locations = this.locationService.locations;
     }
 
-    this.locationHttp.getCategories().subscribe(
+    this.locationHttp.getLocations().subscribe(
       (locations: LocationSchema[]) => this.locations = locations
     );
   }

@@ -17,7 +17,7 @@ export class UserHttpService {
   ) { }
 
 
-  getCategories(): Observable<Array<UserSchema>> {
+  getUsers(): Observable<Array<UserSchema>> {
     return this.http.get<Array<UserSchema>>(`${URL}/user`)
       .pipe(
         tap((users: UserSchema[]) => {

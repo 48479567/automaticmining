@@ -20,6 +20,7 @@ export const pagesIcon: PageIcon[] = [
   new PageIcon('Carrier', 'carrier', 'airline_seat_recline_normal'),
   new PageIcon('Chequer', 'chequer', 'how_to_reg'),
   new PageIcon('Company', 'company', 'location_city'),
+  new PageIcon('Distance', 'distance', 'compare_arrows'),
   new PageIcon('Location', 'location', 'my_location'),
   new PageIcon('Material', 'material', 'dns'),
   new PageIcon('Price', 'price', 'monetization_on'),

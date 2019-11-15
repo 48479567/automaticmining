@@ -41,9 +41,9 @@ export class MaterialSchema {
 
 export class MaterialSchemaForm {
   constructor(
-    public name: string,
-    public status: boolean,
-    public image: string,
+    public name?: string,
+    public status?: boolean,
+    public image?: string,
   ) {
     this.name = name ? name : '';
     this.status = status ? status : false;

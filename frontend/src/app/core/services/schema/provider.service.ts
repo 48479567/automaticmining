@@ -8,7 +8,7 @@ import { ProviderSchema } from 'src/app/shared/models';
 export class ProviderService {
   providers: ProviderSchema[];
 
-  getCategories(): Observable<Array<ProviderSchema>> {
+  getProviders(): Observable<Array<ProviderSchema>> {
     return of(this.providers);
   }
 

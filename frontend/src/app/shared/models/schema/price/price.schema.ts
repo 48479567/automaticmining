@@ -22,7 +22,7 @@ export interface IPrice {
   materialid: string;
   local: boolean;
   value: number;
-  carrier: string;
+  carrierid: string;
   image: string;
   createdad?: string;
   updatedad?: string;
@@ -35,7 +35,7 @@ export class PriceSchema {
     public materialid: string,
     public local: boolean,
     public value: number,
-    public carrier: string,
+    public carrierid: string,
     public image: string,
     public createdat?: string | number,
     public updatedat?: string | number,
@@ -43,18 +43,18 @@ export class PriceSchema {
    }
 }
 
-
 export class PriceSchemaForm {
   constructor(
-    public materialid: SelectOption[],
-    public local: boolean,
-    public value: number,
-    public carrier: SelectOption[],
-    public image: string,
+    public materialid?: SelectOption[],
+    public local?: boolean,
+    public value?: number,
+    public carrierid?: SelectOption[],
+    public image?: string,
   ) {
     this.materialid = materialid ? materialid : [];
     this.local = local ? local : false;
-    this.image = image ? image : 'https://i.imgur.com/dFT6YIC.png?2';
+    this.value = value ? value : 0;
+    this.carrierid = carrierid ? carrierid : [];
     this.image = image ? image : 'https://i.imgur.com/dFT6YIC.png?2';
   }
 }

@@ -15,20 +15,28 @@ export class UserCard extends User {
    }
 }
 
+export interface IUser {
+  _id?: string;
+  name: string;
+  username: string;
+  password: string;
+  status: boolean;
+  image: string;
+  createdat?: string;
+  updatedat?: string;
+}
 
-export class UserSchema extends UserCard {
+
+export class UserSchema {
   constructor(
     public name: string,
-    public quantity: number,
-    public investment: number,
-    public gain: number,
+    public username: string,
+    public password: string,
+    public status: boolean,
     public image: string,
-    public description?: string,
     public createdat?: number | string,
     public updatedat?: number | string,
-    public id?: string,
   ) {
-    super(name, quantity, image);
    }
 }
 
@@ -36,14 +44,15 @@ export class UserSchema extends UserCard {
 export class UserSchemaForm {
   constructor(
     public name?: string,
-    public quantity?: number,
-    public investment?: number,
-    public gain?: number,
+    public username?: string,
+    public password?: string,
+    public status?: boolean,
     public image?: string,
-    public description?: string,
-    public createdat?: number | string,
-    public updatedat?: number | string,
-    public id?: string,
   ) {
+    this.name = name ? name : '';
+    this.username = username ? username : '';
+    this.password = password ? password : '';
+    this.status = status ? status : false;
+    this.image = image ? image : 'https://awodev.com/images/default-forum-user.png';
   }
 }

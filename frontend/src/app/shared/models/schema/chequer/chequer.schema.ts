@@ -45,11 +45,11 @@ export class ChequerSchema {
 
 export class ChequerSchemaForm {
   constructor(
-    public username: string,
-    public password: string,
-    public fullname: string,
-    public status: boolean,
-    public image: string,
+    public username?: string,
+    public password?: string,
+    public fullname?: string,
+    public status?: boolean,
+    public image?: string,
 
   ) {
     this.username = username ? username : '';

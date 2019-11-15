@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PriceHttpService } from 'src/app/core/http/schema/price/price.http.service';
 import { PriceService } from 'src/app/core/services/schema/price.service';
-import { PriceSchema } from 'src/app/shared/models';
+import { PriceSchema, PriceSchemaForm } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-price',
@@ -10,6 +10,7 @@ import { PriceSchema } from 'src/app/shared/models';
 })
 export class PriceComponent implements OnInit {
   prices: PriceSchema[];
+  priceCreate: PriceSchemaForm = new PriceSchemaForm();
 
   constructor(
     private priceHttp: PriceHttpService,
@@ -17,15 +18,15 @@ export class PriceComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCategories();
+    this.getPrices();
   }
 
-  getCategories(): any {
+  getPrices(): any {
     if (this.priceService.prices) {
       return this.prices = this.priceService.prices;
     }
 
-    this.priceHttp.getCategories().subscribe(
+    this.priceHttp.getPrices().subscribe(
       (prices: PriceSchema[]) => this.prices = prices
     );
   }

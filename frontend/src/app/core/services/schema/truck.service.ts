@@ -8,7 +8,7 @@ import { TruckSchema } from 'src/app/shared/models';
 export class TruckService {
   trucks: TruckSchema[];
 
-  getCategories(): Observable<Array<TruckSchema>> {
+  getTrucks(): Observable<Array<TruckSchema>> {
     return of(this.trucks);
   }
 

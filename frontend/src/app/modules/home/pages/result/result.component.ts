@@ -20,24 +20,23 @@ export class ResultComponent implements OnInit {
 
   constructor(
     private workService: WorkService,
-    private categoryService: CompanyService,
+    private companyService: CompanyService,
     private filterService: FilterService
   ) { }
 
   ngOnInit() {
-    this.getProducts();
-    this.getCategories();
+    this.getCompanies();
     this.getFiltersSources();
     this.getFiltersCharts();
    }
 
-  getProducts(): void {
-    this.workService.getCategories().subscribe(
+  getCompanies(): void {
+    this.companyService.getCompanies().subscribe(
       (companies: CompanySchema[]) => this.companies = companies
     );
   }
-  getCategories(): void {
-    this.categoryService.getCategories().subscribe(
+  getWorks(): void {
+    this.workService.getWorks().subscribe(
       (works: WorkSchema[]) => { this.works = works; console.log(this.works); },
       (error) => console.error(error)
     );

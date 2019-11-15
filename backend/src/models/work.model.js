@@ -2,9 +2,14 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const WorkSchema = new Schema({
+  customer: {
+    type: String,
+    required: true
+  },
   companyid: {
     type: Schema.Types.ObjectId,
-    ref: 'Company'
+    ref: 'Company',
+    required: true
   },
   name: {
     type: String,

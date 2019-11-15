@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { TravelHttpService } from 'src/app/core/http/schema/travel/travel.http.service';
 import { TravelService } from 'src/app/core/services/schema/travel.service';
-import { TravelSchema } from 'src/app/shared/models';
+import { TravelSchema, TravelSchemaForm } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-travel',
@@ -11,6 +11,7 @@ import { TravelSchema } from 'src/app/shared/models';
 })
 export class TravelComponent implements OnInit {
   travels: TravelSchema[];
+  travelCreate: TravelSchemaForm = new TravelSchemaForm();
 
   constructor(
     private travelHttp: TravelHttpService,
@@ -18,15 +19,15 @@ export class TravelComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCategories();
+    this.getTravels();
   }
 
-  getCategories(): any {
+  getTravels(): any {
     if (this.travelService.travels) {
       return this.travels = this.travelService.travels;
     }
 
-    this.travelHttp.getCategories().subscribe(
+    this.travelHttp.getTravels().subscribe(
       (travels: TravelSchema[]) => this.travels = travels
     );
   }

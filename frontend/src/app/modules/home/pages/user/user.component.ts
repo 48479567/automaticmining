@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { UserHttpService } from 'src/app/core/http/schema/user/user.http.service';
 import { UserService } from 'src/app/core/services/schema/user.service';
-import { UserSchema } from 'src/app/shared/models';
+import { UserSchema, UserSchemaForm } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-user',
@@ -11,6 +11,7 @@ import { UserSchema } from 'src/app/shared/models';
 })
 export class UserComponent implements OnInit {
   users: UserSchema[];
+  userCreate: UserSchemaForm = new UserSchemaForm();
 
   constructor(
     private userHttp: UserHttpService,
@@ -18,15 +19,15 @@ export class UserComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCategories();
+    this.getUsers();
   }
 
-  getCategories(): any {
+  getUsers(): any {
     if (this.userService.users) {
       return this.users = this.userService.users;
     }
 
-    this.userHttp.getCategories().subscribe(
+    this.userHttp.getUsers().subscribe(
       (users: UserSchema[]) => this.users = users
     );
   }

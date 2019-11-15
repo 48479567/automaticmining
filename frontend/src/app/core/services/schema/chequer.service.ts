@@ -8,7 +8,7 @@ import { ChequerSchema } from 'src/app/shared/models';
 export class ChequerService {
   chequers: ChequerSchema[];
 
-  getCategories(): Observable<Array<ChequerSchema>> {
+  getChequers(): Observable<Array<ChequerSchema>> {
     return of(this.chequers);
   }
 

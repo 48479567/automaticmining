@@ -16,7 +16,13 @@ const UserSchema = new Schema({
     type: String,
     required: true,
     minlength: 8,
-
+  },
+  status: {
+    type: Boolean,
+    required: true
+  },
+  image: {
+    type: String
   }
 }, { timestamps: { createdAt: 'createdat', updatedAt: 'updatedat' } })
 

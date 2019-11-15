@@ -17,7 +17,7 @@ export class CompanyHttpService {
   ) { }
 
 
-  getCategories(): Observable<Array<CompanySchema>> {
+  getCompanies(): Observable<Array<CompanySchema>> {
     return this.http.get<Array<CompanySchema>>(`${URL}/company`)
       .pipe(
         tap((companies: CompanySchema[]) => {

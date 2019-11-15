@@ -17,7 +17,7 @@ export class ChequerHttpService {
   ) { }
 
 
-  getCategories(): Observable<Array<ChequerSchema>> {
+  getChequers(): Observable<Array<ChequerSchema>> {
     return this.http.get<Array<ChequerSchema>>(`${URL}/chequer`)
       .pipe(
         tap((chequers: ChequerSchema[]) => {

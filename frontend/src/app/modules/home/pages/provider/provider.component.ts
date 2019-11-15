@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ProviderHttpService } from 'src/app/core/http/schema/provider/provider.http.service';
 import { ProviderService } from 'src/app/core/services/schema/provider.service';
-import { ProviderSchema } from 'src/app/shared/models';
+import { ProviderSchema, ProviderSchemaForm } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-provider',
@@ -11,6 +11,7 @@ import { ProviderSchema } from 'src/app/shared/models';
 })
 export class ProviderComponent implements OnInit {
   providers: ProviderSchema[];
+  providerCreate: ProviderSchemaForm = new ProviderSchemaForm();
 
   constructor(
     private providerHttp: ProviderHttpService,
@@ -18,15 +19,15 @@ export class ProviderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCategories();
+    this.getProviders();
   }
 
-  getCategories(): any {
+  getProviders(): any {
     if (this.providerService.providers) {
       return this.providers = this.providerService.providers;
     }
 
-    this.providerHttp.getCategories().subscribe(
+    this.providerHttp.getProviders().subscribe(
       (providers: ProviderSchema[]) => this.providers = providers
     );
   }

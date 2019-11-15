@@ -21,7 +21,7 @@ export interface ICarrier {
   _id?: string;
   fullname: string;
   providerid: string;
-  rfc: string;
+  ruc: string;
   address: string;
   phonenumber: string;
   email: string;
@@ -36,7 +36,7 @@ export class CarrierSchema {
   constructor(
     public fullname: string,
     public providerid: string,
-    public rfc: string,
+    public ruc: string,
     public address: string,
     public phonenumber: string,
     public email: string,
@@ -50,17 +50,17 @@ export class CarrierSchema {
 
 export class CarrierSchemaForm {
   constructor(
-    public fullname: string,
-    public providerid: SelectOption[],
-    public rfc: string,
-    public address: string,
-    public phonenumber: string,
-    public email: string,
-    public image: string,
+    public fullname?: string,
+    public providerid?: SelectOption[],
+    public ruc?: string,
+    public address?: string,
+    public phonenumber?: string,
+    public email?: string,
+    public image?: string,
   ) {
     this.fullname = fullname ? fullname : '';
     this.providerid = providerid ? providerid : [];
-    this.rfc = rfc ? rfc : '';
+    this.ruc = ruc ? ruc : '';
     this.address = address ? address : '';
     this.phonenumber = phonenumber ? phonenumber : '';
     this.email = email ? email : '';

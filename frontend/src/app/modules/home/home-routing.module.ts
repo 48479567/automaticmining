@@ -17,6 +17,10 @@ const routes: Routes = [
         loadChildren: () => import('./pages/company/company.module')
                               .then(mod => mod.CompanyModule)
       },
+      { path: 'distance',
+        loadChildren: () => import('./pages/distance/distance.module')
+                              .then(mod => mod.DistanceModule)
+      },
       { path: 'location',
         loadChildren: () => import('./pages/location/location.module')
                               .then(mod => mod.LocationModule)

@@ -8,7 +8,7 @@ import { WorkSchema } from 'src/app/shared/models';
 export class WorkService {
   works: WorkSchema[];
 
-  getCategories(): Observable<Array<WorkSchema>> {
+  getWorks(): Observable<Array<WorkSchema>> {
     return of(this.works);
   }
 

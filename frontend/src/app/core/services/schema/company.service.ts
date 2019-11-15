@@ -8,7 +8,7 @@ import { CompanySchema } from 'src/app/shared/models';
 export class CompanyService {
   companies: CompanySchema[];
 
-  getCategories(): Observable<Array<CompanySchema>> {
+  getCompanies(): Observable<Array<CompanySchema>> {
     return of(this.companies);
   }
 

@@ -42,9 +42,9 @@ export class CompanySchema {
 
 export class CompanySchemaForm {
   constructor(
-    public name: string,
-    public ruc: string,
-    public image: string,
+    public name?: string,
+    public ruc?: string,
+    public image?: string,
   ) {
     this.name = name ? name : '';
     this.ruc = ruc ? ruc : '';

@@ -10,7 +10,7 @@ const CarrierSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Provider'
   },
-  rfc: {
+  ruc: {
     type: String,
     minlength: 13,
     unique: true,

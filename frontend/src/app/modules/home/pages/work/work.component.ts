@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { WorkHttpService } from 'src/app/core/http/schema/work/work.http.service';
 import { WorkService } from 'src/app/core/services/schema/work.service';
-import { WorkSchema } from 'src/app/shared/models';
+import { WorkSchema, WorkSchemaForm } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-work',
@@ -11,6 +11,7 @@ import { WorkSchema } from 'src/app/shared/models';
 })
 export class WorkComponent implements OnInit {
   works: WorkSchema[];
+  workCreate: WorkSchemaForm = new WorkSchemaForm();
 
   constructor(
     private workHttp: WorkHttpService,
@@ -18,15 +19,15 @@ export class WorkComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCategories();
+    this.getWorks();
   }
 
-  getCategories(): any {
+  getWorks(): any {
     if (this.workService.works) {
       return this.works = this.workService.works;
     }
 
-    this.workHttp.getCategories().subscribe(
+    this.workHttp.getWorks().subscribe(
       (works: WorkSchema[]) => this.works = works
     );
   }

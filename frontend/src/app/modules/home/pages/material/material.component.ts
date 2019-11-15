@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { MaterialHttpService } from 'src/app/core/http/schema/material/material.http.service';
 import { MaterialService } from 'src/app/core/services/schema/material.service';
-import { MaterialSchema } from 'src/app/shared/models';
+import { MaterialSchema, MaterialSchemaForm } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-material',
@@ -11,6 +11,7 @@ import { MaterialSchema } from 'src/app/shared/models';
 })
 export class MaterialComponent implements OnInit {
   materials: MaterialSchema[];
+  materialCreate: MaterialSchemaForm = new MaterialSchemaForm();
 
   constructor(
     private materialHttp: MaterialHttpService,
@@ -18,15 +19,15 @@ export class MaterialComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCategories();
+    this.getMaterials();
   }
 
-  getCategories(): any {
+  getMaterials(): any {
     if (this.materialService.materials) {
       return this.materials = this.materialService.materials;
     }
 
-    this.materialHttp.getCategories().subscribe(
+    this.materialHttp.getMaterials().subscribe(
       (materials: MaterialSchema[]) => this.materials = materials
     );
   }

@@ -17,7 +17,7 @@ export class TruckHttpService {
   ) { }
 
 
-  getCategories(): Observable<Array<TruckSchema>> {
+  getTrucks(): Observable<Array<TruckSchema>> {
     return this.http.get<Array<TruckSchema>>(`${URL}/truck`)
       .pipe(
         tap((trucks: TruckSchema[]) => {

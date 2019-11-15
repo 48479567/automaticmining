@@ -10,6 +10,10 @@ const LocationSchema = new Schema({
     type: Boolean,
     required: true
   },
+  latitude: {
+    type: Number,
+    required: true
+  },
   length: {
     type: Number,
     required: true

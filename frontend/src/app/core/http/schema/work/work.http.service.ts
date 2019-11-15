@@ -17,7 +17,7 @@ export class WorkHttpService {
   ) { }
 
 
-  getCategories(): Observable<Array<WorkSchema>> {
+  getWorks(): Observable<Array<WorkSchema>> {
     return this.http.get<Array<WorkSchema>>(`${URL}/work`)
       .pipe(
         tap((works: WorkSchema[]) => {

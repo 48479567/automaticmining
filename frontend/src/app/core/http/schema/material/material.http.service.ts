@@ -17,7 +17,7 @@ export class MaterialHttpService {
   ) { }
 
 
-  getCategories(): Observable<Array<MaterialSchema>> {
+  getMaterials(): Observable<Array<MaterialSchema>> {
     return this.http.get<Array<MaterialSchema>>(`${URL}/material`)
       .pipe(
         tap((materials: MaterialSchema[]) => {

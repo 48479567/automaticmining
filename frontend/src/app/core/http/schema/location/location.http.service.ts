@@ -17,7 +17,7 @@ export class LocationHttpService {
   ) { }
 
 
-  getCategories(): Observable<Array<LocationSchema>> {
+  getLocations(): Observable<Array<LocationSchema>> {
     return this.http.get<Array<LocationSchema>>(`${URL}/location`)
       .pipe(
         tap((locations: LocationSchema[]) => {

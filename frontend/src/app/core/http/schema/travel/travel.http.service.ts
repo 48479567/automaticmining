@@ -17,7 +17,7 @@ export class TravelHttpService {
   ) { }
 
 
-  getCategories(): Observable<Array<TravelSchema>> {
+  getTravels(): Observable<Array<TravelSchema>> {
     return this.http.get<Array<TravelSchema>>(`${URL}/travel`)
       .pipe(
         tap((travels: TravelSchema[]) => {

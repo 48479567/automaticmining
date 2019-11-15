@@ -8,7 +8,7 @@ import { CarrierSchema } from 'src/app/shared/models';
 export class CarrierService {
   carriers: CarrierSchema[];
 
-  getCategories(): Observable<Array<CarrierSchema>> {
+  getCarriers(): Observable<Array<CarrierSchema>> {
     return of(this.carriers);
   }
 

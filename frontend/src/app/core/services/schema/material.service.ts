@@ -8,7 +8,7 @@ import { MaterialSchema } from 'src/app/shared/models';
 export class MaterialService {
   materials: MaterialSchema[];
 
-  getCategories(): Observable<Array<MaterialSchema>> {
+  getMaterials(): Observable<Array<MaterialSchema>> {
     return of(this.materials);
   }
 

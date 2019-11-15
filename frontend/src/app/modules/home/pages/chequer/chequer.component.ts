@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChequerHttpService } from 'src/app/core/http/schema/chequer/chequer.http.service';
 import { ChequerService } from 'src/app/core/services/schema/chequer.service';
-import { ChequerSchema } from 'src/app/shared/models';
+import { ChequerSchema, ChequerSchemaForm } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-chequer',
@@ -10,6 +10,7 @@ import { ChequerSchema } from 'src/app/shared/models';
 })
 export class ChequerComponent implements OnInit {
   chequers: ChequerSchema[];
+  chequerCreate: ChequerSchemaForm = new ChequerSchemaForm();
 
   constructor(
     private carrierHttp: ChequerHttpService,
@@ -17,15 +18,15 @@ export class ChequerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCategories();
+    this.getChequers();
   }
 
-  getCategories(): any {
+  getChequers(): any {
     if (this.carrierService.chequers) {
       return this.chequers = this.carrierService.chequers;
     }
 
-    this.carrierHttp.getCategories().subscribe(
+    this.carrierHttp.getChequers().subscribe(
       (chequers: ChequerSchema[]) => this.chequers = chequers
     );
   }

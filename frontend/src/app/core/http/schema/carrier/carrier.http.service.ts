@@ -17,7 +17,7 @@ export class CarrierHttpService {
   ) { }
 
 
-  getCategories(): Observable<Array<CarrierSchema>> {
+  getCarriers(): Observable<Array<CarrierSchema>> {
     return this.http.get<Array<CarrierSchema>>(`${URL}/carrier`)
       .pipe(
         tap((carriers: CarrierSchema[]) => {

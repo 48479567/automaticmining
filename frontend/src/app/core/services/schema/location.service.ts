@@ -8,7 +8,7 @@ import { LocationSchema } from 'src/app/shared/models';
 export class LocationService {
   locations: LocationSchema[];
 
-  getCategories(): Observable<Array<LocationSchema>> {
+  getLocations(): Observable<Array<LocationSchema>> {
     return of(this.locations);
   }
 

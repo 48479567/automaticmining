@@ -4,9 +4,18 @@ import { ObjectRef } from 'src/app/shared/models/schema/objectref/objectref.sche
 @Injectable({ providedIn: 'root' })
 export class ObjectRefService {
   objectRef: ObjectRef = {
-    categoryid: [],
-    productid: [],
-    userid: []
+    carrierid: [],
+    chequerid: [],
+    companyid: [],
+    distance: [],
+    location: [],
+    materialid: [],
+    priceid: [],
+    providerid: [],
+    travelid: [],
+    truck: [],
+    userid: [],
+    workid: []
   };
   formatQuestion: any;
   selectSchema: any = {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { TruckHttpService } from 'src/app/core/http/schema/truck/truck.http.service';
 import { TruckService } from 'src/app/core/services/schema/truck.service';
-import { TruckSchema } from 'src/app/shared/models';
+import { TruckSchema, TruckSchemaForm } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-truck',
@@ -11,6 +11,7 @@ import { TruckSchema } from 'src/app/shared/models';
 })
 export class TruckComponent implements OnInit {
   trucks: TruckSchema[];
+  truckCreate: TruckSchemaForm = new TruckSchemaForm();
 
   constructor(
     private truckHttp: TruckHttpService,
@@ -18,15 +19,15 @@ export class TruckComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCategories();
+    this.getTrucks();
   }
 
-  getCategories(): any {
+  getTrucks(): any {
     if (this.truckService.trucks) {
       return this.trucks = this.truckService.trucks;
     }
 
-    this.truckHttp.getCategories().subscribe(
+    this.truckHttp.getTrucks().subscribe(
       (trucks: TruckSchema[]) => this.trucks = trucks
     );
   }

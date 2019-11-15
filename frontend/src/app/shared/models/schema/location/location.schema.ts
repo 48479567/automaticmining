@@ -20,6 +20,7 @@ export interface ILocation {
   _id?: string;
   name: string;
   mine: boolean;
+  latitude: number;
   length: number;
   status: boolean;
   image: string;
@@ -28,11 +29,11 @@ export interface ILocation {
 
 }
 
-
 export class LocationSchema {
   constructor(
     public name: string,
     public mine: boolean,
+    public latitude: number,
     public length: number,
     public status: boolean,
     public image: string,
@@ -42,18 +43,19 @@ export class LocationSchema {
    }
 }
 
-
 export class LocationSchemaForm {
   constructor(
-    public name: string,
-    public mine: boolean,
-    public length: number,
-    public status: boolean,
-    public email: string,
-    public image: string,
+    public name?: string,
+    public mine?: boolean,
+    public latitude?: number,
+    public length?: number,
+    public status?: boolean,
+    public email?: string,
+    public image?: string,
   ) {
     this.name = name ? name : '';
     this.mine = mine ? mine : false;
+    this.latitude = latitude ? latitude : 0;
     this.length = length ? length : 0;
     this.status = status ? status : false;
     this.image = image ? image : 'https://i.imgur.com/dFT6YIC.png?2';

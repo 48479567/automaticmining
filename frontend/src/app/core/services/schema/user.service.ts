@@ -8,7 +8,7 @@ import { UserSchema } from 'src/app/shared/models';
 export class UserService {
   users: UserSchema[];
 
-  getCategories(): Observable<Array<UserSchema>> {
+  getUsers(): Observable<Array<UserSchema>> {
     return of(this.users);
   }
 

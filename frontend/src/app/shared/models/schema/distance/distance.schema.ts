@@ -1,11 +1,11 @@
-export class Provider {
+export class Distance {
   constructor(
     public name: string,
     public quantity: number
   ) { }
 }
 
-export class ProviderCard extends Provider {
+export class DistanceCard extends Distance {
   constructor(
     public name: string,
     public quantity: number,
@@ -15,21 +15,23 @@ export class ProviderCard extends Provider {
    }
 }
 
-export interface IProvider {
+
+export interface IDistance {
   _id?: string;
-  name: string;
-  phonenumber: number;
+  origin: string;
+  destiny: string;
+  value: number;
   image: string;
   createdad?: string;
   updatedad?: string;
 
 }
 
-
-export class ProviderSchema {
+export class DistanceSchema {
   constructor(
-    public name: string,
-    public phonenumber: number,
+    public origin: string,
+    public destiny: string,
+    public value: number,
     public image: string,
     public createdat?: string | number,
     public updatedat?: string | number,
@@ -37,15 +39,17 @@ export class ProviderSchema {
    }
 }
 
-
-export class ProviderSchemaForm {
+export class DistanceSchemaForm {
   constructor(
-    public name?: string,
-    public phonenumber?: number,
+    public origin?: string,
+    public destiny?: string,
+    public value?: number,
     public image?: string,
   ) {
-    this.name = name ? name : '';
-    this.phonenumber = phonenumber ? phonenumber : 0;
+    this.origin = origin ? origin : '';
+    this.destiny = destiny ? destiny : '';
+    this.value = value ? value : 0;
     this.image = image ? image : 'https://i.imgur.com/dFT6YIC.png?2';
   }
 }
+

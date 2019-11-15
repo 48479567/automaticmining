@@ -19,10 +19,6 @@ const TruckSchema = new Schema({
     type: String,
     required: true
   },
-  providerid: {
-    type: Schema.Types.ObjectId,
-    ref: 'provider'
-  },
   extension: {
     type: Boolean,
     default: false

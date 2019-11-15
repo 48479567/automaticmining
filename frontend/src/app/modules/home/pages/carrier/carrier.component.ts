@@ -10,7 +10,7 @@ import { CarrierSchema, CarrierSchemaForm } from 'src/app/shared/models';
 })
 export class CarrierComponent implements OnInit {
   carriers: CarrierSchema[];
-  carriersCreate: CarrierSchemaForm = new CarrierSchemaForm();
+  carrierCreate: CarrierSchemaForm = new CarrierSchemaForm();
 
   constructor(
     private carrierHttp: CarrierHttpService,
@@ -18,16 +18,15 @@ export class CarrierComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCategories();
-    console.log('carriersCreate', this.carriersCreate);
+    this.getCarriers();
   }
 
-  getCategories(): any {
+  getCarriers(): any {
     if (this.carrierService.carriers) {
       return this.carriers = this.carrierService.carriers;
     }
 
-    this.carrierHttp.getCategories().subscribe(
+    this.carrierHttp.getCarriers().subscribe(
       (carriers: CarrierSchema[]) => this.carriers = carriers
     );
   }

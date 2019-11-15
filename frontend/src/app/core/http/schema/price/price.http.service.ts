@@ -17,7 +17,7 @@ export class PriceHttpService {
   ) { }
 
 
-  getCategories(): Observable<Array<PriceSchema>> {
+  getPrices(): Observable<Array<PriceSchema>> {
     return this.http.get<Array<PriceSchema>>(`${URL}/price`)
       .pipe(
         tap((prices: PriceSchema[]) => {

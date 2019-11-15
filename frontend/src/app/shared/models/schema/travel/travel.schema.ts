@@ -45,15 +45,14 @@ export class TravelSchema {
    }
 }
 
-
 export class TravelSchemaForm {
   constructor(
-    public priceid: SelectOption[],
-    public firstprice: number,
-    public aditionalprice: number,
-    public name: string,
-    public status: boolean,
-    public image: string,
+    public priceid?: SelectOption[],
+    public firstprice?: number,
+    public aditionalprice?: number,
+    public name?: string,
+    public status?: boolean,
+    public image?: string,
   ) {
     this.priceid = priceid ? priceid : [];
     this.firstprice = firstprice ? firstprice : 0;
