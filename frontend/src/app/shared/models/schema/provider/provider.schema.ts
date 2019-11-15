@@ -15,35 +15,37 @@ export class ProviderCard extends Provider {
    }
 }
 
+export interface IProvider {
+  _id?: string;
+  name: string;
+  phonenumber: number;
+  image: string;
+  createdad?: string;
+  updatedad?: string;
 
-export class ProviderSchema extends ProviderCard {
+}
+
+
+export class ProviderSchema {
   constructor(
     public name: string,
-    public quantity: number,
-    public investment: number,
-    public gain: number,
+    public phonenumber: number,
     public image: string,
-    public description?: string,
-    public createdat?: number | string,
-    public updatedat?: number | string,
-    public id?: string,
+    public createdat?: string | number,
+    public updatedat?: string | number,
   ) {
-    super(name, quantity, image);
    }
 }
 
 
 export class ProviderSchemaForm {
   constructor(
-    public name?: string,
-    public quantity?: number,
-    public investment?: number,
-    public gain?: number,
-    public image?: string,
-    public description?: string,
-    public createdat?: number | string,
-    public updatedat?: number | string,
-    public id?: string,
+    public name: string,
+    public phonenumber: number,
+    public image: string,
   ) {
+    this.name = name ? name : '';
+    this.phonenumber = phonenumber ? phonenumber : 0;
+    this.image = image ? image : 'https://i.imgur.com/dFT6YIC.png?2';
   }
 }

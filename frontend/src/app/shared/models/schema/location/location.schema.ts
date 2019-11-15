@@ -16,34 +16,47 @@ export class LocationCard extends Location {
 }
 
 
-export class LocationSchema extends LocationCard {
+export interface ILocation {
+  _id?: string;
+  name: string;
+  mine: boolean;
+  length: number;
+  status: boolean;
+  image: string;
+  createdad?: string;
+  updatedad?: string;
+
+}
+
+
+export class LocationSchema {
   constructor(
     public name: string,
-    public quantity: number,
-    public investment: number,
-    public gain: number,
+    public mine: boolean,
+    public length: number,
+    public status: boolean,
     public image: string,
-    public description?: string,
-    public createdat?: number | string,
-    public updatedat?: number | string,
-    public id?: string,
+    public createdat?: string | number,
+    public updatedat?: string | number,
   ) {
-    super(name, quantity, image);
    }
 }
 
 
 export class LocationSchemaForm {
   constructor(
-    public name?: string,
-    public quantity?: number,
-    public investment?: number,
-    public gain?: number,
-    public image?: string,
-    public description?: string,
-    public createdat?: number | string,
-    public updatedat?: number | string,
-    public id?: string,
+    public name: string,
+    public mine: boolean,
+    public length: number,
+    public status: boolean,
+    public email: string,
+    public image: string,
   ) {
+    this.name = name ? name : '';
+    this.mine = mine ? mine : false;
+    this.length = length ? length : 0;
+    this.status = status ? status : false;
+    this.image = image ? image : 'https://i.imgur.com/dFT6YIC.png?2';
   }
 }
+

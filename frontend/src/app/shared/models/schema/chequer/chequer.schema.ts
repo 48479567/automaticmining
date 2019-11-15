@@ -16,34 +16,46 @@ export class ChequerCard extends Chequer {
 }
 
 
-export class ChequerSchema extends ChequerCard {
+export interface IChequer {
+  _id?: string;
+  username: string;
+  password: string;
+  fullname: string;
+  status: boolean;
+  image: string;
+  createdad?: string;
+  updatedad?: string;
+
+}
+
+
+export class ChequerSchema {
   constructor(
-    public name: string,
-    public quantity: number,
-    public investment: number,
-    public gain: number,
+    public username: string,
+    public password: string,
+    public fullname: string,
+    public status: boolean,
     public image: string,
-    public description?: string,
-    public createdat?: number | string,
-    public updatedat?: number | string,
-    public id?: string,
+    public createdat?: string | number,
+    public updatedat?: string | number,
   ) {
-    super(name, quantity, image);
    }
 }
 
 
 export class ChequerSchemaForm {
   constructor(
-    public name?: string,
-    public quantity?: number,
-    public investment?: number,
-    public gain?: number,
-    public image?: string,
-    public description?: string,
-    public createdat?: number | string,
-    public updatedat?: number | string,
-    public id?: string,
+    public username: string,
+    public password: string,
+    public fullname: string,
+    public status: boolean,
+    public image: string,
+
   ) {
+    this.username = username ? username : '';
+    this.password = password ? password : '';
+    this.fullname = fullname ? fullname : '';
+    this.status = status ? status : false;
+    this.image = image ? image : 'https://i.imgur.com/dFT6YIC.png?2';
   }
 }

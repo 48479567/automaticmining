@@ -1,3 +1,5 @@
+import { SelectOption } from '../../form/question-base';
+
 export class Carrier {
   constructor(
     public name: string,
@@ -15,42 +17,53 @@ export class CarrierCard extends Carrier {
    }
 }
 
+export interface ICarrier {
+  _id?: string;
+  fullname: string;
+  providerid: string;
+  rfc: string;
+  address: string;
+  phonenumber: string;
+  email: string;
+  image: string;
+  createdad?: string;
+  updatedad?: string;
 
-export class CarrierSchema extends CarrierCard {
+}
+
+
+export class CarrierSchema {
   constructor(
-    public name: string,
-    public quantity: number,
-    public investment: number,
-    public gain: number,
+    public fullname: string,
+    public providerid: string,
+    public rfc: string,
+    public address: string,
+    public phonenumber: string,
+    public email: string,
     public image: string,
-    public description?: string,
-    public createdat?: number | string,
-    public updatedat?: number | string,
-    public id?: string,
+    public createdat?: string | number,
+    public updatedat?: string | number,
   ) {
-    super(name, quantity, image);
    }
 }
 
 
 export class CarrierSchemaForm {
   constructor(
-    public name?: string,
-    public quantity?: number,
-    public investment?: number,
-    public gain?: number,
-    public image?: string,
-    public description?: string,
-    public createdat?: number | string,
-    public updatedat?: number | string,
-    public id?: string,
+    public fullname: string,
+    public providerid: SelectOption[],
+    public rfc: string,
+    public address: string,
+    public phonenumber: string,
+    public email: string,
+    public image: string,
   ) {
-    // this.name = name ? name : '';
-    // this.quantity = quantity ? quantity : 0;
-    // this.investment = investment ? investment : 0;
-    // this.sale = sale ? sale : 0;
-    // this.image = image ? image : 'https://i.imgur.com/dFT6YIC.png?2';
-    // this.description = description ? description : '';
-
+    this.fullname = fullname ? fullname : '';
+    this.providerid = providerid ? providerid : [];
+    this.rfc = rfc ? rfc : '';
+    this.address = address ? address : '';
+    this.phonenumber = phonenumber ? phonenumber : '';
+    this.email = email ? email : '';
+    this.image = image ? image : 'https://i.imgur.com/dFT6YIC.png?2';
   }
 }

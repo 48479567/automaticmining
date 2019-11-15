@@ -16,34 +16,39 @@ export class CompanyCard extends Company {
 }
 
 
-export class CompanySchema extends CompanyCard {
+
+export interface ICompany {
+  _id?: string;
+  name: string;
+  ruc: string;
+  image: string;
+  createdad?: string;
+  updatedad?: string;
+
+}
+
+
+export class CompanySchema {
   constructor(
     public name: string,
-    public quantity: number,
-    public investment: number,
-    public gain: number,
+    public ruc: string,
     public image: string,
-    public description?: string,
-    public createdat?: number | string,
-    public updatedat?: number | string,
-    public id?: string,
+    public createdat?: string | number,
+    public updatedat?: string | number,
   ) {
-    super(name, quantity, image);
    }
 }
 
 
 export class CompanySchemaForm {
   constructor(
-    public name?: string,
-    public quantity?: number,
-    public investment?: number,
-    public gain?: number,
-    public image?: string,
-    public description?: string,
-    public createdat?: number | string,
-    public updatedat?: number | string,
-    public id?: string,
+    public name: string,
+    public ruc: string,
+    public image: string,
   ) {
+    this.name = name ? name : '';
+    this.ruc = ruc ? ruc : '';
+    this.image = image ? image : 'https://i.imgur.com/dFT6YIC.png?2';
   }
 }
+

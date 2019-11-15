@@ -1,3 +1,5 @@
+import { SelectOption } from '../../form/question-base';
+
 export class Price {
   constructor(
     public name: string,
@@ -15,35 +17,44 @@ export class PriceCard extends Price {
    }
 }
 
+export interface IPrice {
+  _id?: string;
+  materialid: string;
+  local: boolean;
+  value: number;
+  carrier: string;
+  image: string;
+  createdad?: string;
+  updatedad?: string;
 
-export class PriceSchema extends PriceCard {
+}
+
+
+export class PriceSchema {
   constructor(
-    public name: string,
-    public quantity: number,
-    public investment: number,
-    public gain: number,
+    public materialid: string,
+    public local: boolean,
+    public value: number,
+    public carrier: string,
     public image: string,
-    public description?: string,
-    public createdat?: number | string,
-    public updatedat?: number | string,
-    public id?: string,
+    public createdat?: string | number,
+    public updatedat?: string | number,
   ) {
-    super(name, quantity, image);
    }
 }
 
 
 export class PriceSchemaForm {
   constructor(
-    public name?: string,
-    public quantity?: number,
-    public investment?: number,
-    public gain?: number,
-    public image?: string,
-    public description?: string,
-    public createdat?: number | string,
-    public updatedat?: number | string,
-    public id?: string,
+    public materialid: SelectOption[],
+    public local: boolean,
+    public value: number,
+    public carrier: SelectOption[],
+    public image: string,
   ) {
+    this.materialid = materialid ? materialid : [];
+    this.local = local ? local : false;
+    this.image = image ? image : 'https://i.imgur.com/dFT6YIC.png?2';
+    this.image = image ? image : 'https://i.imgur.com/dFT6YIC.png?2';
   }
 }

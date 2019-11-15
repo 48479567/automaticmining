@@ -11,7 +11,7 @@ const PriceSchema = new Schema({
     type: Boolean,
     required: true
   },
-  name: {
+  value: {
     type: Number,
     required: true
   },
