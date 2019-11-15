@@ -45,5 +45,12 @@ export class CarrierSchemaForm {
     public updatedat?: number | string,
     public id?: string,
   ) {
+    // this.name = name ? name : '';
+    // this.quantity = quantity ? quantity : 0;
+    // this.investment = investment ? investment : 0;
+    // this.sale = sale ? sale : 0;
+    // this.image = image ? image : 'https://i.imgur.com/dFT6YIC.png?2';
+    // this.description = description ? description : '';
+
   }
 }

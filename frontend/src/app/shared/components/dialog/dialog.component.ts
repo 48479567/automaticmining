@@ -3,7 +3,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { FormDialogData } from '../../models/dialog/dialog.model';
 import { QuestionBase } from '../../models';
 import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
-import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-dialog',

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { DialogCreateResourceComponent } from '../dialog/dialog.component';
+import { DialogCreateComponent } from '../dialog/dialog-create.component';
 
 @Component({
   selector: 'app-item-create',
@@ -8,9 +8,8 @@ import { DialogCreateResourceComponent } from '../dialog/dialog.component';
   styleUrls: ['./item.component.scss']
 })
 export class ItemCreateComponent implements OnInit {
-  @Input() item: any;
+  @Input() itemCreate: any;
   @Input() showActions = true;
-  @Input() component = DialogCreateResourceComponent;
 
   constructor(
     public dialog: MatDialog,
@@ -20,8 +19,8 @@ export class ItemCreateComponent implements OnInit {
   }
 
   openFormDialog(): void {
-    const formDialogRef = this.dialog.open(this.component, {
-      data: { content: this.item }
+    const formDialogRef = this.dialog.open(DialogCreateComponent, {
+      data: { content: this.itemCreate }
     });
   }
 }

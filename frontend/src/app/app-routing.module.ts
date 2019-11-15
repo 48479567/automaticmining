@@ -9,6 +9,7 @@ import {
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'signin', component: SigninComponent },
+  // { path: 'test', component: DialogCreateComponent },
   { path: 'home',
   loadChildren: () => import('./modules/home/home.module')
                         .then(mod => mod.HomeModule) },

@@ -19,6 +19,7 @@ import {
   FilterComponent,
   FilterListComponent,
   DialogCreateResourceComponent,
+  DialogCreateComponent,
   FormDialogComponent,
   TableComponent,
   ItemComponent,
@@ -45,6 +46,7 @@ const COMPONENTS = [
   FilterComponent,
   FilterListComponent,
   DialogCreateResourceComponent,
+  DialogCreateComponent,
   FormDialogComponent,
   TableComponent,
   ItemComponent,
@@ -59,6 +61,7 @@ const COMPONENTS = [
 const ENTRY_COMPONENTS = [
   DialogCreateResourceComponent,
   FormDialogComponent,
+  DialogCreateComponent,
 
 ];
 
