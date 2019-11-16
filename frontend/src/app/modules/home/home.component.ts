@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
     <app-header>
       <router-outlet></router-outlet>
     </app-header>
-    <app-footer></app-footer>
   `
 })
 
@@ -15,3 +14,4 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() { }
 }
+

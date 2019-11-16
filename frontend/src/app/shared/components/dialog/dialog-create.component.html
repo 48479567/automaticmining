@@ -8,9 +8,9 @@
     <img [src]="formObj.formFromObject.value.image" width="300" height="350" />
   </div>
 </mat-dialog-content>
-<mat-dialog-actions>
+<mat-dialog-actions align="end">
   <button mat-button
-    [disabled]="!formObj.formStatus"
+    [disabled]="!formObj.formIsValid"
     (click)="createItem(formObj.formFromObject.value)">Done</button>
   <button mat-button mat-dialog-close>Cancel</button>
 </mat-dialog-actions>

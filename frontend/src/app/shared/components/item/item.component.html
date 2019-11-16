@@ -1,15 +1,16 @@
 <mat-card class="item-card">
   <mat-card-header>
-    <div mat-card-avatar class="item-header-image"></div>
     <mat-card-title>{{ item.name }}</mat-card-title>
+    <button mat-icon-button (click)="openFormDialog()" aria-label="Edit Item">
+      <mat-icon>edit</mat-icon>
+    </button>
     <mat-card-subtitle>{{ item.investment }}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image [src]="item.image" height="250px" alt="Item Image" />
+  <img mat-card-image [src]="item.image" width="250" height="150" alt="Item Image" />
   <mat-card-content>
       <p>{{ item.quantity }} in stock</p>
       <div class="word-wrap">{{ item.description ? item.description : '' }}</div>
   </mat-card-content>
-  <mat-card-actions *ngIf="showActions">
-    <button mat-button (click)="openFormDialog()">ENTER</button>
+  <mat-card-actions *ngIf="showActions" align="center">
   </mat-card-actions>
 </mat-card>

@@ -1,5 +1,5 @@
 .item-card {
-  max-width: 350px;
+  max-width: 250px;
   display: inline-block;
   margin: 5px;
 }
@@ -11,3 +11,14 @@
 .word-wrap {
   word-wrap: break-word;
 }
+
+mat-card-header button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+mat-card-header button mat-icon {
+  font-size: 15px;
+}
+

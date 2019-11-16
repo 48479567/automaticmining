@@ -1,10 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { QuestionGeneratorService } from 'src/app/core/services/form/question-generator.service';
 
 @Component({
   selector: 'app-dialog-create',
-  templateUrl: './dialog-create.component.html'
+  templateUrl: './dialog-create.component.html',
+  styleUrls: ['./dialog.component.scss']
 })
 
 export class DialogCreateComponent implements OnInit {

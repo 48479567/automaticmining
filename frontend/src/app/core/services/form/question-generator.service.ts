@@ -8,9 +8,10 @@ export class QuestionGeneratorService {
     const group: any = {};
     // tslint:disable-next-line: forin
     for (const key in fieldItemDisplayInForm) {
-      group[key] = fieldItemDisplayInForm[key] ?
-        new FormControl(fieldItemDisplayInForm[key], Validators.required) :
-        new FormControl('');
+      if (key === '_id' || key === 'createdat' || key === 'updatedat' || key === '__v') {
+        continue;
+      }
+      group[key] =  new FormControl(fieldItemDisplayInForm[key], Validators.required);
     }
     return new FormGroup(group);
   }

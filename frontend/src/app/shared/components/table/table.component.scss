@@ -31,3 +31,22 @@ mat-paginator {
   left: 0;
 }
 
+mat-card {
+  padding: 0;
+  height: initial;
+}
+
+mat-card-content {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+  padding: 0;
+}
+
+.mat-form-field-wrapper {
+  padding: 0;
+}
+
+
