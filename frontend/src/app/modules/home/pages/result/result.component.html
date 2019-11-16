@@ -1,13 +1,50 @@
 <mat-toolbar>
   <mat-toolbar-row>
-    <app-filter #filter [filtersSources]="filtersCharts"></app-filter>
+    <app-filter #filterChart [filtersSources]="filtersCharts"></app-filter>
+    <app-filter-list
+      #schemaSelect
+      [filterSourcesList]="filterSourcesList"
+    ></app-filter-list>
   </mat-toolbar-row>
 </mat-toolbar>
-<mat-card>
-  <mat-card-content>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est sint nesciunt voluptates necessitatibus fugiat. Magni assumenda, reiciendis vitae nihil nulla maiores quisquam tempora suscipit? Culpa ipsum impedit sunt quidem porro.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum maiores quam asperiores, atque id perspiciatis quas voluptatibus, aperiam animi quidem vero neque voluptate quos quibusdam minima! Ex quod ut ab!
+<div class="content-result">
+  <ng-container>
+  <mat-card>
+    <mat-card-content>
+      <ng-container
+        *ngFor="let item of items; index as i">
+      <mat-chip-list aria-label="Color selection">
+        <mat-chip  selected [style.backgroundColor]="item.bg">
+          <mat-icon>web_asset</mat-icon> {{ i }} - {{ item.name }}
+        </mat-chip>
+        <mat-chip mat-line>Investment: {{ item.investment }}</mat-chip>
+        <mat-chip mat-line
+          clas="bg-success"
+        >Sale: {{ item.sale }}</mat-chip>
+        <mat-chip
+          mat-line
+          class="bg-primary"
+        >Gain: {{ item.sale - item.investment }}</mat-chip>
+      </mat-chip-list>
+    </ng-container>
   </mat-card-content>
-</mat-card>
-<app-report [data]="works" [type]="filter.value"></app-report>
+  <mat-card-footer>
+    <ul *ngFor="let t of total | keyvalue">
+        <h6 mat-subtitle>{{ t.key | titlecase }}</h6>
+      <ol>Sale: {{ t.value.sale }}</ol>
+      <ol>Investment: {{ t.value.investment }}</ol>
+    </ul>
+  </mat-card-footer>
+  </mat-card>
+    <app-report
+      [data]="[
+      { data: [26, 26, -4, -7, 10, 39],
+        backgroundColor: ['#252525', '#580043', '#262625', '#242556', '#565400'],
+        label: 'Ganancia'
+      }
+    ]"
+      [barChartLabels]="['Work 1', 'Work 2', 'Work 3', 'Work 4', 'Work 5']"
+      [type]="filterChart.value"></app-report>
+  </ng-container>
+</div>
 
