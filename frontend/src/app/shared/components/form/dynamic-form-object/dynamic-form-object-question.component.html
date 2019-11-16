@@ -1,16 +1,20 @@
 <form [formGroup]="formFromObject">
-    <mat-form-field
-      *ngFor="let control of formFromObject.controls | keyvalue"
-      appearance="outline">
-      <mat-label>{{ control.key | titlecase }}</mat-label>
-      <input matInput [formControlName]="control.key"
-             autocomplete="off"
-             [value]="control.value.value"
-             [type]="typesObject[control.key]"
-             required />
-      <mat-error *ngIf="!control.value.valid">
-        {{ control.key | titlecase }} is Required!!
-      </mat-error>
+  <mat-form-field
+    *ngFor="let control of formFromObject.controls | keyvalue"
+    appearance="outline"
+    hideRequiredMarker="true">
+    <mat-label>{{ control.key | titlecase }}</mat-label>
+    <input matInput
+          [formControlName]="control.key"
+          aria-describedat="enter"
+          [id]="control.key"
+          autocomplete="off"
+          [value]="control.value.value"
+          [type]="typesObject[control.key]"
+          required />
+    <mat-error *ngIf="!control.value.valid">
+      {{ control.key | titlecase }} is Required!!
+    </mat-error>
 
-    </mat-form-field>
+  </mat-form-field>
 </form>

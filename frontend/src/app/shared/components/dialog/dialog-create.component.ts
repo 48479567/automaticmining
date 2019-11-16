@@ -4,25 +4,7 @@ import { QuestionGeneratorService } from 'src/app/core/services/form/question-ge
 
 @Component({
   selector: 'app-dialog-create',
-  template: `
-  <h2 mat-dialog-title>Create Item</h2>
-  <mat-dialog-content class="mat-typography">
-    <app-form-object-question
-      #formObj
-      [objectItem]="questions"
-    ></app-form-object-question>
-    <div class="mat-elevation-z2"
-      *ngIf="formObj.formFromObject.value.image">
-      <img [src]="formObj.formFromObject.value.image"/>
-    </div>
-  </mat-dialog-content>
-  <mat-dialog-actions align="end">
-  <button mat-button
-    [disabled]="!formObj.formFromObject.valid"
-    (click)="createItem(formObj.formFromObject.value)">Save</button>
-  <button mat-button mat-dialog-close>Cancel</button>
-  </mat-dialog-actions>
-  `
+  templateUrl: './dialog-create.component.html'
 })
 
 export class DialogCreateComponent implements OnInit {

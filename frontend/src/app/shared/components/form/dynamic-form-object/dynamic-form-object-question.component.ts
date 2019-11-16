@@ -25,5 +25,9 @@ export class DynamicFormObjectQuestionComponent implements OnInit {
   getTypeOf(value: any): string {
     return typeof value !== 'boolean' ? typeof value : 'string';
   }
+
+  get formStatus(): boolean {
+    return this.formFromObject.valid;
+  }
 }
 
