@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PriceHttpService } from 'src/app/core/http/schema/price/price.http.service';
+import { PriceHttpService } from 'src/app/core/http/schema/price.http.service';
 import { PriceService } from 'src/app/core/services/schema/price.service';
 import { PriceSchema, PriceSchemaForm } from 'src/app/shared/models';
 

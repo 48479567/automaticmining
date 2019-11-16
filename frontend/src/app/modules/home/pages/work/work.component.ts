@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { WorkHttpService } from 'src/app/core/http/schema/work/work.http.service';
+import { WorkHttpService } from 'src/app/core/http/schema/work.http.service';
 import { WorkService } from 'src/app/core/services/schema/work.service';
 import { WorkSchema, WorkSchemaForm } from 'src/app/shared/models';
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LocationHttpService } from 'src/app/core/http/schema/location/location.http.service';
+import { LocationHttpService } from 'src/app/core/http/schema/location.http.service';
 import { LocationService } from 'src/app/core/services/schema/location.service';
 import { LocationSchema, LocationSchemaForm } from 'src/app/shared/models';
 

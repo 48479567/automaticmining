@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { TruckHttpService } from 'src/app/core/http/schema/truck/truck.http.service';
+import { TruckHttpService } from 'src/app/core/http/schema/truck.http.service';
 import { TruckService } from 'src/app/core/services/schema/truck.service';
 import { TruckSchema, TruckSchemaForm } from 'src/app/shared/models';
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MaterialHttpService } from 'src/app/core/http/schema/material/material.http.service';
+import { MaterialHttpService } from 'src/app/core/http/schema/material.http.service';
 import { MaterialService } from 'src/app/core/services/schema/material.service';
 import { MaterialSchema, MaterialSchemaForm } from 'src/app/shared/models';
 

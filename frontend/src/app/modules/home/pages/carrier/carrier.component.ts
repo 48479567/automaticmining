@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CarrierHttpService } from 'src/app/core/http/schema/carrier/carrier.http.service';
+import { CarrierHttpService } from 'src/app/core/http/schema/carrier.http.service';
 import { CarrierService } from 'src/app/core/services/schema/carrier.service';
 import { CarrierSchema, CarrierSchemaForm } from 'src/app/shared/models';
 

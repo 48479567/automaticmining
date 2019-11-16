@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { QuestionGeneratorService } from 'src/app/core/services/form/question-generator.service';
+import { typesObject } from '../../../models/schema/objectref.schema';
 
 @Component({
   selector: 'app-form-object-question',
@@ -8,11 +9,9 @@ import { QuestionGeneratorService } from 'src/app/core/services/form/question-ge
 })
 
 export class DynamicFormObjectQuestionComponent implements OnInit {
-  @Input() objectItem: any = {
-    a: 'a',
-    b: 0
-  };
+  @Input() objectItem: any;
   formFromObject: FormGroup;
+  typesObject = typesObject;
 
   constructor(
     private questionGenerator: QuestionGeneratorService

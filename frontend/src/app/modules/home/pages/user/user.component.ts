@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UserHttpService } from 'src/app/core/http/schema/user/user.http.service';
+import { UserHttpService } from 'src/app/core/http/schema/user.http.service';
 import { UserService } from 'src/app/core/services/schema/user.service';
 import { UserSchema, UserSchemaForm } from 'src/app/shared/models';
 

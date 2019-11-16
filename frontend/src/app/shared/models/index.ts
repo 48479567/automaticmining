@@ -5,17 +5,18 @@ export * from './filter/filter.model';
 export * from './dialog/dialog.model';
 export * from './menu/page.model';
 
-export * from './schema/carrier/carrier.schema';
-export * from './schema/chequer/chequer.schema';
-export * from './schema/company/company.schema';
-export * from './schema/distance/distance.schema';
-export * from './schema/location/location.schema';
-export * from './schema/material/material.schema';
-export * from './schema/price/price.schema';
-export * from './schema/provider/provider.schema';
-export * from './schema/travel/travel.schema';
-export * from './schema/truck/truck.schema';
-export * from './schema/work/work.schema';
-export * from './schema/user/user.schema';
+export * from './schema/carrier.schema';
+export * from './schema/chequer.schema';
+export * from './schema/company.schema';
+export * from './schema/distance.schema';
+export * from './schema/location.schema';
+export * from './schema/material.schema';
+export * from './schema/price.schema';
+export * from './schema/provider.schema';
+export * from './schema/travel.schema';
+export * from './schema/truck.schema';
+export * from './schema/work.schema';
+export * from './schema/user.schema';
+export * from './schema/objectref.schema';
 
 

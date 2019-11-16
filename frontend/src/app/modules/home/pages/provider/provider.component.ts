@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ProviderHttpService } from 'src/app/core/http/schema/provider/provider.http.service';
+import { ProviderHttpService } from 'src/app/core/http/schema/provider.http.service';
 import { ProviderService } from 'src/app/core/services/schema/provider.service';
 import { ProviderSchema, ProviderSchemaForm } from 'src/app/shared/models';
 

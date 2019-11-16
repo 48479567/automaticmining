@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChequerHttpService } from 'src/app/core/http/schema/chequer/chequer.http.service';
+import { ChequerHttpService } from 'src/app/core/http/schema/chequer.http.service';
 import { ChequerService } from 'src/app/core/services/schema/chequer.service';
 import { ChequerSchema, ChequerSchemaForm } from 'src/app/shared/models';
 

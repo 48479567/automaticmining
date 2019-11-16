@@ -17,19 +17,16 @@ import { QuestionGeneratorService } from 'src/app/core/services/form/question-ge
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-  <button mat-button [disabled]="!formObj.formFromObject.valid" (click)="createItem(formObj.formFromObject.value)">Save</button>
+  <button mat-button
+    [disabled]="!formObj.formFromObject.valid"
+    (click)="createItem(formObj.formFromObject.value)">Save</button>
   <button mat-button mat-dialog-close>Cancel</button>
   </mat-dialog-actions>
   `
 })
 
 export class DialogCreateComponent implements OnInit {
-  questions = {
-    a: 'enter',
-    b: 2,
-    c: true,
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTxbWDRp0uDnhvGkesRkA8DsHUomz2vNr07nD7AEE1_I29izRR6'
-  };
+  questions: any;
 
   constructor(
     public dialogRef: MatDialogRef<DialogCreateComponent>,

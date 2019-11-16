@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DistanceHttpService } from 'src/app/core/http/schema/distance/distance.http.service';
+import { DistanceHttpService } from 'src/app/core/http/schema/distance.http.service';
 import { DistanceService } from 'src/app/core/services/schema/distance.service';
 import { DistanceSchema, DistanceSchemaForm } from 'src/app/shared/models';
 

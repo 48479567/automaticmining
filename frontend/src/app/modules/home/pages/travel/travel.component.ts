@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { TravelHttpService } from 'src/app/core/http/schema/travel/travel.http.service';
+import { TravelHttpService } from 'src/app/core/http/schema/travel.http.service';
 import { TravelService } from 'src/app/core/services/schema/travel.service';
 import { TravelSchema, TravelSchemaForm } from 'src/app/shared/models';
 

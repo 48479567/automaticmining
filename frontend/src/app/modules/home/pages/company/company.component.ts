@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CompanyHttpService } from 'src/app/core/http/schema/company/company.http.service';
+import { CompanyHttpService } from 'src/app/core/http/schema/company.http.service';
 import { CompanyService } from 'src/app/core/services/schema/company.service';
 import { CompanySchema, CompanySchemaForm } from 'src/app/shared/models';
 
