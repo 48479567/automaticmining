@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { GeneralHttpService } from '../../http/schema/general.http.service';
 import { DataGeneral } from 'src/app/shared/models';
 
 @Injectable({ providedIn: 'root' })
@@ -21,7 +20,6 @@ export class GeneralService<T> {
   };
 
   constructor(
-    private generalHttpService: GeneralHttpService<T>,
   ) { }
 
 }

@@ -1,0 +1,9 @@
+<form [formGroup]="form">
+  <app-checkbox-control
+    label="enterValue"
+    controlName="name"
+    labelPosition="after"
+    [form]="form"
+  ></app-checkbox-control>
+</form>
+<button mat-button (click)="printConsole(form.value)">View Form</button>

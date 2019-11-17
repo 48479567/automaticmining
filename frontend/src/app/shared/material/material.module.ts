@@ -21,6 +21,9 @@ import {
   MatPaginatorModule,
   MatTooltipModule,
   MatSnackBarModule,
+  MatCheckboxModule,
+  MatDatepickerModule,
+  MatRadioModule
 
 } from '@angular/material';
 
@@ -49,6 +52,9 @@ import {
     MatPaginatorModule,
     MatTooltipModule,
     MatSnackBarModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatRadioModule
 
   ],
   providers: [],

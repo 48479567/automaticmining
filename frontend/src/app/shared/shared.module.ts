@@ -31,6 +31,17 @@ import {
 
 } from './components';
 
+import {
+  TextboxControlComponent,
+  FileControlComponent,
+  CheckboxControlComponent,
+  DateControlComponent,
+  RadioControlComponent,
+  SelectControlComponent,
+  SubmitControlComponent,
+  TextareaControlComponent
+} from './components/form/input-control';
+
 const COMPONENTS = [
   DynamicFormComponent,
   DynamicFormQuestionComponent,
@@ -55,6 +66,16 @@ const COMPONENTS = [
   TextareaComponent,
   TextboxComponent,
   SelectComponent,
+
+  CheckboxControlComponent,
+  DateControlComponent,
+  FileControlComponent,
+  RadioControlComponent,
+  SelectControlComponent,
+  SubmitControlComponent,
+  TextareaControlComponent,
+  TextboxControlComponent,
+
 
 ];
 
