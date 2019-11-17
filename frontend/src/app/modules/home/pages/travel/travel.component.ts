@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { TravelHttpService } from 'src/app/core/http/schema/travel.http.service';
 import { TravelService } from 'src/app/core/services/schema/travel.service';
-import { TravelSchema, TravelSchemaForm } from 'src/app/shared/models';
+import { TravelSchema, TravelSchemaForm, ITravel } from 'src/app/shared/models';
+import { GeneralService } from 'src/app/core/services/schema/general.service';
+import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
 
 @Component({
   selector: 'app-travel',
@@ -12,10 +14,13 @@ import { TravelSchema, TravelSchemaForm } from 'src/app/shared/models';
 export class TravelComponent implements OnInit {
   travels: TravelSchema[];
   travelCreate: TravelSchemaForm = new TravelSchemaForm();
+  mainName = 'travel';
 
   constructor(
     private travelHttp: TravelHttpService,
-    private travelService: TravelService
+    private travelService: TravelService,
+    private generalService: GeneralService<ITravel>,
+    private generalHttp: GeneralHttpService<ITravel>
   ) { }
 
   ngOnInit() {
@@ -23,13 +28,20 @@ export class TravelComponent implements OnInit {
   }
 
   getTravels(): any {
-    if (this.travelService.travels) {
-      return this.travels = this.travelService.travels;
+    if (this.generalService.data[this.mainName]) {
+      this.travels = this.generalService.data[this.mainName];
+    } else {
+      this.generalHttp.getData(this.mainName).subscribe(
+        (travels: ITravel[]) => this.travels = travels
+      );
     }
+    // if (this.travelService.travels) {
+    //   return this.travels = this.travelService.travels;
+    // }
 
-    this.travelHttp.getTravels().subscribe(
-      (travels: TravelSchema[]) => this.travels = travels
-    );
+    // this.travelHttp.getTravels().subscribe(
+    //   (travels: TravelSchema[]) => this.travels = travels
+    // );
   }
 
 }

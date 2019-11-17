@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { TruckHttpService } from 'src/app/core/http/schema/truck.http.service';
 import { TruckService } from 'src/app/core/services/schema/truck.service';
-import { TruckSchema, TruckSchemaForm } from 'src/app/shared/models';
+import { TruckSchema, TruckSchemaForm, ITruck } from 'src/app/shared/models';
+import { GeneralService } from 'src/app/core/services/schema/general.service';
+import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
 
 @Component({
   selector: 'app-truck',
@@ -12,10 +14,13 @@ import { TruckSchema, TruckSchemaForm } from 'src/app/shared/models';
 export class TruckComponent implements OnInit {
   trucks: TruckSchema[];
   truckCreate: TruckSchemaForm = new TruckSchemaForm();
+  mainName = 'truck';
 
   constructor(
     private truckHttp: TruckHttpService,
-    private truckService: TruckService
+    private truckService: TruckService,
+    private generalService: GeneralService<ITruck>,
+    private generalHttp: GeneralHttpService<ITruck>
   ) { }
 
   ngOnInit() {
@@ -23,13 +28,20 @@ export class TruckComponent implements OnInit {
   }
 
   getTrucks(): any {
-    if (this.truckService.trucks) {
-      return this.trucks = this.truckService.trucks;
+    if (this.generalService.data[this.mainName]) {
+      this.trucks = this.generalService.data[this.mainName];
+    } else {
+      this.generalHttp.getData(this.mainName).subscribe(
+        (trucks: ITruck[]) => this.trucks = trucks
+      );
     }
+    // if (this.truckService.trucks) {
+    //   return this.trucks = this.truckService.trucks;
+    // }
 
-    this.truckHttp.getTrucks().subscribe(
-      (trucks: TruckSchema[]) => this.trucks = trucks
-    );
+    // this.truckHttp.getTrucks().subscribe(
+    //   (trucks: TruckSchema[]) => this.trucks = trucks
+    // );
   }
 
 }

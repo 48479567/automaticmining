@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { WorkHttpService } from 'src/app/core/http/schema/work.http.service';
 import { WorkService } from 'src/app/core/services/schema/work.service';
-import { WorkSchema, WorkSchemaForm } from 'src/app/shared/models';
+import { WorkSchema, WorkSchemaForm, IWork, ICarrier } from 'src/app/shared/models';
+import { GeneralService } from 'src/app/core/services/schema/general.service';
+import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
 
 @Component({
   selector: 'app-work',
@@ -12,10 +14,13 @@ import { WorkSchema, WorkSchemaForm } from 'src/app/shared/models';
 export class WorkComponent implements OnInit {
   works: WorkSchema[];
   workCreate: WorkSchemaForm = new WorkSchemaForm();
+  mainName = 'work';
 
   constructor(
     private workHttp: WorkHttpService,
-    private workService: WorkService
+    private workService: WorkService,
+    private generalService: GeneralService<IWork>,
+    private generalHttp: GeneralHttpService<IWork>
   ) { }
 
   ngOnInit() {
@@ -23,13 +28,20 @@ export class WorkComponent implements OnInit {
   }
 
   getWorks(): any {
-    if (this.workService.works) {
-      return this.works = this.workService.works;
+    if (this.generalService.data[this.mainName]) {
+      this.works = this.generalService.data[this.mainName];
+    } else {
+      this.generalHttp.getData(this.mainName).subscribe(
+        (works: IWork[]) => this.works = works
+      );
     }
+    // if (this.workService.works) {
+    //   return this.works = this.workService.works;
+    // }
 
-    this.workHttp.getWorks().subscribe(
-      (works: WorkSchema[]) => this.works = works
-    );
+    // this.workHttp.getWorks().subscribe(
+    //   (works: WorkSchema[]) => this.works = works
+    // );
   }
 
 }

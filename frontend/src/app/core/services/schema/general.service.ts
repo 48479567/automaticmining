@@ -1,21 +1,27 @@
 import { Injectable } from '@angular/core';
 import { GeneralHttpService } from '../../http/schema/general.http.service';
-import { Observable } from 'rxjs';
+import { DataGeneral } from 'src/app/shared/models';
 
 @Injectable({ providedIn: 'root' })
 export class GeneralService<T> {
-  data$: Observable<Array<T>>;
+
+  data: DataGeneral = {
+    carrier: undefined,
+    chequer: undefined,
+    company: undefined,
+    distance: undefined,
+    location: undefined,
+    material: undefined,
+    price: undefined,
+    provider: undefined,
+    travel: undefined,
+    truck: undefined,
+    user: undefined,
+    work: undefined,
+  };
 
   constructor(
     private generalHttpService: GeneralHttpService<T>,
   ) { }
 
-  getData(module: string): Observable<Array<T>> {
-    if (this.data$) {
-      return this.data$;
-    } else {
-      this.data$ = this.generalHttpService.getData(module);
-      return this.data$;
-    }
-  }
 }
