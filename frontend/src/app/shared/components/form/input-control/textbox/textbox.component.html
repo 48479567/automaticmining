@@ -1,0 +1,23 @@
+<div [formGroup]="form">
+  <mat-form-field appearance="outline" [hideRequiredMarker]="required">
+    <mat-label>{{ label | titlecase }}</mat-label>
+    <span matPrefix>
+      <mat-icon *ngIf="matIconPrefix">{{ matIconPrefix }}</mat-icon>
+      {{ matPrefix }}</span>
+    <input
+      [type]="type"
+      [placeholder]="placeholder"
+      [required]="required"
+      [maxLength]="maxLength"
+      [minLength]="minLength"
+      [min]="min"
+      [max]="max"
+      [formControlName]="controlName" />
+    <span matSuffix>
+        <mat-icon *ngIf="matIconSuffix">{{ matIconSuffix }}</mat-icon>
+      {{ matSuffix }}</span>
+    <mat-hint align="start">{{ matHintStart }}</mat-hint>
+    <mat-hint align="end">{{ matHintEnd }}</mat-hint>
+    <mat-error>{{ errorMessage }}</mat-error>
+  </mat-form-field>
+</div>

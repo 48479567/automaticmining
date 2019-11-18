@@ -1,0 +1,15 @@
+<div [formGroup]="form">
+  <mat-form-field appearance="outline" [hideRequiredMarker]="required">
+    <mat-label>{{ label | titlecase }}</mat-label>
+    <mat-select
+      [placeholder]="placeholder"
+      [formControlName]="controlName"
+      [required]="required">
+
+      <mat-option *ngFor="let opt of options"
+        [value]="opt.value">{{ opt.key }}</mat-option>
+      <mat-error>{{ errorMessage }}</mat-error>
+    </mat-select>
+
+  </mat-form-field>
+</div>

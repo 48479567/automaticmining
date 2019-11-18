@@ -13,12 +13,11 @@ export class CheckboxControlComponent implements OnInit {
   @Input() indeterminate = false;
   @Input() form: FormGroup;
   @Input() controlName = '';
-
-  
+  @Input() errorMessage = '';
 
   constructor() { }
 
-  ngOnInit() { 
+  ngOnInit() {
 
   }
 

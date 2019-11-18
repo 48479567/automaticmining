@@ -1,8 +1,9 @@
-<div [formGroup]="form">
+<section [formGroup]="form">
   <mat-checkbox
     [formControlName]="controlName"
     [labelPosition]="labelPosition"
     [indeterminate]="indeterminate"
   >{{ label }}
   </mat-checkbox>
-</div>
+  <mat-error>{{ errorMessage }}</mat-error>
+</section>

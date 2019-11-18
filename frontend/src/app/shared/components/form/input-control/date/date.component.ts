@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-date-control',
@@ -7,6 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class DateControlComponent implements OnInit {
+  @Input() label = '';
+  @Input() placeholder = 'Choose a date';
+  @Input() form: FormGroup;
+  @Input() controlName = '';
+  @Input() errorMessage = '';
+  @Input() required = false;
+
   constructor() { }
 
   ngOnInit() { }

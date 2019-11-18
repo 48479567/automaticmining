@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-submit-control',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class SubmitControlComponent implements OnInit {
+  @Input() label = '';
+
   constructor() { }
 
   ngOnInit() { }

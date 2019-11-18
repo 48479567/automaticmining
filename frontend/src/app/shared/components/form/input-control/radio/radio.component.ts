@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SelectOption } from 'src/app/shared/models';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-radio-control',
@@ -7,6 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class RadioControlComponent implements OnInit {
+  @Input() radioButtons: SelectOption[] = [];
+  @Input() form: FormGroup;
+  @Input() controlName = '';
+  @Input() errorMessage = '';
+
   constructor() { }
 
   ngOnInit() { }
