@@ -1,20 +1,34 @@
 <div [formGroup]="form">
-  <mat-form-field appearance="outline" [hideRequiredMarker]="required">
+  <mat-form-field appearance="outline">
     <mat-label>{{ label | titlecase }}</mat-label>
     <span matPrefix>
       <mat-icon *ngIf="matIconPrefix">{{ matIconPrefix }}</mat-icon>
       {{ matPrefix }}</span>
-    <input
-      [type]="type"
-      [placeholder]="placeholder"
-      [required]="required"
-      [maxLength]="maxLength"
-      [minLength]="minLength"
-      [min]="min"
-      [max]="max"
-      [formControlName]="controlName" />
+    <button
+      *ngIf="matIconButtonPrefix"
+      mat-button matPrefix mat-icon-button aria-label="prefix"
+      (click)="onClickButtonPrefix()">
+      <mat-icon>{{ matIconButtonPrefix }}</mat-icon>
+    </button>
+      <input
+        matInput
+        autocomplete="off"
+        aria-describedby="enter"
+        [type]="type"
+        [placeholder]="placeholder"
+        [required]="required"
+        [maxLength]="maxLength"
+        [minLength]="minLength"
+        [formControlName]="controlName" />
+
     <span matSuffix>
-        <mat-icon *ngIf="matIconSuffix">{{ matIconSuffix }}</mat-icon>
+    <mat-icon *ngIf="matIconSuffix">{{ matIconSuffix }}</mat-icon>
+    <button
+      *ngIf="matIconButtonSuffix"
+      mat-button matPrefix mat-icon-button aria-label="suffix"
+      (click)="onClickButtonSuffix()">
+      <mat-icon>{{ matIconButtonSuffix }}</mat-icon>
+    </button>
       {{ matSuffix }}</span>
     <mat-hint align="start">{{ matHintStart }}</mat-hint>
     <mat-hint align="end">{{ matHintEnd }}</mat-hint>

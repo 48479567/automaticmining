@@ -39,7 +39,8 @@ import {
   RadioControlComponent,
   SelectControlComponent,
   SubmitControlComponent,
-  TextareaControlComponent
+  TextareaControlComponent,
+  TextboxNumberControlComponent
 } from './components/form/input-control';
 
 const COMPONENTS = [
@@ -65,6 +66,7 @@ const COMPONENTS = [
   ContentComponent,
   TextareaComponent,
   TextboxComponent,
+  TextboxNumberControlComponent,
   SelectComponent,
 
   CheckboxControlComponent,

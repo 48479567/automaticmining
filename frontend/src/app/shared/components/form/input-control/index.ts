@@ -6,3 +6,4 @@ export * from './select/select.component';
 export * from './submit/submit.component';
 export * from './textarea/textarea.component';
 export * from './textbox/textbox.component';
+export * from './textbox/textbox-number.component';
