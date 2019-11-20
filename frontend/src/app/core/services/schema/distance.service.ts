@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IDistance } from 'src/app/shared/models';
+import { IDistance } from '../../../shared/models';
 import { Observable, of } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })

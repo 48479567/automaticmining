@@ -3,10 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 
-import { CarrierSchema, ICarrier, CarrierSchemaForm } from 'src/app/shared/models';
+import { CarrierSchema, ICarrier, CarrierSchemaForm } from '../../../shared/models';
 import { URL } from '../data.http';
-import { CarrierService } from 'src/app/core/services/schema/carrier.service';
-import { LoggerService } from 'src/app/core/logger.service';
+import { CarrierService } from '../../services/schema/carrier.service';
+import { LoggerService } from '../../logger.service';
 import { HandleErrorService } from '../../handle-error.service';
 
 @Injectable({providedIn: 'root'})

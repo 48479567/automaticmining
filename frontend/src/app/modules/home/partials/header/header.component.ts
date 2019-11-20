@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItemLink, MenuItem } from 'src/app/shared/models/menu/header.menu.model';
+import { MenuItemLink, MenuItem } from '../../../../shared/models/menu/header.menu.model';
 
 @Component({
   selector: 'app-header',

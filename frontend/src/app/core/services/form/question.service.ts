@@ -3,7 +3,7 @@ import {
   QuestionBase,
   TextboxQuestion,
   DropdownQuestion
-} from 'src/app/shared/models';
+} from '../../../shared/models';
 import { Observable, of } from 'rxjs';
 
 @Injectable({

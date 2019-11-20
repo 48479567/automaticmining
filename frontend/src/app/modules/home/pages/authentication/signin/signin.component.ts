@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { QuestionService } from 'src/app/core/services/form/question.service';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
@@ -20,7 +19,6 @@ export class SigninComponent implements OnInit {
   };
 
   constructor(
-    private service: QuestionService,
     private fb: FormBuilder
   ) {
   }

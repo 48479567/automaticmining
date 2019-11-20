@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CompanyHttpService } from 'src/app/core/http/schema/company.http.service';
-import { CompanyService } from 'src/app/core/services/schema/company.service';
-import { CompanySchema, CompanySchemaForm, ICompany } from 'src/app/shared/models';
-import { GeneralService } from 'src/app/core/services/schema/general.service';
-import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
+import { CompanyHttpService } from '../../../../core/http/schema/company.http.service';
+import { CompanyService } from '../../../../core/services/schema/company.service';
+import { CompanySchema, CompanySchemaForm, ICompany } from '../../../../shared/models';
+import { GeneralService } from '../../../../core/services/schema/general.service';
+import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
 
 @Component({
   selector: 'app-company',

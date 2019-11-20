@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FilterToggle, FilterToggleIcon } from 'src/app/shared/models';
+import { FilterToggle, FilterToggleIcon } from '../../../shared/models';
 import {
   filtersSources,
   filtersCharts,

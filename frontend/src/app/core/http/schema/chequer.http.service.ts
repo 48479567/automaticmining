@@ -3,10 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { ChequerSchema } from 'src/app/shared/models';
+import { ChequerSchema } from '../../../shared/models';
 import { URL } from '../data.http';
-import { ChequerService } from 'src/app/core/services/schema/chequer.service';
-import { LoggerService } from 'src/app/core/logger.service';
+import { ChequerService } from '../../services/schema/chequer.service';
+import { LoggerService } from '../../logger.service';
 
 @Injectable({providedIn: 'root'})
 export class ChequerHttpService {

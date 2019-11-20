@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { WorkHttpService } from 'src/app/core/http/schema/work.http.service';
-import { WorkService } from 'src/app/core/services/schema/work.service';
-import { WorkSchema, WorkSchemaForm, IWork, ICarrier } from 'src/app/shared/models';
-import { GeneralService } from 'src/app/core/services/schema/general.service';
-import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
+import { WorkHttpService } from '../../../../core/http/schema/work.http.service';
+import { WorkService } from '../../../../core/services/schema/work.service';
+import { WorkSchema, WorkSchemaForm, IWork, ICarrier } from '../../../../shared/models';
+import { GeneralService } from '../../../../core/services/schema/general.service';
+import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
 
 @Component({
   selector: 'app-work',

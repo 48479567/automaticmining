@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { TruckSchema } from 'src/app/shared/models';
+import { TruckSchema } from '../../../shared/models';
 
 @Injectable({
   providedIn: 'root'

@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { FormDialogData } from '../../models/dialog/dialog.model';
 import { QuestionBase } from '../../models';
-import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
+import { ObjectRefService } from '../../../core/services/schema/object-ref.service';
 
 @Component({
   selector: 'app-dialog',

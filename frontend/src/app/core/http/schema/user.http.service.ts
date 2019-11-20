@@ -3,10 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { UserSchema } from 'src/app/shared/models';
+import { UserSchema } from '../../../shared/models';
 import { URL } from '../data.http';
-import { UserService } from 'src/app/core/services/schema/user.service';
-import { LoggerService } from 'src/app/core/logger.service';
+import { UserService } from '../../services/schema/user.service';
+import { LoggerService } from '../../logger.service';
 
 @Injectable({providedIn: 'root'})
 export class UserHttpService {

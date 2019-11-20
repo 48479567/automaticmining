@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-// import { formatObjectQuestion } from 'src/app/shared/models/schema/product/product.schema';
+// import { formatObjectQuestion } from '../../../../shared/models/schema/product/product.schema';
 
 @Component({
   selector: 'app-form-scalable',

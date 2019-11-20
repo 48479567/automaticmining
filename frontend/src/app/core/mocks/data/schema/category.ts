@@ -1,4 +1,4 @@
-// import { CategorySchema } from 'src/app/shared/models/schema/category/category.schema';
+// import { CategorySchema } from '../../../shared/models/schema/category/category.schema';
 
 // // export const categories: CategorySchema[] = [
 // //   new CategorySchema(1, 'Computer', 10, 150, 'https://i.imgur.com/yCkxBe3.png', '', new Date()),

@@ -1,4 +1,4 @@
-import { FilterToggle, FilterToggleIcon } from 'src/app/shared/models';
+import { FilterToggle, FilterToggleIcon } from '../../../../../src/app/shared/models';
 
 export const filtersSources: FilterToggleIcon[] = [
   new FilterToggleIcon('Products', 'product', 'web_asset'),

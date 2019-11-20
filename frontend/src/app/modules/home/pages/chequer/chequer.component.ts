@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ChequerHttpService } from 'src/app/core/http/schema/chequer.http.service';
-import { ChequerService } from 'src/app/core/services/schema/chequer.service';
-import { ChequerSchema, ChequerSchemaForm, IChequer } from 'src/app/shared/models';
-import { GeneralService } from 'src/app/core/services/schema/general.service';
-import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
+import { ChequerHttpService } from '../../../../core/http/schema/chequer.http.service';
+import { ChequerService } from '../../../../core/services/schema/chequer.service';
+import { ChequerSchema, ChequerSchemaForm, IChequer } from '../../../../shared/models';
+import { GeneralService } from '../../../../core/services/schema/general.service';
+import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
 
 @Component({
   selector: 'app-chequer',

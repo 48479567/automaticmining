@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MaterialHttpService } from 'src/app/core/http/schema/material.http.service';
-import { MaterialService } from 'src/app/core/services/schema/material.service';
-import { MaterialSchema, MaterialSchemaForm, IMaterial } from 'src/app/shared/models';
-import { GeneralService } from 'src/app/core/services/schema/general.service';
-import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
+import { MaterialHttpService } from '../../../../core/http/schema/material.http.service';
+import { MaterialService } from '../../../../core/services/schema/material.service';
+import { MaterialSchema, MaterialSchemaForm, IMaterial } from '../../../../shared/models';
+import { GeneralService } from '../../../../core/services/schema/general.service';
+import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
 
 @Component({
   selector: 'app-material',

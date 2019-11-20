@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormControl, ValidatorFn, ValidationErrors, AsyncValidatorFn } from '@angular/forms';
-import { QuestionService } from 'src/app/core/services/form/question.service';
 import { debounceTime, distinctUntilChanged, debounce } from 'rxjs/operators';
 
 @Component({
@@ -37,7 +36,6 @@ export class SignupComponent implements OnInit {
   };
 
   constructor(
-    private service: QuestionService,
     private fb: FormBuilder
   ) {
   }

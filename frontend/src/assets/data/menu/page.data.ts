@@ -1,4 +1,4 @@
-import { Page, PageIcon } from 'src/app/shared/models';
+import { Page, PageIcon } from '../../../app/shared/models';
 
 export const pages: Page[] = [
   new Page('Carrier', 'carrier'),

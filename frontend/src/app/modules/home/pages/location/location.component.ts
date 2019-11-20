@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { LocationHttpService } from 'src/app/core/http/schema/location.http.service';
-import { LocationService } from 'src/app/core/services/schema/location.service';
-import { LocationSchema, LocationSchemaForm } from 'src/app/shared/models';
-import { GeneralService } from 'src/app/core/services/schema/general.service';
-import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
+import { LocationHttpService } from '../../../../core/http/schema/location.http.service';
+import { LocationService } from '../../../../core/services/schema/location.service';
+import { LocationSchema, LocationSchemaForm } from '../../../../shared/models';
+import { GeneralService } from '../../../../core/services/schema/general.service';
+import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
 import { ILocation } from 'selenium-webdriver';
 
 @Component({

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UserHttpService } from 'src/app/core/http/schema/user.http.service';
-import { UserService } from 'src/app/core/services/schema/user.service';
-import { UserSchema, UserSchemaForm, IUser } from 'src/app/shared/models';
-import { GeneralService } from 'src/app/core/services/schema/general.service';
-import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
+import { UserHttpService } from '../../../../core/http/schema/user.http.service';
+import { UserService } from '../../../../core/services/schema/user.service';
+import { UserSchema, UserSchemaForm, IUser } from '../../../../shared/models';
+import { GeneralService } from '../../../../core/services/schema/general.service';
+import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
 
 @Component({
   selector: 'app-user',

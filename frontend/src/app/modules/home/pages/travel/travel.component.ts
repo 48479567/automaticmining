@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { TravelHttpService } from 'src/app/core/http/schema/travel.http.service';
-import { TravelService } from 'src/app/core/services/schema/travel.service';
-import { TravelSchema, TravelSchemaForm, ITravel } from 'src/app/shared/models';
-import { GeneralService } from 'src/app/core/services/schema/general.service';
-import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
+import { TravelHttpService } from '../../../../core/http/schema/travel.http.service';
+import { TravelService } from '../../../../core/services/schema/travel.service';
+import { TravelSchema, TravelSchemaForm, ITravel } from '../../../../shared/models';
+import { GeneralService } from '../../../../core/services/schema/general.service';
+import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
 
 @Component({
   selector: 'app-travel',

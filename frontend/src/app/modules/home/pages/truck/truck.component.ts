@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { TruckHttpService } from 'src/app/core/http/schema/truck.http.service';
-import { TruckService } from 'src/app/core/services/schema/truck.service';
-import { TruckSchema, TruckSchemaForm, ITruck } from 'src/app/shared/models';
-import { GeneralService } from 'src/app/core/services/schema/general.service';
-import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
+import { TruckHttpService } from '../../../../core/http/schema/truck.http.service';
+import { TruckService } from '../../../../core/services/schema/truck.service';
+import { TruckSchema, TruckSchemaForm, ITruck } from '../../../../shared/models';
+import { GeneralService } from '../../../../core/services/schema/general.service';
+import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
 
 @Component({
   selector: 'app-truck',

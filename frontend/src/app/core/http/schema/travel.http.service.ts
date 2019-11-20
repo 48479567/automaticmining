@@ -3,10 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { TravelSchema } from 'src/app/shared/models';
+import { TravelSchema } from '../../../shared/models';
 import { URL } from '../data.http';
-import { TravelService } from 'src/app/core/services/schema/travel.service';
-import { LoggerService } from 'src/app/core/logger.service';
+import { TravelService } from '../../services/schema/travel.service';
+import { LoggerService } from '../../logger.service';
 
 @Injectable({providedIn: 'root'})
 export class TravelHttpService {

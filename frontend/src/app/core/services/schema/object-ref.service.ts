@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ObjectRef } from 'src/app/shared/models';
+import { ObjectRef } from '../../../shared/models';
 
 @Injectable({ providedIn: 'root' })
 export class ObjectRefService {

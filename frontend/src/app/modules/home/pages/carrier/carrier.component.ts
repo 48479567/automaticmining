@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CarrierHttpService } from 'src/app/core/http/schema/carrier.http.service';
-import { CarrierService } from 'src/app/core/services/schema/carrier.service';
-import { CarrierSchema, CarrierSchemaForm, ICarrier } from 'src/app/shared/models';
-import { GeneralService } from 'src/app/core/services/schema/general.service';
-import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
+import { CarrierHttpService } from '../../../../core/http/schema/carrier.http.service';
+import { CarrierService } from '../../../../core/services/schema/carrier.service';
+import { CarrierSchema, CarrierSchemaForm, ICarrier } from '../../../../shared/models';
+import { GeneralService } from '../../../../core/services/schema/general.service';
+import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
 
 @Component({
   selector: 'app-carrier',

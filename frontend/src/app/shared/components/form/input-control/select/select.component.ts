@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { SelectOption } from 'src/app/shared/models';
+import { SelectOption } from '../../../../../shared/models';
 
 @Component({
   selector: 'app-select-control',

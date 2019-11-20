@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DataGeneral } from 'src/app/shared/models';
+import { DataGeneral } from '../../../shared/models';
 
 @Injectable({ providedIn: 'root' })
 export class GeneralService<T> {

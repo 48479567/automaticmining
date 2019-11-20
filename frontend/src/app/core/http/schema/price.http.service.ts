@@ -3,10 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { PriceSchema } from 'src/app/shared/models';
+import { PriceSchema } from '../../../shared/models';
 import { URL } from '../data.http';
-import { PriceService } from 'src/app/core/services/schema/price.service';
-import { LoggerService } from 'src/app/core/logger.service';
+import { PriceService } from '../../services/schema/price.service';
+import { LoggerService } from '../../logger.service';
 
 @Injectable({providedIn: 'root'})
 export class PriceHttpService {

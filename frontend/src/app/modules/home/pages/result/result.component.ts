@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FilterService } from 'src/app/core/services/filter/filter.service';
+import { FilterService } from '../../../../core/services/filter/filter.service';
 
-import { FilterToggle } from 'src/app/shared/models';
+import { FilterToggle } from '../../../../shared/models';
 
 @Component({
   selector: 'app-result',
@@ -29,7 +29,7 @@ export class ResultComponent implements OnInit {
   ];
 
   constructor(
-    private filterService: FilterService, 
+    private filterService: FilterService,
   ) { }
 
   ngOnInit() {

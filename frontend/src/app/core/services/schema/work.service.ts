@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { WorkSchema } from 'src/app/shared/models';
+import { WorkSchema } from '../../../shared/models';
 
 @Injectable({
   providedIn: 'root'

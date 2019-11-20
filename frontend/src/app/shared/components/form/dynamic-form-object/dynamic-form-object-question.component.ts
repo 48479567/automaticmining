@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { QuestionGeneratorService } from 'src/app/core/services/form/question-generator.service';
+import { QuestionGeneratorService } from '../../../../core/services/form/question-generator.service';
 import { typesObject } from '../../../models/schema/objectref.schema';
 import { distinctUntilChanged, debounceTime, switchMap } from 'rxjs/operators';
 

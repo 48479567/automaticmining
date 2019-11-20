@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DistanceHttpService } from 'src/app/core/http/schema/distance.http.service';
-import { DistanceService } from 'src/app/core/services/schema/distance.service';
-import { DistanceSchema, DistanceSchemaForm, IDistance } from 'src/app/shared/models';
-import { GeneralService } from 'src/app/core/services/schema/general.service';
-import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
+import { DistanceHttpService } from '../../../../core/http/schema/distance.http.service';
+import { DistanceService } from '../../../../core/services/schema/distance.service';
+import { DistanceSchema, DistanceSchemaForm, IDistance } from '../../../../shared/models';
+import { GeneralService } from '../../../../core/services/schema/general.service';
+import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
 
 @Component({
   selector: 'app-distance',

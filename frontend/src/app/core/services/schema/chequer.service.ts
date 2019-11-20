@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { ChequerSchema } from 'src/app/shared/models';
+import { ChequerSchema } from '../../../shared/models';
 
 @Injectable({
   providedIn: 'root'

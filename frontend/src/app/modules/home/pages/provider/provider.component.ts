@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ProviderHttpService } from 'src/app/core/http/schema/provider.http.service';
-import { ProviderService } from 'src/app/core/services/schema/provider.service';
-import { ProviderSchema, ProviderSchemaForm, IProvider } from 'src/app/shared/models';
-import { GeneralService } from 'src/app/core/services/schema/general.service';
-import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
+import { ProviderHttpService } from '../../../../core/http/schema/provider.http.service';
+import { ProviderService } from '../../../../core/services/schema/provider.service';
+import { ProviderSchema, ProviderSchemaForm, IProvider } from '../../../../shared/models';
+import { GeneralService } from '../../../../core/services/schema/general.service';
+import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
 
 @Component({
   selector: 'app-provider',

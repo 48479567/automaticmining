@@ -3,10 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { WorkSchema } from 'src/app/shared/models';
+import { WorkSchema } from '../../../shared/models';
 import { URL } from '../data.http';
-import { WorkService } from 'src/app/core/services/schema/work.service';
-import { LoggerService } from 'src/app/core/logger.service';
+import { WorkService } from '../../services/schema/work.service';
+import { LoggerService } from '../../logger.service';
 
 @Injectable({providedIn: 'root'})
 export class WorkHttpService {

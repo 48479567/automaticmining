@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { MaterialSchema } from 'src/app/shared/models';
+import { MaterialSchema } from '../../../shared/models';
 
 @Injectable({
   providedIn: 'root'

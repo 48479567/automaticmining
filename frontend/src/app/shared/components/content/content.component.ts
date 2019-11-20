@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FilterService } from 'src/app/core/services/filter/filter.service';
+import { FilterService } from '../../../core/services/filter/filter.service';
 import { FilterToggleIcon } from '../../models';
 import { MatDialog } from '@angular/material';
 
