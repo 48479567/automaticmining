@@ -1,9 +1,9 @@
-<div [formGroup]="form">
+<div [formGroup]="form" [className]="className">
   <mat-form-field appearance="outline">
     <mat-label>{{ label | titlecase }}</mat-label>
-    <span matPrefix>
-      <mat-icon *ngIf="matIconPrefix">{{ matIconPrefix }}</mat-icon>
-      {{ matPrefix }}</span>
+    <span matPrefix *ngIf="matPrefix">{{ matPrefix }}</span>
+    <span matPrefix *ngIf="matIconPrefix">
+      <mat-icon>{{ matIconPrefix }}</mat-icon></span>
     <button
       *ngIf="matIconButtonPrefix"
       mat-button matPrefix mat-icon-button aria-label="prefix"
@@ -20,16 +20,15 @@
         [maxLength]="maxLength"
         [minLength]="minLength"
         [formControlName]="controlName" />
-
-    <span matSuffix>
-    <mat-icon *ngIf="matIconSuffix">{{ matIconSuffix }}</mat-icon>
+    <span matSuffix *ngIf="matSuffix">{{ matSuffix }}</span>
+    <span matSuffix *ngIf="matIconSuffix">
+      <mat-icon>{{ matIconSuffix }}</mat-icon></span>
     <button
       *ngIf="matIconButtonSuffix"
-      mat-button matPrefix mat-icon-button aria-label="suffix"
+      mat-button matSuffix mat-icon-button aria-label="suffix"
       (click)="onClickButtonSuffix()">
       <mat-icon>{{ matIconButtonSuffix }}</mat-icon>
     </button>
-      {{ matSuffix }}</span>
     <mat-hint align="start">{{ matHintStart }}</mat-hint>
     <mat-hint align="end">{{ matHintEnd }}</mat-hint>
     <mat-error>{{ errorMessage }}</mat-error>

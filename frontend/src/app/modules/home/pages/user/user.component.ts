@@ -12,7 +12,7 @@ import { GeneralHttpService } from 'src/app/core/http/schema/general.http.servic
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  users: UserSchema[];
+  users: IUser[];
   userCreate: UserSchemaForm = new UserSchemaForm();
   mainName = 'user';
 

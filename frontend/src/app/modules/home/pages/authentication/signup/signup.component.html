@@ -3,16 +3,73 @@
     <mat-card-title>Create your Account</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <app-dynamic-form #dinamicForm [questions]="questions"></app-dynamic-form>
+    <form [formGroup]="form">
+      <div class="space-between">
+        <app-textbox-control
+          controlName="firstname"
+          label="fist name"
+          [form]="form"
+          type="text"
+          [required]="true"
+          errorMessage="First Name Required."
+        ></app-textbox-control>
+        <app-textbox-control
+          controlName="lastname"
+          label="last name"
+          [form]="form"
+          type="text"
+          [required]="true"
+          errorMessage="Last Name Required."
+        ></app-textbox-control>
+      </div>
+      <app-textbox-control
+        className="username"
+        controlName="username"
+        label="username"
+        [form]="form"
+        type="text"
+        [required]="true"
+        matSuffix="@automaticminig.com"
+        matHintStart="Your can use letters, numbers & periods. Use 8 or more characters"
+        errorMessage="Invalid Username, use 8 or more characters."
+      ></app-textbox-control>
+      <div>
+        <div class="space-between">
+          <app-textbox-control
+            controlName="password"
+            label="password"
+            [type]="passwordData.type"
+            [form]="form"
+            [required]="true"
+            [errorMessage]="passwordData.messageError"
+          ></app-textbox-control>
+          <app-textbox-control
+            controlName="confirm"
+            label="confirm"
+            [type]="passwordData.type"
+            [form]="form"
+            [required]="true"
+            [errorMessage]="passwordData.messageError"
+          ></app-textbox-control>
+          <div>
+            <button mat-icon-button>
+              <mat-icon (click)="changePasswordData()"
+                >{{ passwordData.icon }}</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
   </mat-card-content>
-  <mat-card-actions>
+  <mat-card-actions class="space-around">
+    <a routerLink="/signin">Sign in instead</a>
     <button
-    type="submit"
-    mat-raised-button color="primary"
-    [disabled]="!dinamicForm.form.valid"
-    (click)="dinamicForm.onSubmit()"
-    >CREATE</button>
-  </mat-card-actions>
-  <a routerLink="/signin">Sign in instead</a>
-</mat-card>
+      type="submit"
+      mat-raised-button
+      color="accent"
+      [disabled]="!form.valid || password.value !== confirm.value"
+      (click)="login()"
+      >LOGIN</button>
 
+  </mat-card-actions>
+</mat-card>

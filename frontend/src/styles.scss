@@ -37,6 +37,10 @@ body, mat-drawer-content {
   margin: 3px 0;
 }
 
-mat-error {
+mat-error, mat-hint {
   font-size: 9px;
+}
+
+.username, .username mat-form-field {
+  width: 100%;
 }

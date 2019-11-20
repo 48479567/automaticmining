@@ -1,43 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { QuestionBase, TextboxQuestion } from 'src/app/shared/models';
-
-const questions: QuestionBase<any>[] = [
-  new TextboxQuestion({
-    key: 'firstname',
-    label: 'First name',
-    value: '',
-    required: true,
-    type: 'text'
-  }),
-  new TextboxQuestion({
-    key: 'lastname',
-    label: 'Last name',
-    value: '',
-    required: true,
-    type: 'text'
-  }),
-  new TextboxQuestion({
-    key: 'username',
-    label: 'Username',
-    value: '',
-    required: true,
-    type: 'text'
-  }),
-  new TextboxQuestion({
-    key: 'password',
-    label: 'Password',
-    value: '',
-    required: true,
-    type: 'password'
-  }),
-  new TextboxQuestion({
-    key: 'confirm',
-    label: 'Confirm',
-    value: '',
-    required: true,
-    type: 'password'
-  }),
-];
+import { FormGroup, Validators, FormBuilder, FormControl, ValidatorFn, ValidationErrors, AsyncValidatorFn } from '@angular/forms';
+import { QuestionService } from 'src/app/core/services/form/question.service';
+import { debounceTime, distinctUntilChanged, debounce } from 'rxjs/operators';
 
 @Component({
   selector: 'app-signup',
@@ -46,10 +10,78 @@ const questions: QuestionBase<any>[] = [
 })
 
 export class SignupComponent implements OnInit {
-  questions: any[];
-  constructor() { }
+  form: FormGroup = this.fb.group({
+    firstname: this.fb.control('', [
+      Validators.required]
+    ),
+    lastname: this.fb.control('', [
+      Validators.required]
+    ),
+    username: this.fb.control('', [
+      Validators.minLength(8),
+      Validators.required]),
+    password: this.fb.control('', [
+      Validators.required,
+      Validators.minLength(8)
+    ]),
+    confirm: this.fb.control('', [
+      Validators.required,
+      Validators.minLength(8)
+      ]),
+  });
+
+  passwordData = {
+    icon: 'visibility_off',
+    type: 'password',
+    messageError: ''
+  };
+
+  constructor(
+    private service: QuestionService,
+    private fb: FormBuilder
+  ) {
+  }
 
   ngOnInit() {
-    this.questions = questions;
+    this.formOnChanges();
   }
+
+  changePasswordData() {
+    this.passwordData.icon = this.passwordData.icon === 'visibility_off' ? 'visibility' : 'visibility_off';
+    this.passwordData.type = this.passwordData.type === 'text' ? 'password' : 'text';
+  }
+
+  login() {
+    console.log(this.form.value);
+  }
+
+  formOnChanges(): void {
+    this.confirm.valueChanges.pipe(
+      debounceTime(2000),
+      distinctUntilChanged()
+    ).subscribe(
+      (valConfirm: string) => {
+        const confirmValue = 'confirm';
+        if (this.password.value !== valConfirm) {
+          this.passwordData.messageError = 'Passwords are not the same!!';
+          this.form.controls[confirmValue].setErrors({ incorrect : true });
+        }
+      }
+    );
+  }
+
+  checkPasswords(confirm: FormControl) {
+    const password = this.password.value;
+    return password === confirm.value ? null : { notSame: true };
+  }
+
+  get confirm(): FormControl {
+    return this.form.get('confirm') as FormControl;
+  }
+
+  get password(): FormControl {
+    return this.form.get('password') as FormControl;
+  }
+
+
 }

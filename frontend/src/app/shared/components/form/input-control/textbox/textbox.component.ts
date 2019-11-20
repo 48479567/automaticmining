@@ -25,6 +25,7 @@ export class TextboxControlComponent implements OnInit {
   @Input() type = 'text';
   @Input() matIconButtonPrefix = '';
   @Input() matIconButtonSuffix = '';
+  @Input() className = '';
 
   @Output() clickButtonPrefix = new EventEmitter<void>();
   @Output() clickButtonSuffix = new EventEmitter<void>();

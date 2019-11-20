@@ -15,7 +15,7 @@ export class SigninComponent implements OnInit {
   });
 
   passwordData = {
-    icon: 'visibility',
+    icon: 'visibility_off',
     type: 'password'
   };
 
@@ -33,7 +33,7 @@ export class SigninComponent implements OnInit {
   }
 
   changePasswordData() {
-    this.passwordData.icon = this.passwordData.icon === 'visibility' ? 'visibility_off' : 'visibility';
+    this.passwordData.icon = this.passwordData.icon === 'visibility_off' ? 'visibility' : 'visibility_off';
     this.passwordData.type = this.passwordData.type === 'text' ? 'password' : 'text';
   }
 

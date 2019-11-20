@@ -17,7 +17,8 @@ export class UserCard extends User {
 
 export interface IUser {
   _id?: string;
-  name: string;
+  firstname: string;
+  lastname: string;
   username: string;
   password: string;
   status: boolean;
@@ -29,7 +30,8 @@ export interface IUser {
 
 export class UserSchema {
   constructor(
-    public name: string,
+    public fistname: string,
+    public lastname: string,
     public username: string,
     public password: string,
     public status: boolean,
@@ -43,13 +45,15 @@ export class UserSchema {
 
 export class UserSchemaForm {
   constructor(
-    public name?: string,
+    public firstname?: string,
+    public lastname?: string,
     public username?: string,
     public password?: string,
     public status?: boolean,
     public image?: string,
   ) {
-    this.name = name ? name : '';
+    this.firstname = firstname ? firstname : '';
+    this.lastname = lastname ? lastname : '';
     this.username = username ? username : '';
     this.password = password ? password : '';
     this.status = status ? status : false;

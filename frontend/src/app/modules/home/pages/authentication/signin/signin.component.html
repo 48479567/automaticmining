@@ -3,8 +3,9 @@
     <mat-card-title>Welcome</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <form #formTemplate [formGroup]="form">
+    <form [formGroup]="form">
       <app-textbox-control
+        class="username"
         controlName="username"
         label="username"
         [form]="form"
