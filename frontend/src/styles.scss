@@ -44,3 +44,41 @@ mat-error, mat-hint {
 .username, .username mat-form-field {
   width: 100%;
 }
+
+
+
+
+
+
+.space-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between !important;
+}
+
+mat-slider {
+  width: 100%;
+  display: block;
+  height: 35px !important;
+  padding: 0;
+  margin: 0;
+}
+
+
+.zero-space {
+  padding: 0;
+  margin: 0;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.center h4 {
+  padding: 0 55px 0 25px;
+}
+
+.pl-55 {
+  padding-left: 55px;
+}

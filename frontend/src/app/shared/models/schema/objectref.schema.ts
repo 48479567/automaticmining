@@ -43,5 +43,33 @@ export const typesObject = {
   capacityextension: 'number'
 };
 
+export const iconsObject = {
+  name: 'folder_shared',
+  mine: 'home_work',
+  providerid: 'supervised_user_circle',
+  username: 'assignment_ind',
+  destiny: 'directions',
+  origin: 'trip_origin',
+  password: 'visibility_off',
+  latitude: 'language',
+  length: 'trending-flat',
+  status: 'offline_pin',
+  email: 'email',
+  image: 'image',
+  value: 'filter_9_plus',
+  ruc: 'business',
+  address: 'house',
+  phonenumber: 'phone',
+  carrierid: 'airline_seat_recline_normal',
+  local: 'location_city',
+  firstprice: 'attach_money',
+  aditionalprice: 'monetization_on',
+  capacity: 'storage',
+  mark: 'atm',
+  plaque: 'font_download',
+  extension: 'unfold_more',
+  capacityextension: 'table_chart'
+};
+
 
 

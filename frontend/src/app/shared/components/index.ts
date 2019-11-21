@@ -18,4 +18,6 @@ export * from './form/input/select.component';
 export * from './form/input/textarea.component';
 export * from './form/input/textbox.component';
 
+export * from './dialog/dialog-view/dialog-view.component';
+
 

@@ -6,8 +6,10 @@
       [formControlName]="controlName"
       [required]="required">
 
-      <mat-option *ngFor="let opt of options"
-        [value]="opt.value">{{ opt.key }}</mat-option>
+      <mat-option *ngFor="let opt of dataOptions"
+        [value]="opt._id">
+        <img *ngIf="opt.image" src="opt.image" alt="Img" width="25" height="25" />
+        {{ opt[selectValueAnchor] }}</mat-option>
       <mat-error>{{ errorMessage }}</mat-error>
     </mat-select>
 

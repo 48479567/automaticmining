@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { SelectOption } from '../../../../../shared/models';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-select-control',
@@ -14,11 +13,13 @@ export class SelectControlComponent implements OnInit {
   @Input() required = false;
   @Input() form: FormGroup;
   @Input() controlName = '';
-  @Input() options: SelectOption[] = [];
   @Input() errorMessage = '';
+  @Input() dataOptions: any[];
+  @Input() selectValueAnchor = '';
 
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 }

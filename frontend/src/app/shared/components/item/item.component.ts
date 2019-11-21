@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { DialogCreateComponent } from '../dialog/dialog-create.component';
+import { DialogViewComponent } from '../dialog/dialog-view/dialog-view.component';
 
 @Component({
   selector: 'app-item',
@@ -20,7 +20,7 @@ export class ItemComponent implements OnInit {
   }
 
   openFormDialog(): void {
-    const formDialogRef = this.dialog.open(DialogCreateComponent, {
+    const formDialogRef = this.dialog.open(DialogViewComponent, {
       data: { content: this.item, index: this.index }
     });
   }

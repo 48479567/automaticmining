@@ -1,0 +1,72 @@
+<mat-dialog-content>
+    <h2>{{ 'title' | titlecase }} Name</h2>
+    <mat-hint>Created At: {{ now | date: 'medium' }}</mat-hint>
+    <div class="space-between">
+      <div class="inline-block">
+        <p class="mat-display-4 zero-space">100</p>
+        <mat-list>
+          <mat-list-item>
+            <mat-icon mat-list-icon>recent_actors</mat-icon>
+            <h4 mat-line>ID</h4>
+            <p mat-line>2345543589214fasdj</p>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon mat-list-icon>today</mat-icon>
+            <h4 mat-line>Updated At</h4>
+            <p mat-line>{{ now | date: 'medium' }}</p>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <div class="inline-block">
+        <img src="https://semantic-ui.com/images/wireframe/image.png" alt="img" width="300" height="200"/>
+      </div>
+    </div>
+    <div>
+    <mat-slider
+      class="example-margin"
+      max="100"
+      min="0"
+      step="1"
+      [thumbLabel]="true"
+      tickInterval="auto">
+    </mat-slider>
+    <div class="space-around">
+      <mat-hint style="display:inline-block;width:20%;text-align:center;">|</mat-hint>
+      <mat-hint style="display:inline-block;width:20%;text-align:center;">|</mat-hint>
+      <mat-hint style="display:inline-block;width:20%;text-align:center;">|</mat-hint>
+      <mat-hint style="display:inline-block;width:20%;text-align:center;">|</mat-hint>
+      <mat-hint style="display:inline-block;width:20%;text-align:center;">|</mat-hint>
+    </div>
+    <div class="space-around">
+      <mat-hint style="display:inline-block;width:20%;text-align:center;">10%</mat-hint>
+      <mat-hint style="display:inline-block;width:20%;text-align:center;">30%</mat-hint>
+      <mat-hint style="display:inline-block;width:20%;text-align:center;">50%</mat-hint>
+      <mat-hint style="display:inline-block;width:20%;text-align:center;">70%</mat-hint>
+      <mat-hint style="display:inline-block;width:20%;text-align:center;">90%</mat-hint>
+    </div>
+    </div>
+    <div class="zero-space space-between">
+    <div class="center pl-55">
+    Enter Value
+    </div>
+    <div class="center">
+      <mat-icon mat-list-icon>today</mat-icon><h4 mat-line>54.5</h4>
+    </div>
+    </div>
+    <div class="zero-space space-between">
+    <div class="center pl-55">
+    Enter Value
+    </div>
+    <div class="center">
+      <mat-icon mat-list-icon>today</mat-icon><h4 mat-line>54.5</h4>
+    </div>
+    </div>
+    <div class="zero-space space-between">
+    <div class="center pl-55">
+    Enter Value
+    </div>
+    <div class="center">
+      <mat-icon mat-list-icon>today</mat-icon><h4 mat-line>54.5</h4>
+    </div>
+    </div>
+  </mat-dialog-content>

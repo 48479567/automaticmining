@@ -23,7 +23,8 @@ import {
   MatSnackBarModule,
   MatCheckboxModule,
   MatDatepickerModule,
-  MatRadioModule
+  MatRadioModule,
+  MatSliderModule
 
 } from '@angular/material';
 
@@ -54,7 +55,8 @@ import {
     MatSnackBarModule,
     MatCheckboxModule,
     MatDatepickerModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSliderModule
 
   ],
   providers: [],
