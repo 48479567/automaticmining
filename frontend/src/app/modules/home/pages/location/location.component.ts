@@ -28,7 +28,7 @@ export class LocationComponent implements OnInit {
   }
 
   getLocations(): any {
-    if (this.generalService.data[this.mainName]) {
+    if (this.generalService.data[this.mainName].length) {
       this.locations = this.generalService.data[this.mainName];
     } else {
       this.generalHttp.getData(this.mainName).subscribe(

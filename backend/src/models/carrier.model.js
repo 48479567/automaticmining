@@ -12,7 +12,7 @@ const CarrierSchema = new Schema({
   },
   ruc: {
     type: String,
-    minlength: 13,
+    minlength: 11,
     unique: true,
   },
   address: {

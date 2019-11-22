@@ -4,13 +4,6 @@
     <button mat-icon-button (click)="openFormDialog()" aria-label="Edit Item">
       <mat-icon>edit</mat-icon>
     </button>
-    <mat-card-subtitle>{{ item.investment }}</mat-card-subtitle>
   </mat-card-header>
   <img mat-card-image [src]="item.image" width="250" height="150" alt="Item Image" />
-  <mat-card-content>
-      <p>{{ item.quantity }} in stock</p>
-      <div class="word-wrap">{{ item.description ? item.description : '' }}</div>
-  </mat-card-content>
-  <mat-card-actions *ngIf="showActions" align="center">
-  </mat-card-actions>
 </mat-card>

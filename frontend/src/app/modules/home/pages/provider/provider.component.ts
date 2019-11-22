@@ -28,7 +28,7 @@ export class ProviderComponent implements OnInit {
   }
 
   getProviders(): any {
-    if (this.generalService.data[this.mainName]) {
+    if (this.generalService.data[this.mainName].length) {
       this.providers = this.generalService.data[this.mainName];
     } else {
       this.generalHttp.getData(this.mainName).subscribe(

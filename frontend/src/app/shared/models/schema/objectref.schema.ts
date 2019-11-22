@@ -32,6 +32,7 @@ export const typesObject = {
   ruc: 'text',
   address: 'text',
   phonenumber: 'text',
+  materialid: 'terrain',
   carrierid: 'text',
   local: 'text',
   firstprice: 'number',
@@ -45,6 +46,7 @@ export const typesObject = {
 
 export const iconsObject = {
   name: 'folder_shared',
+  fullname: 'folder_shared',
   mine: 'home_work',
   providerid: 'supervised_user_circle',
   username: 'assignment_ind',

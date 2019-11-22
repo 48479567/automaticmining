@@ -28,7 +28,7 @@ export class TravelComponent implements OnInit {
   }
 
   getTravels(): any {
-    if (this.generalService.data[this.mainName]) {
+    if (this.generalService.data[this.mainName].length) {
       this.travels = this.generalService.data[this.mainName];
     } else {
       this.generalHttp.getData(this.mainName).subscribe(

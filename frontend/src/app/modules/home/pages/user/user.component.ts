@@ -28,7 +28,7 @@ export class UserComponent implements OnInit {
   }
 
   getUsers(): any {
-    if (this.generalService.data[this.mainName]) {
+    if (this.generalService.data[this.mainName].length) {
       this.users = this.generalService.data[this.mainName];
     } else {
       this.generalHttp.getData(this.mainName).subscribe(

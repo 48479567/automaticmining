@@ -28,7 +28,7 @@ export class WorkComponent implements OnInit {
   }
 
   getWorks(): any {
-    if (this.generalService.data[this.mainName]) {
+    if (this.generalService.data[this.mainName].length) {
       this.works = this.generalService.data[this.mainName];
     } else {
       this.generalHttp.getData(this.mainName).subscribe(

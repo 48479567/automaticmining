@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { QuestionGeneratorService } from '../../../../core/services/form/question-generator.service';
 import { typesObject } from '../../../models/schema/objectref.schema';
-import { distinctUntilChanged, debounceTime, switchMap } from 'rxjs/operators';
+import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-form-object-question',

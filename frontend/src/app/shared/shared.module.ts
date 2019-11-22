@@ -25,6 +25,7 @@ import {
   TableComponent,
   ItemComponent,
   ItemCreateComponent,
+  ItemViewComponent,
   ContentComponent,
   TextareaComponent,
   TextboxComponent,
@@ -65,6 +66,7 @@ const COMPONENTS = [
   TableComponent,
   ItemComponent,
   ItemCreateComponent,
+  ItemViewComponent,
   ContentComponent,
   TextareaComponent,
   TextboxComponent,
@@ -87,6 +89,7 @@ const ENTRY_COMPONENTS = [
   DialogCreateResourceComponent,
   FormDialogComponent,
   DialogCreateComponent,
+  DialogViewComponent,
 
 ];
 

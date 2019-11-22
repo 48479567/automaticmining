@@ -16,10 +16,14 @@ export class SelectControlComponent implements OnInit {
   @Input() errorMessage = '';
   @Input() dataOptions: any[];
   @Input() selectValueAnchor = '';
+  @Input() value = '';
+  @Input() matIconPrefix = '';
+  @Input() className = '';
 
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.dataOptions);
   }
 }

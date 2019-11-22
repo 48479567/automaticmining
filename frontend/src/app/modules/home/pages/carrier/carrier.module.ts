@@ -4,11 +4,11 @@ import { CommonModule } from '@angular/common';
 import { CarrierRoutingModule } from './carrier-routing.module';
 import { SharedModule } from '../../../../shared/shared.module';
 import { CarrierComponent } from './carrier.component';
-import { CreateCarrierComponent } from './create-carrier/create-carrier.component';
-
+import { CarrierFormComponent } from './carrier-form/carrier-form.component';
 
 @NgModule({
-  declarations: [CarrierComponent, CreateCarrierComponent],
+  declarations: [CarrierComponent, CarrierFormComponent],
+  entryComponents: [CarrierFormComponent],
   imports: [
     CommonModule,
     CarrierRoutingModule,

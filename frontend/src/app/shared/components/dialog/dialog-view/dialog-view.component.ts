@@ -12,8 +12,7 @@ export class DialogViewComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) { }
 
-  now = new Date();
-
   ngOnInit() { }
 
 }
+

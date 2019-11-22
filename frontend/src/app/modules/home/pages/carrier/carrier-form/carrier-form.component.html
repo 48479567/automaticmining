@@ -1,0 +1,77 @@
+<h2>{{ data.title | titlecase }} Info</h2>
+<mat-dialog-content>
+  <app-item-view
+    [data]="data"
+    [formValue]="form.value"
+  ></app-item-view>
+
+  <form [formGroup]="form">
+    <app-textbox-control
+      className="username"
+      label="fullname"
+      controlName="fullname"
+      errorMessage="Fullname is Required!!"
+      matIconPrefix="folder_shared"
+      [form]="form"
+      [required]="true"
+    ></app-textbox-control>
+    <app-select-control
+      className="username"
+      label="Provider"
+      controlName="providerid"
+      errorMessage="Provider is Required"
+      matIconPrefix="supervised_user_circle"
+      [dataOptions]="providers"
+      [required]="true"
+      [form]="form"
+      [value]="values.providerid"
+      selectValueAnchor="name"
+    ></app-select-control>
+    <app-textbox-control
+      className="username"
+      label="RUC"
+      controlName="ruc"
+      [minLength]="11"
+      [maxLength]="11"
+      [matHintEnd]="ruc.value.length+'/'+'11'"
+      [errorMessage]="'Invalid RUC:  '+ruc.value.length+'/'+'11'"
+      matIconPrefix="business"
+      [required]="true"
+      [form]="form"
+    ></app-textbox-control>
+    <app-textbox-control
+      className="username"
+      label="address"
+      controlName="address"
+      matIconPrefix="house"
+      [form]="form"
+    ></app-textbox-control>
+    <app-textbox-control
+      className="username"
+      label="phone number"
+      controlName="phonenumber"
+      matIconPrefix="phone"
+      [minLength]="9"
+      [form]="form"
+    ></app-textbox-control>
+    <app-textbox-control
+      label="email"
+      controlName="email"
+      matIconPrefix="email"
+      [form]="form"
+      [required]="true"
+      [minLength]="8"
+      [errorMessage]="'Invalid Email:  '+email.value.length+'/'+'8'"
+      matIconPrefix="email"
+      matSuffix="@automaticmining.com"
+      [matHintEnd]="email.value.length+'/'+'8'"
+    ></app-textbox-control>
+    <app-textbox-control
+      className="username"
+      label="image"
+      controlName="image"
+      matIconPrefix="image"
+      [form]="form"
+    ></app-textbox-control>
+  </form>
+</mat-dialog-content>

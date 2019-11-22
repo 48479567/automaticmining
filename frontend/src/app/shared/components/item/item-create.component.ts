@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { DialogCreateComponent } from '../dialog/dialog-create.component';
+import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
 
 @Component({
   selector: 'app-item-create',
@@ -13,14 +13,24 @@ export class ItemCreateComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
+    private objectRef: ObjectRefService
   ) { }
 
   ngOnInit() {
   }
 
   openFormDialog(): void {
-    const formDialogRef = this.dialog.open(DialogCreateComponent, {
-      data: { content: this.itemCreate }
+    const mainName = this.objectRef.mainName;
+    const formDialogRef = this.dialog.open(
+      this.objectRef.currentComponentForm, {
+        panelClass: 'complete-width',
+        data: {
+          content: this.itemCreate,
+          index: this.objectRef.lengthItemsSelected,
+          title: mainName,
+          max: this.objectRef.lengthItemsSelected + 1,
+          selectedValue: this.objectRef.selectValueData[mainName]
+        }
     });
   }
 }

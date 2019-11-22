@@ -27,7 +27,7 @@ export class DistanceComponent implements OnInit {
   }
 
   getDistances(): any {
-    if (this.generalService.data[this.mainName]) {
+    if (this.generalService.data[this.mainName].length) {
       this.distances = this.generalService.data[this.mainName];
     } else {
       this.generalHttp.getData(this.mainName).subscribe(

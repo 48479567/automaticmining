@@ -27,7 +27,7 @@ export class ChequerComponent implements OnInit {
   }
 
   getChequers(): any {
-    if (this.generalService.data[this.mainName]) {
+    if (this.generalService.data[this.mainName].length) {
       this.chequers = this.generalService.data[this.mainName];
     } else {
       this.generalHttp.getData(this.mainName).subscribe(

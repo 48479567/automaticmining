@@ -27,7 +27,7 @@ export class CompanyComponent implements OnInit {
   }
 
   getCompanies(): any {
-    if (this.generalService.data[this.mainName]) {
+    if (this.generalService.data[this.mainName].length) {
       this.companies = this.generalService.data[this.mainName];
     } else {
       this.generalHttp.getData(this.mainName).subscribe(

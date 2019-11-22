@@ -13,6 +13,7 @@ export * from './dialog/dialog-create.component';
 export * from './table/table.component';
 export * from './item/item.component';
 export * from './item/item-create.component';
+export * from './item/item-view/item-view.component';
 export * from './content/content.component';
 export * from './form/input/select.component';
 export * from './form/input/textarea.component';

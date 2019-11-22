@@ -1,0 +1,53 @@
+<mat-hint>
+  Created At: {{ data.content.createdat | date: 'medium' }}
+</mat-hint>
+<div class="space-between">
+  <div class="inline-block">
+    <p class="mat-display-4 zero-space">{{ data.index + 1 }}</p>
+    <mat-list>
+      <mat-list-item>
+        <mat-icon mat-list-icon>recent_actors</mat-icon>
+        <h4 mat-line>ID</h4>
+        <p mat-line>{{ data.content._id }}</p>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>today</mat-icon>
+        <h4 mat-line>Updated At</h4>
+        <p mat-line>{{ data.content.updatedat | date: 'medium' }}</p>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div class="inline-block">
+    <img [src]="formValue.image" alt="img" width="350" height="250" />
+  </div>
+</div>
+<div>
+  <mat-slider
+    class="example-margin"
+    [max]="data.max"
+    min="0"
+    step="1"
+    [value]="data.index + 1"
+    [thumbLabel]="true"
+    tickInterval="auto">
+  </mat-slider>
+  <div class="space-around">
+    <ng-container *ngFor="let percentage of [0, 1, 2, 3, 4]">
+      <mat-hint class="percentaje">|</mat-hint>
+    </ng-container>
+  </div>
+  <div class="space-around">
+    <ng-container *ngFor="let percentage of [0, 1, 2, 3, 4]; index as i">
+      <mat-hint class="percentaje">{{ (data.max * (i * 2 + 1)) / 10 }}</mat-hint>
+    </ng-container>
+  </div>
+</div>
+<div class="zero-space space-between" *ngFor="let sel of data.selectedValue">
+  <div class="center">
+    <mat-icon mat-list-icon>{{ iconsObject[sel] }}</mat-icon>
+    <h4 mat-line>{{ sel }}</h4>
+  </div>
+  <div class="center pl-55">
+    {{ formValue[sel] }}
+  </div>
+</div>

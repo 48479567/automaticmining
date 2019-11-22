@@ -1,5 +1,4 @@
 <div [formGroup]="form">
   <input *ngFor="let obj of form.controls | keyvalue"
     [placeholder]="obj.key" [value]="obj.value.value">
-
 </div>

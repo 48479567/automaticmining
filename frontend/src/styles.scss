@@ -1,5 +1,5 @@
 * {
-  font-size: 10px;
+  font-size: 12px;
 }
 html, body { height: 100%; }
 app-signin, app-signup {
@@ -38,7 +38,7 @@ body, mat-drawer-content {
 }
 
 mat-error, mat-hint {
-  font-size: 9px;
+  font-size: 10px;
 }
 
 .username, .username mat-form-field {
@@ -47,7 +47,11 @@ mat-error, mat-hint {
 
 
 
-
+.percentaje {
+  display: inline-block !important;
+  width: 20%;
+  text-align: center;
+}
 
 
 .space-between {
@@ -81,4 +85,14 @@ mat-slider {
 
 .pl-55 {
   padding-left: 55px;
+}
+
+.complete-width {
+  max-width: 100% !important;
+  width: 70%;
+}
+
+.example-margin {
+  margin: 0;
+  padding: 0;
 }
