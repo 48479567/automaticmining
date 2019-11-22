@@ -1,5 +1,6 @@
 const { getResourceById, getResources } = require('./get.controller')
 const { createResource } = require('./post.controller')
+const { updateResource } = require('./put.controller')
 
 const HttpRequest = {
   get: {
@@ -10,7 +11,7 @@ const HttpRequest = {
     createResource
   },
   put: {
-
+    updateResource
   },
   del: {
 

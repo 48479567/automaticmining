@@ -15,6 +15,40 @@ body, mat-drawer-content {
   margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+$color-primary: #2196F3;
+$color-secondary: #E91E63;
+$color-danger: #F44356;
+$color-success: #CDDC59;
+$color-warning: #FFEB2A;
+$color-dark: #262626;
+
+.bg-primary {
+  background-color: $color-primary;
+  color: #ffffff;
+}
+.bg-danger {
+  background-color: $color-danger;
+  color: #ffffff;
+}
+.bg-secondary {
+  background-color: $color-secondary;
+}
+.bg-success {
+  background-color: $color-success;
+}
+.bg-action-post {
+  background-color: $color-success;
+}
+.bg-warning {
+  background-color: $color-warning;
+}
+.bg-dark {
+  background-color: $color-dark;
+}
+.bg-action-put {
+  background-color: $color-dark;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;

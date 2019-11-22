@@ -24,7 +24,7 @@
       [dataOptions]="providers"
       [required]="true"
       [form]="form"
-      [value]="values.providerid"
+      [value]="data.content.providerid"
       selectValueAnchor="name"
     ></app-select-control>
     <app-textbox-control
@@ -75,3 +75,9 @@
     ></app-textbox-control>
   </form>
 </mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button
+    [disabled]="!form.valid"
+    (click)="save()">Done</button>
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

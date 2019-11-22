@@ -20,12 +20,36 @@ export class GeneralHttpService<T> {
     return this.http.get<Array<T>>(`${URL}/${module}`)
       .pipe(
         tap((data: T[]) => {
-          this.logger.log(`Insert ${data.length} ${module}.`);
+          this.logger.log(`Insert ${data.length} ${module}.`, 'bg-primary');
           this.generalService.data[module] = data;
         }),
         catchError(
           this.handleErrorService.handleError<Array<T>>(
             `Get ${module}(s)`, [], this.logger)
+        )
+      );
+  }
+
+  saveData(
+    module: string,
+    action: 'post' | 'put',
+    data: any,
+    index: number,
+    id?: string
+  ): Observable<any> {
+    return this.http[action](`${URL}/${module}${id}`, data)
+      .pipe(
+        tap((newData: any) => {
+          this.logger.log(`Insert ${newData._id}`, `bg-action-${action}`);
+          if (action === 'post') {
+            this.generalService.data[module].push(newData);
+          } else {
+            this.generalService.data[module][index] = newData;
+          }
+        }),
+        catchError(
+          this.handleErrorService.handleError<Array<T>>(
+            `Save ${module} data`, data, this.logger)
         )
       );
   }

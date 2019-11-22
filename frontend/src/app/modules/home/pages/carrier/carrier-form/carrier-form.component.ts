@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Inject } from '@angular/core';
 import { FormBuilder, Validators as v, FormControl } from '@angular/forms';
-import { CarrierSchemaForm, IProvider } from 'src/app/shared/models';
+import { CarrierSchemaForm, IProvider, IDialogData } from 'src/app/shared/models';
 import { GeneralService } from 'src/app/core/services/schema/general.service';
 import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
@@ -11,7 +11,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
   styleUrls: ['./carrier-form.component.scss']
 })
 export class CarrierFormComponent implements OnInit {
-  @Input() values: CarrierSchemaForm;
   providers: IProvider[];
 
   form = this.fb.group({
@@ -38,13 +37,12 @@ export class CarrierFormComponent implements OnInit {
     private gs: GeneralService<any>,
     private ghs: GeneralHttpService<any>,
     public dialogRef: MatDialogRef<CarrierFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: IDialogData
   ) { }
 
   ngOnInit() {
     this.getProviders();
-    console.log(this.data);
-    this.values = this.data.content;
+    console.log(this.data.content);
   }
 
   getProviders() {
@@ -55,6 +53,13 @@ export class CarrierFormComponent implements OnInit {
         (providers: IProvider[]) => this.providers = providers
       );
     }
+  }
+
+  save(): void {
+    const { title, action, index } = this.data;
+    const id = this.data.content._id ? `/${this.data.content._id}` : '';
+    this.ghs.saveData(title, action, this.form.value, index, id).subscribe();
+    this.dialogRef.close();
   }
 
 }

@@ -2,6 +2,7 @@ const createResource = async (req, res, model, statusNumber) => {
   try {
     const { body } = req
     const source = new model(body)
+    console.log(source)
     const saveSource = await source.save()
 
     return res.json(saveSource)

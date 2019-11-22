@@ -1,5 +1,14 @@
 import { QuestionBase, SelectOption } from '../form/question-base';
 
+export interface IDialogData {
+  content?: any;
+  action?: 'post' | 'put';
+  index?: number;
+  title?: string;
+  max?: number;
+  selectedValue?: string[];
+}
+
 export class DialogData {
   constructor(
     public title: any,
