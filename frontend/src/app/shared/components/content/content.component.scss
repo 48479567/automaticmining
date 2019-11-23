@@ -1,9 +1,23 @@
 :host {
-  display: flex;
-  justify-content: center;
   width: 100%;
   height: 100%;
+}
+.content {
+  display: flex;
+  justify-content: center;
+  height: 80%;
+  flex-direction: row-reverse;
   flex-flow: row wrap;
+}
+
+.filter {
+  height: 120px;
+}
+
+app-filter {
+  position: fixed;
+  right: 30px;
+  z-index: 1;
 }
 
 .product-card {
@@ -15,21 +29,10 @@
   background-size: cover;
 }
 
-app-filter {
-  position: fixed;
-  right: 15px;
-  z-index: 15;
-}
-
-mat-toolbar {
-  width: 100%;
-  height: 64px;
-  background-color: #353535;
-}
-
 app-item-create {
   position: fixed;
   z-index: 500;
   bottom: 30px;
   right: 30px;
 }
+

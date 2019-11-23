@@ -1,6 +1,12 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
-import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
+import { MatSort, MatPaginator, MatTableDataSource, MatDialog } from '@angular/material';
+import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
+import { IDialogData } from '../../models';
+import { GeneralService } from 'src/app/core/services/schema/general.service';
 
+const pageSizeOptions = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 55, 70, 75,
+  80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165,
+  170, 175, 180, 185, 190, 195, 200];
 
 @Component({
   selector: 'app-table',
@@ -9,52 +15,57 @@ import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
 })
 export class TableComponent implements OnInit {
   @Input() dataSource: any;
-  data: MatTableDataSource<any>;
-  dataRelevant: any[];
-
-  @Input() displayedColumns: string[] = [];
+  data: MatTableDataSource<any[]>;
+  @Input() displayedColumns: string[];
+  columns: string[];
+  pageSizeOptions: number[] = pageSizeOptions;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor() {
+  constructor(
+    public dialog: MatDialog,
+    private objectRef: ObjectRefService,
+    private gs: GeneralService<any>
+  ) {
+    console.log('constructor');
   }
 
   ngOnInit() {
-    this.dataRelevant = this.deleteIrrelevantFields(this.dataSource);
-    this.data = new MatTableDataSource(this.dataRelevant);
-    this.displayedColumns = Object.keys(this.dataRelevant[0]);
+    this.getData();
     this.data.paginator = this.paginator;
     this.data.sort = this.sort;
-    console.log(this.data);
-
+    this.columns = ['n', ...this.displayedColumns, 'actions'];
   }
-
-  deleteIrrelevantFields(data: any[]): Array<any> {
-    const dataRelevant: any[] = data.map((d: any, index: number) => {
-      const order = index + 1;
-      const {
-        name = '-',
-        mark = '-',
-        quantity =  '-',
-        investment = '-',
-        sale = '-',
-        price = '-',
-        description = '-',
-      } = d;
-
-      return { order, name, mark, quantity, investment, sale, price, description };
-    });
-    return dataRelevant;
-  }
-
-
 
   applyFilter(filterValue: string) {
     this.data.filter = filterValue.trim().toLowerCase();
     if (this.data.paginator) {
       this.data.paginator.firstPage();
     }
+  }
+
+  getData() {
+    this.data = new MatTableDataSource(this.dataSource);
+  }
+
+  openFormDialog(item: any, index: number): void {
+    const mainName = this.objectRef.mainName;
+    const formDialogRef = this.dialog.open(
+      this.objectRef.currentComponentForm, {
+        panelClass: 'complete-width',
+        data: {
+          content: item,
+          action: 'put',
+          index,
+          title: mainName,
+          max: this.objectRef.lengthItemsSelected,
+          selectedValue: this.objectRef.selectValueData[mainName]
+        } as IDialogData
+      }
+    ).afterClosed().subscribe(
+      () => this.getData()
+    )
   }
 
 }

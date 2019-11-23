@@ -1,17 +1,18 @@
-<mat-toolbar>
-  <mat-toolbar-row>
-    <app-filter #filter [filtersSources]="filtersIcon"></app-filter>
-  </mat-toolbar-row>
-</mat-toolbar>
-<app-table
-  *ngIf="filter.value === 'list'; else cardView"
-  [dataSource]="sources"></app-table>
-<ng-template #cardView>
-  <app-item
-    *ngFor="let source of sources; index as i"
-    [item]="source" [index]="i"
-  ></app-item>
-</ng-template>
+<div class="filter">
+  <app-filter #filter [filtersSources]="filtersIcon"></app-filter>
+</div>
+<div class="content">
+  <app-table
+    *ngIf="filter.value === 'list'; else cardView"
+    [dataSource]="sources"
+    [displayedColumns]="displayedColumns"></app-table>
+  <ng-template #cardView class="items">
+    <app-item
+      *ngFor="let source of sources; index as i"
+      [item]="source" [index]="i"
+    ></app-item>
+  </ng-template>
+</div>
 <app-item-create
   class="front-primary"
   [itemCreate]="itemCreate"

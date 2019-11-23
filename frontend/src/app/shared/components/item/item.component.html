@@ -1,9 +1,9 @@
 <mat-card class="item-card">
   <mat-card-header>
-    <mat-card-title>{{ item.name }}</mat-card-title>
+    <mat-card-title># {{ index + 1 }}</mat-card-title>
     <button mat-icon-button (click)="openFormDialog()" aria-label="Edit Item">
       <mat-icon>edit</mat-icon>
     </button>
   </mat-card-header>
-  <img mat-card-image [src]="item.image" width="250" height="150" alt="Item Image" />
+  <img mat-card-image [src]="item.image" width="275" height="180" alt="Item Image" />
 </mat-card>

@@ -10,7 +10,6 @@ import { IDialogData } from '../../models';
 })
 export class ItemComponent implements OnInit {
   @Input() item: any;
-  @Input() showActions = true;
   @Input() index: number;
 
   constructor(

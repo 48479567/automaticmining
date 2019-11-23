@@ -75,6 +75,10 @@ export class GeneralService<T> {
     return of(iconsObject);
   }
 
+  getData(module: string): Observable<T[]> {
+    return of(this.data[module]);
+  }
+
 
 
   constructor(

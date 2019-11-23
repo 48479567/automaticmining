@@ -3,7 +3,6 @@
   <app-dynamic-form #dynamicForm [questions]="questions"></app-dynamic-form>
   <app-item
     [item]="dynamicForm.form.value"
-    [showActions]="false"
   ></app-item>
   <ng-container *ngFor="let propery of data.content | keyvalue">
       <app-form-scalable

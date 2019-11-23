@@ -16,6 +16,7 @@ export class CarrierComponent implements OnInit {
   carriers: CarrierSchema[];
   mainName = 'carrier';
   carrierCreate: CarrierSchemaForm = new CarrierSchemaForm();
+  displayedColumns = ['fullname', 'providerid', 'ruc', 'address', 'phonenumber', 'email'];
 
 
   constructor(
@@ -44,13 +45,6 @@ export class CarrierComponent implements OnInit {
         }
       );
     }
-    // if (this.carrierService.carriers) {
-    //   return this.carriers = this.carrierService.carriers;
-    // }
-
-    // this.carrierHttp.getCarriers().subscribe(
-    //   (carriers: CarrierSchema[]) => this.carriers = carriers
-    // );
   }
 
 }
