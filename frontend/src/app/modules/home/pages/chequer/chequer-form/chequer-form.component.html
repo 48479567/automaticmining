@@ -1,0 +1,74 @@
+<h2>{{ data.title | titlecase }} Info</h2>
+<mat-dialog-content>
+  <app-item-view
+    [data]="data"
+    [formValue]="form.value"
+  ></app-item-view>
+
+  <form [formGroup]="form">
+    <app-textbox-control
+      className="username"
+      [form]="form"
+      controlName="fullname"
+      label="fullname"
+      [required]="true"
+      matIconPrefix="folder_shared"
+      errorMessage="Fullname is Required!!"
+    ></app-textbox-control>
+    <app-textbox-control
+      className="username"
+      [form]="form"
+      controlName="username"
+      label="username"
+      matSuffix="@automaticminig.com"
+      matIconPrefix="assignment_ind"
+      [minLength]="8"
+      [matHintEnd]="username.value.length+'/8'"
+      [errorMessage]="'Invalid Username: '+username.value.length+'/8'"
+      [required]="true"
+    ></app-textbox-control>
+    <app-textbox-control
+      className="username"
+      [form]="form"
+      controlName="password"
+      label="password"
+      matIconPrefix="vpn_key"
+      [errorMessage]="'Invalid Password: '+password.value.length+'/8'"
+      [matHintEnd]="password.value.length+'/8'"
+      [type]="passwordData.type"
+      [minLength]="8"
+      [required]="true"
+    ></app-textbox-control>
+    <app-textbox-control
+      className="username"
+      [form]="form"
+      controlName="confirm"
+      label="confirm"
+      matIconPrefix="vpn_key"
+      [errorMessage]="passwordData.messageError"
+      [matIconButtonSuffix]="passwordData.icon"
+      [required]="true"
+      [type]="passwordData.type"
+      (clickButtonSuffix)="changePasswordData()"
+      [minLength]="8"
+    ></app-textbox-control>
+    <app-checkbox-control
+      [form]="form"
+      controlName="status"
+      label="status"
+    ></app-checkbox-control>
+    <app-textbox-control
+      className="username"
+      label="image"
+      controlName="image"
+      matIconPrefix="image"
+      [form]="form"
+    ></app-textbox-control>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button
+    [disabled]="!form.valid && password.value === confirm.value"
+    (click)="save()">Done</button>
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

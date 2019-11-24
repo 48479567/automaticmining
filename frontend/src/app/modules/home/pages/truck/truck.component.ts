@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
-import { TruckHttpService } from '../../../../core/http/schema/truck.http.service';
-import { TruckService } from '../../../../core/services/schema/truck.service';
 import { TruckSchema, TruckSchemaForm, ITruck } from '../../../../shared/models';
 import { GeneralService } from '../../../../core/services/schema/general.service';
 import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
+import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
+import { TruckFormComponent } from './truck-form/truck-form.component';
 
 @Component({
   selector: 'app-truck',
@@ -17,14 +16,15 @@ export class TruckComponent implements OnInit {
   mainName = 'truck';
 
   constructor(
-    private truckHttp: TruckHttpService,
-    private truckService: TruckService,
     private generalService: GeneralService<ITruck>,
-    private generalHttp: GeneralHttpService<ITruck>
+    private generalHttp: GeneralHttpService<ITruck>,
+    private objectRef: ObjectRefService
   ) { }
 
   ngOnInit() {
     this.getTrucks();
+    this.objectRef.currentComponentForm = TruckFormComponent;
+    this.objectRef.mainName = this.mainName;
   }
 
   getTrucks(): any {
@@ -32,16 +32,12 @@ export class TruckComponent implements OnInit {
       this.trucks = this.generalService.data[this.mainName];
     } else {
       this.generalHttp.getData(this.mainName).subscribe(
-        (trucks: ITruck[]) => this.trucks = trucks
+        (trucks: ITruck[]) => {
+          this.trucks = trucks;
+          this.objectRef.lengthItemsSelected = trucks.length;
+        }
       );
     }
-    // if (this.truckService.trucks) {
-    //   return this.trucks = this.truckService.trucks;
-    // }
-
-    // this.truckHttp.getTrucks().subscribe(
-    //   (trucks: TruckSchema[]) => this.trucks = trucks
-    // );
   }
 
 }

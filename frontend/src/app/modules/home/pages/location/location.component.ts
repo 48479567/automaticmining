@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { LocationHttpService } from '../../../../core/http/schema/location.http.service';
-import { LocationService } from '../../../../core/services/schema/location.service';
 import { LocationSchema, LocationSchemaForm } from '../../../../shared/models';
 import { GeneralService } from '../../../../core/services/schema/general.service';
 import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
 import { ILocation } from 'selenium-webdriver';
+import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
+import { LocationFormComponent } from './location-form/location-form.component';
 
 @Component({
   selector: 'app-location',
@@ -17,14 +17,15 @@ export class LocationComponent implements OnInit {
   mainName = 'location';
 
   constructor(
-    private locationHttp: LocationHttpService,
-    private locationService: LocationService,
     private generalService: GeneralService<ILocation>,
-    private generalHttp: GeneralHttpService<ILocation>
+    private generalHttp: GeneralHttpService<ILocation>,
+    private objectRef: ObjectRefService
   ) { }
 
   ngOnInit() {
     this.getLocations();
+    this.objectRef.currentComponentForm = LocationFormComponent;
+    this.objectRef.mainName = this.mainName;
   }
 
   getLocations(): any {
@@ -32,16 +33,12 @@ export class LocationComponent implements OnInit {
       this.locations = this.generalService.data[this.mainName];
     } else {
       this.generalHttp.getData(this.mainName).subscribe(
-        (locations: ILocation[]) => this.locations = locations
+        (locations: ILocation[]) => {
+          this.locations = locations;
+          this.objectRef.lengthItemsSelected = locations.length;
+        }
       );
     }
-    // if (this.locationService.locations) {
-    //   return this.locations = this.locationService.locations;
-    // }
-
-    // this.locationHttp.getLocations().subscribe(
-    //   (locations: LocationSchema[]) => this.locations = locations
-    // );
   }
 
 }

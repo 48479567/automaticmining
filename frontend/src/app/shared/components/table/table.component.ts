@@ -63,9 +63,7 @@ export class TableComponent implements OnInit {
           selectedValue: this.objectRef.selectValueData[mainName]
         } as IDialogData
       }
-    ).afterClosed().subscribe(
-      () => this.getData()
-    )
+    );
   }
 
 }

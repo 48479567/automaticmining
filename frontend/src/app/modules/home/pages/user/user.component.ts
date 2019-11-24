@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
-import { UserHttpService } from '../../../../core/http/schema/user.http.service';
-import { UserService } from '../../../../core/services/schema/user.service';
-import { UserSchema, UserSchemaForm, IUser } from '../../../../shared/models';
+import { UserSchemaForm, IUser } from '../../../../shared/models';
 import { GeneralService } from '../../../../core/services/schema/general.service';
 import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
+import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
+import { UserFormComponent } from './user-form/user-form.component';
 
 @Component({
   selector: 'app-user',
@@ -17,14 +16,15 @@ export class UserComponent implements OnInit {
   mainName = 'user';
 
   constructor(
-    private userHttp: UserHttpService,
-    private userService: UserService,
     private generalService: GeneralService<IUser>,
-    private generalHttp: GeneralHttpService<IUser>
+    private generalHttp: GeneralHttpService<IUser>,
+    private objectRef: ObjectRefService
   ) { }
 
   ngOnInit() {
     this.getUsers();
+    this.objectRef.currentComponentForm = UserFormComponent;
+    this.objectRef.mainName = this.mainName;
   }
 
   getUsers(): any {
@@ -32,16 +32,12 @@ export class UserComponent implements OnInit {
       this.users = this.generalService.data[this.mainName];
     } else {
       this.generalHttp.getData(this.mainName).subscribe(
-        (users: IUser[]) => this.users = users
+        (users: IUser[]) => {
+          this.users = users;
+          this.objectRef.lengthItemsSelected = users.length;
+        }
       );
     }
-    // if (this.userService.users) {
-    //   return this.users = this.userService.users;
-    // }
-
-    // this.userHttp.getUsers().subscribe(
-    //   (users: UserSchema[]) => this.users = users
-    // );
   }
 
 }

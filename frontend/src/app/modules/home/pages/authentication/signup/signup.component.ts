@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder, FormControl, ValidatorFn, ValidationErrors, AsyncValidatorFn } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, debounce } from 'rxjs/operators';
+import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -36,7 +37,8 @@ export class SignupComponent implements OnInit {
   };
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {
   }
 
@@ -49,8 +51,8 @@ export class SignupComponent implements OnInit {
     this.passwordData.type = this.passwordData.type === 'text' ? 'password' : 'text';
   }
 
-  login() {
-    console.log(this.form.value);
+  register() {
+    this.router.navigateByUrl('home/carrier');
   }
 
   formOnChanges(): void {
@@ -59,18 +61,13 @@ export class SignupComponent implements OnInit {
       distinctUntilChanged()
     ).subscribe(
       (valConfirm: string) => {
-        const confirmValue = 'confirm';
         if (this.password.value !== valConfirm) {
+          const confirmValue = 'confirm';
           this.passwordData.messageError = 'Passwords are not the same!!';
           this.form.controls[confirmValue].setErrors({ incorrect : true });
         }
       }
     );
-  }
-
-  checkPasswords(confirm: FormControl) {
-    const password = this.password.value;
-    return password === confirm.value ? null : { notSame: true };
   }
 
   get confirm(): FormControl {

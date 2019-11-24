@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DistanceHttpService } from '../../../../core/http/schema/distance.http.service';
-import { DistanceService } from '../../../../core/services/schema/distance.service';
 import { DistanceSchema, DistanceSchemaForm, IDistance } from '../../../../shared/models';
 import { GeneralService } from '../../../../core/services/schema/general.service';
 import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
+import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
+import { DistanceFormComponent } from './distance-form/distance-form.component';
 
 @Component({
   selector: 'app-distance',
@@ -16,14 +16,15 @@ export class DistanceComponent implements OnInit {
   mainName = 'distance';
 
   constructor(
-    private distanceHttp: DistanceHttpService,
-    private distanceService: DistanceService,
     private generalService: GeneralService<IDistance>,
-    private generalHttp: GeneralHttpService<IDistance>
+    private generalHttp: GeneralHttpService<IDistance>,
+    private objectRef: ObjectRefService
   ) { }
 
   ngOnInit() {
     this.getDistances();
+    this.objectRef.mainName = this.mainName;
+    this.objectRef.currentComponentForm = DistanceFormComponent;
   }
 
   getDistances(): any {
@@ -31,16 +32,12 @@ export class DistanceComponent implements OnInit {
       this.distances = this.generalService.data[this.mainName];
     } else {
       this.generalHttp.getData(this.mainName).subscribe(
-        (distances: IDistance[]) => this.distances = distances
+        (distances: IDistance[]) => {
+          this.distances = distances;
+          this.objectRef.lengthItemsSelected = distances.length;
+        }
       );
     }
-    // if (this.distanceService.distances) {
-    //   return this.distances = this.distanceService.distances;
-    // }
-
-    // this.distanceHttp.getDistances().subscribe(
-    //   (distances: DistanceSchema[]) => this.distances = distances
-    // );
   }
 
 }

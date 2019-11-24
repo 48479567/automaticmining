@@ -1,6 +1,6 @@
-import { Component, Input, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, Validators as v, FormControl } from '@angular/forms';
-import { CarrierSchemaForm, IProvider, IDialogData } from 'src/app/shared/models';
+import { IProvider, IDialogData } from 'src/app/shared/models';
 import { GeneralService } from 'src/app/core/services/schema/general.service';
 import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
@@ -14,12 +14,17 @@ export class CarrierFormComponent implements OnInit {
   providers: IProvider[];
 
   form = this.fb.group({
-    fullname: this.fb.control(this.data.content.fullname, v.required),
-    providerid: this.fb.control(this.data.content.providerid, v.required),
-    ruc: this.fb.control(this.data.content.ruc, [v.required, v.minLength(11)]),
+    fullname: this.fb.control(this.data.content.fullname,
+      v.required),
+    providerid: this.fb.control(this.data.content.providerid,
+      v.required),
+    ruc: this.fb.control(this.data.content.ruc,
+      [v.required, v.minLength(11)]),
     address: this.fb.control(this.data.content.address),
-    phonenumber: this.fb.control(this.data.content.phonenumber, v.minLength(9)),
-    email: this.fb.control(this.data.content.email, [v.required, v.minLength(8)]),
+    phonenumber: this.fb.control(this.data.content.phonenumber,
+      v.minLength(9)),
+    email: this.fb.control(this.data.content.email, [v.required,
+      v.minLength(8)]),
     image: this.fb.control(this.data.content.image)
   });
 
@@ -58,8 +63,9 @@ export class CarrierFormComponent implements OnInit {
   save(): void {
     const { title, action, index } = this.data;
     const id = this.data.content._id ? `/${this.data.content._id}` : '';
-    this.ghs.saveData(title, action, this.form.value, index, id).subscribe();
-    this.dialogRef.close();
+    this.ghs.saveData(title, action, this.form.value, index, id).subscribe(
+      () => this.dialogRef.close()
+    );
   }
 
 }

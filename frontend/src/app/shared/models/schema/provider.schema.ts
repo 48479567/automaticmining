@@ -18,7 +18,7 @@ export class ProviderCard extends Provider {
 export interface IProvider {
   _id?: string;
   name: string;
-  phonenumber: number;
+  phonenumber: string;
   image: string;
   createdad?: string;
   updatedad?: string;
@@ -29,7 +29,7 @@ export interface IProvider {
 export class ProviderSchema {
   constructor(
     public name: string,
-    public phonenumber: number,
+    public phonenumber: string,
     public image: string,
     public createdat?: string | number,
     public updatedat?: string | number,
@@ -41,11 +41,11 @@ export class ProviderSchema {
 export class ProviderSchemaForm {
   constructor(
     public name?: string,
-    public phonenumber?: number,
+    public phonenumber?: string,
     public image?: string,
   ) {
     this.name = name ? name : '';
-    this.phonenumber = phonenumber ? phonenumber : 0;
+    this.phonenumber = phonenumber ? phonenumber : '';
     this.image = image ? image : 'https://i.imgur.com/dFT6YIC.png?2';
   }
 }

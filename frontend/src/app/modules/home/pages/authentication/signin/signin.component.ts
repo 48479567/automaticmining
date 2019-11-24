@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -19,7 +20,8 @@ export class SigninComponent implements OnInit {
   };
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {
   }
 
@@ -36,7 +38,7 @@ export class SigninComponent implements OnInit {
   }
 
   login() {
-    console.log(this.form.value);
+    this.router.navigateByUrl('home/carrier');
   }
 
 

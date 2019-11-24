@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CarrierHttpService } from '../../../../core/http/schema/carrier.http.service';
-import { CarrierService } from '../../../../core/services/schema/carrier.service';
 import { CarrierSchema, CarrierSchemaForm, ICarrier } from '../../../../shared/models';
 import { GeneralService } from '../../../../core/services/schema/general.service';
 import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
@@ -20,8 +18,6 @@ export class CarrierComponent implements OnInit {
 
 
   constructor(
-    private carrierHttp: CarrierHttpService,
-    private carrierService: CarrierService,
     private generalService: GeneralService<ICarrier>,
     private generalHttp: GeneralHttpService<ICarrier>,
     private objectRef: ObjectRefService
@@ -46,5 +42,4 @@ export class CarrierComponent implements OnInit {
       );
     }
   }
-
 }

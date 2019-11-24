@@ -1,0 +1,43 @@
+<h2>{{ data.title | titlecase }} Info</h2>
+<mat-dialog-content>
+  <app-item-view
+    [data]="data"
+    [formValue]="form.value"
+  ></app-item-view>
+
+  <form [formGroup]="form">
+    <app-textbox-control
+      className="username"
+      label="name"
+      controlName="name"
+      errorMessage="Name is Required!!"
+      matIconPrefix="folder_shared"
+      [form]="form"
+      [required]="true"
+    ></app-textbox-control>
+    <app-textbox-control
+      className="username"
+      label="phone number"
+      controlName="phonenumber"
+      [minLength]="9"
+      [errorMessage]="'Invalid Phone: '+phonenumber.value.length+'/9'"
+      [matHintEnd]="phonenumber.value.length+'/9'"
+      matIconPrefix="phone"
+      [required]="true"
+      [form]="form"
+    ></app-textbox-control>
+    <app-textbox-control
+      className="username"
+      label="image"
+      controlName="image"
+      matIconPrefix="image"
+      [form]="form"
+    ></app-textbox-control>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button
+    [disabled]="!form.valid"
+    (click)="save()">Done</button>
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

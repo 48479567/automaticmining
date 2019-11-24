@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
-import { ProviderHttpService } from '../../../../core/http/schema/provider.http.service';
-import { ProviderService } from '../../../../core/services/schema/provider.service';
 import { ProviderSchema, ProviderSchemaForm, IProvider } from '../../../../shared/models';
 import { GeneralService } from '../../../../core/services/schema/general.service';
 import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
+import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
+import { ProviderFormComponent } from './provider-form/provider-form.component';
 
 @Component({
   selector: 'app-provider',
@@ -14,17 +13,19 @@ import { GeneralHttpService } from '../../../../core/http/schema/general.http.se
 export class ProviderComponent implements OnInit {
   providers: ProviderSchema[];
   providerCreate: ProviderSchemaForm = new ProviderSchemaForm();
+  displayedColums = ['name', 'phonenumber'];
   mainName = 'provider';
 
   constructor(
-    private providerHttp: ProviderHttpService,
-    private providerService: ProviderService,
     private generalService: GeneralService<IProvider>,
-    private generalHttp: GeneralHttpService<IProvider>
+    private generalHttp: GeneralHttpService<IProvider>,
+    private objectRef: ObjectRefService
   ) { }
 
   ngOnInit() {
     this.getProviders();
+    this.objectRef.currentComponentForm = ProviderFormComponent;
+    this.objectRef.mainName = this.mainName;
   }
 
   getProviders(): any {
@@ -32,16 +33,12 @@ export class ProviderComponent implements OnInit {
       this.providers = this.generalService.data[this.mainName];
     } else {
       this.generalHttp.getData(this.mainName).subscribe(
-        (providers: IProvider[]) => this.providers = providers
+        (providers: IProvider[]) => {
+          this.providers = providers;
+          this.objectRef.lengthItemsSelected = providers.length;
+        }
       );
     }
-    // if (this.providerService.providers) {
-    //   return this.providers = this.providerService.providers;
-    // }
-
-    // this.providerHttp.getProviders().subscribe(
-    //   (providers: ProviderSchema[]) => this.providers = providers
-    // );
   }
 
 }

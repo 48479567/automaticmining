@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
-import { TravelHttpService } from '../../../../core/http/schema/travel.http.service';
-import { TravelService } from '../../../../core/services/schema/travel.service';
 import { TravelSchema, TravelSchemaForm, ITravel } from '../../../../shared/models';
 import { GeneralService } from '../../../../core/services/schema/general.service';
 import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
+import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
+import { TravelFormComponent } from './travel-form/travel-form.component';
 
 @Component({
   selector: 'app-travel',
@@ -17,14 +16,15 @@ export class TravelComponent implements OnInit {
   mainName = 'travel';
 
   constructor(
-    private travelHttp: TravelHttpService,
-    private travelService: TravelService,
     private generalService: GeneralService<ITravel>,
-    private generalHttp: GeneralHttpService<ITravel>
+    private generalHttp: GeneralHttpService<ITravel>,
+    private objectRef: ObjectRefService
   ) { }
 
   ngOnInit() {
     this.getTravels();
+    this.objectRef.currentComponentForm = TravelFormComponent;
+    this.objectRef.mainName = this.mainName;
   }
 
   getTravels(): any {
@@ -32,16 +32,12 @@ export class TravelComponent implements OnInit {
       this.travels = this.generalService.data[this.mainName];
     } else {
       this.generalHttp.getData(this.mainName).subscribe(
-        (travels: ITravel[]) => this.travels = travels
+        (travels: ITravel[]) => {
+          this.travels = travels;
+          this.objectRef.lengthItemsSelected = travels.length;
+        }
       );
     }
-    // if (this.travelService.travels) {
-    //   return this.travels = this.travelService.travels;
-    // }
-
-    // this.travelHttp.getTravels().subscribe(
-    //   (travels: TravelSchema[]) => this.travels = travels
-    // );
   }
 
 }

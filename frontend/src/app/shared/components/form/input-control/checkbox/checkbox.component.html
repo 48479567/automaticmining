@@ -3,7 +3,7 @@
     [formControlName]="controlName"
     [labelPosition]="labelPosition"
     [indeterminate]="indeterminate"
-  >{{ label }}
+  >{{ label | titlecase }} :
   </mat-checkbox>
   <mat-error>{{ errorMessage }}</mat-error>
 </section>

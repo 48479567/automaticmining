@@ -33,7 +33,7 @@ export class ObjectRefService {
   selectValueData = {
     carrier: ['providerid', 'ruc', 'phonenumber'],
     chequer: ['username', 'fullname', 'status'],
-    company: ['name', 'ruc', 'image'],
+    company: ['name', 'ruc'],
     distance: ['origin', 'destiny', 'value'],
     location: ['name', 'mine', 'status'],
     material: ['name', 'status'],

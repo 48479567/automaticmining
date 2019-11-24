@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CompanyHttpService } from '../../../../core/http/schema/company.http.service';
-import { CompanyService } from '../../../../core/services/schema/company.service';
 import { CompanySchema, CompanySchemaForm, ICompany } from '../../../../shared/models';
 import { GeneralService } from '../../../../core/services/schema/general.service';
 import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
+import { CompanyFormComponent } from './company-form/company-form.component';
+import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
 
 @Component({
   selector: 'app-company',
@@ -13,17 +13,19 @@ import { GeneralHttpService } from '../../../../core/http/schema/general.http.se
 export class CompanyComponent implements OnInit {
   companies: CompanySchema[];
   companyCreate: CompanySchemaForm = new CompanySchemaForm();
+  displayedColumns = ['name', 'ruc'];
   mainName = 'company';
 
   constructor(
-    private companyHttp: CompanyHttpService,
-    private companyService: CompanyService,
     private generalService: GeneralService<ICompany>,
-    private generalHttp: GeneralHttpService<ICompany>
+    private generalHttp: GeneralHttpService<ICompany>,
+    private objectRef: ObjectRefService
   ) { }
 
   ngOnInit() {
     this.getCompanies();
+    this.objectRef.currentComponentForm = CompanyFormComponent;
+    this.objectRef.mainName = this.mainName;
   }
 
   getCompanies(): any {
@@ -31,16 +33,12 @@ export class CompanyComponent implements OnInit {
       this.companies = this.generalService.data[this.mainName];
     } else {
       this.generalHttp.getData(this.mainName).subscribe(
-        (companies: ICompany[]) => this.companies = companies
+        (companies: ICompany[]) => {
+          this.companies = companies;
+          this.objectRef.lengthItemsSelected = companies.length;
+        }
       );
     }
-    // if (this.companyService.companies) {
-    //   return this.companies = this.companyService.companies;
-    // }
-
-    // this.companyHttp.getCompanies().subscribe(
-    //   (companies: CompanySchema[]) => this.companies = companies
-    // );
   }
 
 }

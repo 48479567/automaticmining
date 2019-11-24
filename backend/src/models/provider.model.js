@@ -8,7 +8,8 @@ const ProviderSchema = new Schema({
   },
   phonenumber: {
     type: String,
-    unique: true
+    unique: true,
+    required: true
   },
   image: {
     type: String

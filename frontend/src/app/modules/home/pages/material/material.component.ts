@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
-import { MaterialHttpService } from '../../../../core/http/schema/material.http.service';
-import { MaterialService } from '../../../../core/services/schema/material.service';
 import { MaterialSchema, MaterialSchemaForm, IMaterial } from '../../../../shared/models';
 import { GeneralService } from '../../../../core/services/schema/general.service';
 import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
+import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
+import { MaterialFormComponent } from './material-form/material-form.component';
 
 @Component({
   selector: 'app-material',
@@ -17,14 +16,15 @@ export class MaterialComponent implements OnInit {
   mainName = 'material';
 
   constructor(
-    private materialHttp: MaterialHttpService,
-    private materialService: MaterialService,
     private generalService: GeneralService<IMaterial>,
-    private generalHttp: GeneralHttpService<IMaterial>
+    private generalHttp: GeneralHttpService<IMaterial>,
+    private objectRef: ObjectRefService
   ) { }
 
   ngOnInit() {
     this.getMaterials();
+    this.objectRef.currentComponentForm = MaterialFormComponent;
+    this.objectRef.mainName = this.mainName;
   }
 
   getMaterials(): any {
@@ -32,16 +32,13 @@ export class MaterialComponent implements OnInit {
       this.materials = this.generalService.data[this.mainName];
     } else {
       this.generalHttp.getData(this.mainName).subscribe(
-        (materials: IMaterial[]) => this.materials = materials
+        (materials: IMaterial[]) => {
+          this.materials = materials;
+          this.objectRef.lengthItemsSelected = materials.length;
+        }
       );
     }
-    // if (this.materialService.materials) {
-    //   return this.materials = this.materialService.materials;
-    // }
 
-    // this.materialHttp.getMaterials().subscribe(
-    //   (materials: MaterialSchema[]) => this.materials = materials
-    // );
   }
 
 }
