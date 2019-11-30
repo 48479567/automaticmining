@@ -13,6 +13,8 @@ import { TruckFormComponent } from './truck-form/truck-form.component';
 export class TruckComponent implements OnInit {
   trucks: TruckSchema[];
   truckCreate: TruckSchemaForm = new TruckSchemaForm();
+  displayedColumns = ['carrierid', 'capacity', 'mark', 'plaque', 'extension',
+                      'capacityextension', 'status' ];
   mainName = 'truck';
 
   constructor(

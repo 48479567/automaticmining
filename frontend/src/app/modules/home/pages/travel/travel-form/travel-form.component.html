@@ -6,6 +6,38 @@
   ></app-item-view>
 
   <form [formGroup]="form">
+    <app-select-control
+      className="username"
+      label="Prices"
+      controlName="priceid"
+      errorMessage="Price is Required"
+      matIconPrefix="money"
+      [dataOptions]="prices"
+      [required]="true"
+      [form]="form"
+      [value]="data.content.priceid"
+      selectValueAnchor="value"
+    ></app-select-control>
+    <app-textbox-number-control
+      className="username"
+      label="First Price"
+      controlName="firstprice"
+      errorMessage="First Price is Required!!"
+      matPrefix="S/."
+      matSuffix=".00"
+      [form]="form"
+      [required]="true"
+    ></app-textbox-number-control>
+    <app-textbox-number-control
+      className="username"
+      label="Aditional Price"
+      controlName="aditionalprice"
+      errorMessage="Aditional Price is Required!!"
+      matPrefix="S/."
+      matSuffix=".00"
+      [form]="form"
+      [required]="true"
+    ></app-textbox-number-control>
     <app-textbox-control
       className="username"
       label="name"
@@ -15,18 +47,11 @@
       [form]="form"
       [required]="true"
     ></app-textbox-control>
-    <app-textbox-control
-      className="username"
-      label="RUC"
-      controlName="ruc"
-      [minLength]="11"
-      [maxLength]="11"
-      [matHintEnd]="ruc.value.length+'/'+'11'"
-      [errorMessage]="'Invalid RUC:  '+ruc.value.length+'/'+'11'"
-      matIconPrefix="business"
-      [required]="true"
+    <app-checkbox-control
       [form]="form"
-    ></app-textbox-control>
+      controlName="status"
+      label="status"
+    ></app-checkbox-control>
     <app-textbox-control
       className="username"
       label="image"

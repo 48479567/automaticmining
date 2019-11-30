@@ -14,6 +14,7 @@ import { LocationFormComponent } from './location-form/location-form.component';
 export class LocationComponent implements OnInit {
   locations: ILocation[] | LocationSchema[];
   locationCreate: LocationSchemaForm = new LocationSchemaForm();
+  displayedColumns = ['name', 'mine', 'latitude', 'longitude', 'status' ];
   mainName = 'location';
 
   constructor(

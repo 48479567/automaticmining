@@ -50,14 +50,14 @@ export class CarrierFormComponent implements OnInit {
     console.log(this.data.content);
   }
 
-  getProviders() {
+  getProviders(): void {
     if (this.gs.data.provider.length) {
       this.providers = this.gs.data.provider;
-    } else {
-      this.ghs.getData('provider').subscribe(
-        (providers: IProvider[]) => this.providers = providers
-      );
+      return;
     }
+    this.ghs.getData('provider').subscribe(
+      (providers: IProvider[]) => this.providers = providers
+    );
   }
 
   save(): void {

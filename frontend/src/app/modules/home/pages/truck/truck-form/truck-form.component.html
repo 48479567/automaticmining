@@ -6,27 +6,65 @@
   ></app-item-view>
 
   <form [formGroup]="form">
+    <app-select-control
+      className="username"
+      label="Carrier"
+      controlName="carrierid"
+      errorMessage="Carrier is Required"
+      matIconPrefix="airline_seat_recline_normal"
+      [dataOptions]="carriers"
+      [required]="true"
+      [form]="form"
+      [value]="data.content.carrierid"
+      selectValueAnchor="fullname"
+    ></app-select-control>
+    <app-textbox-number-control
+      className="username"
+      label="Capacity"
+      controlName="capacity"
+      errorMessage="Capacity is Required!!"
+      matIconPrefix="storage"
+      matSuffix="m3"
+      [form]="form"
+      [required]="true"
+    ></app-textbox-number-control>
     <app-textbox-control
       className="username"
-      label="name"
-      controlName="name"
-      errorMessage="Name is Required!!"
-      matIconPrefix="folder_shared"
+      label="Mark"
+      controlName="mark"
+      errorMessage="Mark is Required!!"
+      matIconPrefix="atm"
       [form]="form"
       [required]="true"
     ></app-textbox-control>
     <app-textbox-control
       className="username"
-      label="RUC"
-      controlName="ruc"
-      [minLength]="11"
-      [maxLength]="11"
-      [matHintEnd]="ruc.value.length+'/'+'11'"
-      [errorMessage]="'Invalid RUC:  '+ruc.value.length+'/'+'11'"
-      matIconPrefix="business"
-      [required]="true"
+      label="Plaque"
+      controlName="plaque"
+      errorMessage="Plaque is Required!!"
+      matIconPrefix="font_download"
       [form]="form"
+      [required]="true"
     ></app-textbox-control>
+    <app-checkbox-control
+      [form]="form"
+      controlName="extension"
+      label="Extension"
+    ></app-checkbox-control>
+    <app-textbox-number-control
+      className="username"
+      label="Capacity Extenstion"
+      controlName="capacityextension"
+      matIconPrefix="table_chart"
+      matSuffix="m3"
+      [form]="form"
+      [required]="true"
+    ></app-textbox-number-control>
+    <app-checkbox-control
+      [form]="form"
+      controlName="status"
+      label="Status"
+    ></app-checkbox-control>
     <app-textbox-control
       className="username"
       label="image"

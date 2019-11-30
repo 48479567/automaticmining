@@ -13,6 +13,7 @@ import { DistanceFormComponent } from './distance-form/distance-form.component';
 export class DistanceComponent implements OnInit {
   distances: DistanceSchema[];
   distanceCreate: DistanceSchemaForm = new DistanceSchemaForm();
+  displayedColumns = ['origin', 'destiny', 'value'];
   mainName = 'distance';
 
   constructor(

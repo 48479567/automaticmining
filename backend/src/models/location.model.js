@@ -12,11 +12,15 @@ const LocationSchema = new Schema({
   },
   latitude: {
     type: Number,
-    required: true
+    required: true,
+    min: -90,
+    max: 90
   },
-  length: {
+  longitude: {
     type: Number,
-    required: true
+    required: true,
+    min: -180,
+    max: 180
   },
   status: {
     type: Boolean,

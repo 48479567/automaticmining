@@ -19,13 +19,13 @@ export class TextboxNumberControlComponent implements OnInit {
   @Input() matPrefix = '';
   @Input() matSuffix = '';
   @Input() matIconSuffix = '';
-  @Input() maxLength = 1000;
-  @Input() minLength = 0;
   @Input() max = 100000;
   @Input() min = 0;
   @Input() type = 'number';
   @Input() matIconButtonPrefix = '';
   @Input() matIconButtonSuffix = '';
+  @Input() className = '';
+  @Input() disabled = false;
 
   @Output() clickButtonPrefix = new EventEmitter<void>();
   @Output() clickButtonSuffix = new EventEmitter<void>();

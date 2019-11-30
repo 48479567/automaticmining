@@ -39,7 +39,7 @@ export class ObjectRefService {
     material: ['name', 'status'],
     price: ['materialid', 'value', 'carrierid'],
     provider: ['name', 'phonenumber'],
-    travel: ['firstprice', 'aditionalprice', 'name'],
+    travel: ['priceid', 'firstprice', 'aditionalprice', 'name'],
     truck: ['capacity', 'mark', 'plaque'],
     user: ['username', 'status'],
     work: ['name', 'companyid'],

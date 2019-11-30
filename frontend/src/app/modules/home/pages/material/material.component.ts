@@ -13,6 +13,7 @@ import { MaterialFormComponent } from './material-form/material-form.component';
 export class MaterialComponent implements OnInit {
   materials: MaterialSchema[];
   materialCreate: MaterialSchemaForm = new MaterialSchemaForm();
+  displayedColumns = ['name', 'status'];
   mainName = 'material';
 
   constructor(

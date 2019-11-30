@@ -15,14 +15,10 @@ export class MaterialFormComponent implements OnInit {
   form = this.fb.group({
     name: this.fb.control(this.data.content.name,
       v.required),
-    ruc: this.fb.control(this.data.content.ruc,
-      [v.required, v.minLength(11)]),
+    status: this.fb.control(this.data.content.status,
+      v.required),
     image: this.fb.control(this.data.content.image)
   });
-
-  get ruc(): FormControl {
-    return this.form.get('ruc') as FormControl;
-  }
 
   constructor(
     private fb: FormBuilder,

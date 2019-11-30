@@ -13,6 +13,7 @@ import { TravelFormComponent } from './travel-form/travel-form.component';
 export class TravelComponent implements OnInit {
   travels: TravelSchema[];
   travelCreate: TravelSchemaForm = new TravelSchemaForm();
+  displayedColumns = ['priceid', 'firstprice', 'aditionalprice', 'name', 'status'];
   mainName = 'travel';
 
   constructor(

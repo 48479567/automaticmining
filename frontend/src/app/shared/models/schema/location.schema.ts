@@ -21,7 +21,7 @@ export interface ILocation {
   name: string;
   mine: boolean;
   latitude: number;
-  length: number;
+  longitude: number;
   status: boolean;
   image: string;
   createdad?: string;
@@ -34,7 +34,7 @@ export class LocationSchema {
     public name: string,
     public mine: boolean,
     public latitude: number,
-    public length: number,
+    public longitude: number,
     public status: boolean,
     public image: string,
     public createdat?: string | number,
@@ -48,7 +48,7 @@ export class LocationSchemaForm {
     public name?: string,
     public mine?: boolean,
     public latitude?: number,
-    public length?: number,
+    public longitude?: number,
     public status?: boolean,
     public email?: string,
     public image?: string,
@@ -56,7 +56,7 @@ export class LocationSchemaForm {
     this.name = name ? name : '';
     this.mine = mine ? mine : false;
     this.latitude = latitude ? latitude : 0;
-    this.length = length ? length : 0;
+    this.longitude = longitude ? longitude : 0;
     this.status = status ? status : false;
     this.image = image ? image : 'https://i.imgur.com/dFT6YIC.png?2';
   }

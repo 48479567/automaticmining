@@ -15,18 +15,11 @@
       [form]="form"
       [required]="true"
     ></app-textbox-control>
-    <app-textbox-control
-      className="username"
-      label="RUC"
-      controlName="ruc"
-      [minLength]="11"
-      [maxLength]="11"
-      [matHintEnd]="ruc.value.length+'/'+'11'"
-      [errorMessage]="'Invalid RUC:  '+ruc.value.length+'/'+'11'"
-      matIconPrefix="business"
-      [required]="true"
+    <app-checkbox-control
       [form]="form"
-    ></app-textbox-control>
+      controlName="status"
+      label="status"
+    ></app-checkbox-control>
     <app-textbox-control
       className="username"
       label="image"

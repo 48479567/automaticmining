@@ -44,6 +44,7 @@ import {
   TextareaControlComponent,
   TextboxNumberControlComponent
 } from './components/form/input-control';
+import { DisableControlDirective } from './directives';
 
 const COMPONENTS = [
   DynamicFormComponent,
@@ -93,6 +94,10 @@ const ENTRY_COMPONENTS = [
 
 ];
 
+const DIRECTIVES = [
+  DisableControlDirective,
+];
+
 @NgModule({
   imports: [
     MaterialModule,
@@ -101,8 +106,8 @@ const ENTRY_COMPONENTS = [
     ChartsModule,
 
   ],
-  exports: [MaterialModule, ...COMPONENTS, ReactiveFormsModule, FormsModule],
-  declarations: [...COMPONENTS],
+  exports: [MaterialModule, ...COMPONENTS, ...DIRECTIVES, ReactiveFormsModule, FormsModule],
+  declarations: [...COMPONENTS, ...DIRECTIVES],
   entryComponents: [...ENTRY_COMPONENTS],
   providers: [],
 })

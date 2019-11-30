@@ -13,6 +13,7 @@ import { PriceFormComponent } from './price-form/price-form.component';
 export class PriceComponent implements OnInit {
   prices: PriceSchema[];
   priceCreate: PriceSchemaForm = new PriceSchemaForm();
+  displayedColumns = ['materialid', 'local', 'value', 'carrierid'];
   mainName = 'price';
 
   constructor(

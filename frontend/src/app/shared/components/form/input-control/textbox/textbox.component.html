@@ -10,16 +10,17 @@
       (click)="onClickButtonPrefix()">
       <mat-icon>{{ matIconButtonPrefix }}</mat-icon>
     </button>
-      <input
-        matInput
-        autocomplete="off"
-        aria-describedby="enter"
-        [type]="type"
-        [placeholder]="placeholder"
-        [required]="required"
-        [maxLength]="maxLength"
-        [minLength]="minLength"
-        [formControlName]="controlName" />
+    <input
+      matInput
+      autocomplete="off"
+      aria-describedby="enter"
+      [type]="type"
+      [placeholder]="placeholder"
+      [required]="required"
+      [maxLength]="maxLength"
+      [minLength]="minLength"
+      [disabled]="disabled"
+      [formControlName]="controlName" />
     <span matSuffix *ngIf="matSuffix">{{ matSuffix }}</span>
     <span matSuffix *ngIf="matIconSuffix">
       <mat-icon>{{ matIconSuffix }}</mat-icon></span>

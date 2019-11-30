@@ -25,7 +25,7 @@ const TruckSchema = new Schema({
   },
   capacityextension: {
     type: Number,
-    validate: [ () => this.extension === true ]
+    default: 0,
   },
   status: {
     type: Boolean
