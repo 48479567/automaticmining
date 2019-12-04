@@ -27,7 +27,7 @@ export class TruckFormComponent implements OnInit {
     extension: this.fb.control(this.data.content.extension),
     capacityextension: this.fb.control({
       value: this.data.content.capacityextension,
-      disabled: true}, v.required),
+      disabled: !this.data.content.extension}, v.required),
     status: this.fb.control(this.data.content.status,
       v.required),
     image: this.fb.control(this.data.content.image)
@@ -40,8 +40,6 @@ export class TruckFormComponent implements OnInit {
   get capacityextension(): FormControl {
     return this.form.get('capacityextension') as FormControl;
   }
-
-  disabledCapacityExtension = true;
 
   constructor(
     private fb: FormBuilder,
