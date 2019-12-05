@@ -16,10 +16,10 @@ export class FilterListComponent implements OnInit {
     items: []
   };
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit() {
-    console.log(this.filterSourcesList);
   }
 
 }

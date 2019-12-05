@@ -3,7 +3,7 @@
     <app-filter #filterChart [filtersSources]="filtersCharts"></app-filter>
     <app-filter-list
       #schemaSelect
-      [filterSourcesList]="filterSourcesList"
+      [filterSourcesList]="filterSourceList"
     ></app-filter-list>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -37,12 +37,12 @@
   </mat-card-footer>
   </mat-card>
     <app-report
-      [data]="[
-      { data: [26, 26, -4, -7, 10, 39],
-        backgroundColor: ['#252525', '#580043', '#262625', '#242556', '#565400'],
-        label: 'Ganancia'
-      }
-    ]"
+      [data$]="[
+        { data: [26, 26, -4, -7, 10, 39],
+          backgroundColor: ['#252525', '#580043', '#262625', '#242556', '#565400'],
+          label: 'Ganancia'
+        }
+      ]"
       [barChartLabels]="['Work 1', 'Work 2', 'Work 3', 'Work 4', 'Work 5']"
       [type]="filterChart.value"></app-report>
   </ng-container>

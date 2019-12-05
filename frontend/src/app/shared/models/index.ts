@@ -19,5 +19,6 @@ export * from './schema/work.schema';
 export * from './schema/user.schema';
 export * from './schema/objectref.schema';
 export * from './schema/general.schema';
+export * from './report/chart.model';
 
 

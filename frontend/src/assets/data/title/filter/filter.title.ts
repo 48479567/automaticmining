@@ -1,11 +1,10 @@
-import { FilterToggle, FilterToggleIcon } from '../../../../../src/app/shared/models';
+import { FilterToggleIcon } from '../../../../../src/app/shared/models';
 
 export const filtersSources: FilterToggleIcon[] = [
-  new FilterToggleIcon('Products', 'product', 'web_asset'),
-  new FilterToggleIcon('Personal', 'personal', 'person'),
-  new FilterToggleIcon('Sets', 'sets', 'group_work'),
-  new FilterToggleIcon('Sales', 'sales', 'shopping_cart'),
-  new FilterToggleIcon('Stock', 'stock', 'all_inbox'),
+  new FilterToggleIcon('Distances', 'distance', 'web_asset'),
+  new FilterToggleIcon('Prices', 'price', 'person'),
+  new FilterToggleIcon('Travels', 'travel', 'group_work'),
+  new FilterToggleIcon('Trucks', 'truck', 'shopping_cart'),
 
 ];
 

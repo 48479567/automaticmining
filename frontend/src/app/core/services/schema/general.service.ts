@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DataGeneral, iconsObject, Carrier } from '../../../shared/models';
+import { DataGeneral, iconsObject } from '../../../shared/models';
 import { Observable, of } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
@@ -18,6 +18,13 @@ export class GeneralService<T> {
     truck: [],
     user: [],
     work: [],
+  };
+
+  dataInResultChart = {
+    distance: ['value'],
+    price: ['value'],
+    travel: ['firstprice', 'aditionalprice'],
+    truck: ['capacity', 'capacityextension']
   };
 
   extraData = {
