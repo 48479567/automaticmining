@@ -13,6 +13,7 @@ import { UserFormComponent } from './user-form/user-form.component';
 export class UserComponent implements OnInit {
   users: IUser[];
   userCreate: UserSchemaForm = new UserSchemaForm();
+  displayedColumns = ['firstname', 'lastname', 'username', 'status'];
   mainName = 'user';
 
   constructor(

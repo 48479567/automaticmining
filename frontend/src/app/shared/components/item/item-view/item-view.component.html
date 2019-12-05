@@ -45,7 +45,7 @@
 <div class="zero-space space-between" *ngFor="let sel of data.selectedValue">
   <div class="center">
     <mat-icon mat-list-icon>{{ iconsObject[sel] }}</mat-icon>
-    <h4 mat-line>{{ sel }}</h4>
+    <h4 mat-line>{{ sel | titlecase }}</h4>
   </div>
   <div class="center pl-55">
     {{ formValue[sel] }}

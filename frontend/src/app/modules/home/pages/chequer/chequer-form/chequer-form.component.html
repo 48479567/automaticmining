@@ -68,7 +68,7 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button
-    [disabled]="!form.valid && password.value === confirm.value"
+    [disabled]="!form.valid && password.value !== confirm.value"
     (click)="save()">Done</button>
   <button mat-button mat-dialog-close>Cancel</button>
 </mat-dialog-actions>

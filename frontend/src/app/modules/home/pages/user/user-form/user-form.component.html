@@ -8,25 +8,64 @@
   <form [formGroup]="form">
     <app-textbox-control
       className="username"
-      label="name"
-      controlName="name"
-      errorMessage="Name is Required!!"
-      matIconPrefix="folder_shared"
       [form]="form"
+      controlName="firstname"
+      label="firstname"
+      [required]="true"
+      matIconPrefix="folder_shared"
+      errorMessage="Firstname is Required!!"
+    ></app-textbox-control>
+    <app-textbox-control
+      className="username"
+      [form]="form"
+      controlName="lastname"
+      label="lastname"
+      [required]="true"
+      matIconPrefix="folder_shared"
+      errorMessage="Lastname is Required!!"
+    ></app-textbox-control>
+    <app-textbox-control
+      className="username"
+      [form]="form"
+      controlName="username"
+      label="username"
+      matSuffix="@automaticminig.com"
+      matIconPrefix="assignment_ind"
+      [minLength]="8"
+      [matHintEnd]="username.value.length+'/8'"
+      [errorMessage]="'Invalid Username: '+username.value.length+'/8'"
       [required]="true"
     ></app-textbox-control>
     <app-textbox-control
       className="username"
-      label="RUC"
-      controlName="ruc"
-      [minLength]="11"
-      [maxLength]="11"
-      [matHintEnd]="ruc.value.length+'/'+'11'"
-      [errorMessage]="'Invalid RUC:  '+ruc.value.length+'/'+'11'"
-      matIconPrefix="business"
-      [required]="true"
       [form]="form"
+      controlName="password"
+      label="password"
+      matIconPrefix="vpn_key"
+      [errorMessage]="'Invalid Password: '+password.value.length+'/8'"
+      [matHintEnd]="password.value.length+'/8'"
+      [type]="passwordData.type"
+      [minLength]="8"
+      [required]="true"
     ></app-textbox-control>
+    <app-textbox-control
+      className="username"
+      [form]="form"
+      controlName="confirm"
+      label="confirm"
+      matIconPrefix="vpn_key"
+      [errorMessage]="passwordData.messageError"
+      [matIconButtonSuffix]="passwordData.icon"
+      [required]="true"
+      [type]="passwordData.type"
+      (clickButtonSuffix)="changePasswordData()"
+      [minLength]="8"
+    ></app-textbox-control>
+    <app-checkbox-control
+      [form]="form"
+      controlName="status"
+      label="status"
+    ></app-checkbox-control>
     <app-textbox-control
       className="username"
       label="image"
@@ -38,7 +77,7 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button
-    [disabled]="!form.valid"
+    [disabled]="!form.valid || password.value !== confirm.value"
     (click)="save()">Done</button>
   <button mat-button mat-dialog-close>Cancel</button>
 </mat-dialog-actions>

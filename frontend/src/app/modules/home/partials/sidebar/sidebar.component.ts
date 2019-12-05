@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Page } from '../../../../shared/models';
+import { PageIcon } from '../../../../shared/models';
 import { pagesIcon } from '../../../../../assets/data';
 
 @Component({
@@ -9,7 +9,7 @@ import { pagesIcon } from '../../../../../assets/data';
 })
 
 export class SidebarComponent implements OnInit {
-  pagesIcon: Page[] = pagesIcon;
+  pagesIcon: PageIcon[] = pagesIcon;
   constructor() { }
 
   ngOnInit() { }

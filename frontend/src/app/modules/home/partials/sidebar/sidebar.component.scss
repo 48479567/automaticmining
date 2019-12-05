@@ -1,3 +1,29 @@
-mat-expansion-panel {
-  border-radius: 0;
+mat-nav-list {
+  width: 180px;
+}
+
+.active {
+  background-color: #212121;
+}
+
+.active mat-icon {
+  animation: 16s linear infinite spin;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate3d(1, 1, 1, 0deg);
+  }
+  40% {
+    transform: rotate3d(1, 1, 1, 90deg);
+  }
+  60% {
+    transform: rotate3d(1, 1, 1, 180deg);
+  }
+  80% {
+    transform: rotate3d(1, 1, 1, 270deg);
+  }
+  100% {
+    transform: rotateZ(1, 1, 1, 360deg);
+  }
 }

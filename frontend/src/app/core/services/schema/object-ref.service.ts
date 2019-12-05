@@ -41,8 +41,8 @@ export class ObjectRefService {
     provider: ['name', 'phonenumber'],
     travel: ['priceid', 'firstprice', 'aditionalprice', 'name'],
     truck: ['capacity', 'mark', 'plaque'],
-    user: ['username', 'status'],
-    work: ['name', 'companyid'],
+    user: [ 'firstname', 'username', 'status'],
+    work: ['customer', 'name', 'companyid'],
   };
 
   getObjectRef(resource: any[], selector: string) {

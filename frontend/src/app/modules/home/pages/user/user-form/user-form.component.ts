@@ -1,8 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Validators as v, FormControl, FormBuilder } from '@angular/forms';
+import { Validators as v, FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { IDialogData } from 'src/app/shared/models';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-form',
@@ -11,17 +12,43 @@ import { IDialogData } from 'src/app/shared/models';
 })
 
 export class UserFormComponent implements OnInit {
-
-  form = this.fb.group({
-    name: this.fb.control(this.data.content.name,
+  form: FormGroup = this.fb.group({
+    firstname: this.fb.control(this.data.content.firstname,
       v.required),
-    ruc: this.fb.control(this.data.content.ruc,
-      [v.required, v.minLength(11)]),
-    image: this.fb.control(this.data.content.image)
+    lastname: this.fb.control(this.data.content.lastname,
+      v.required),
+    username: this.fb.control(this.data.content.username,
+      [v.required, v.minLength(8)]),
+    password: this.fb.control(this.data.content.password,
+      [v.required, v.minLength(8)]),
+    confirm: this.fb.control(this.data.content.password,
+      [v.required, v.minLength(8)]),
+    status: this.fb.control(this.data.content.status,
+      v.required),
+    image: this.fb.control(this.data.content.image,
+      v.required)
   });
 
-  get ruc(): FormControl {
-    return this.form.get('ruc') as FormControl;
+  get username(): FormControl {
+    return this.form.get('username') as FormControl;
+  }
+  get password(): FormControl {
+    return this.form.get('password') as FormControl;
+  }
+  get confirm(): FormControl {
+    return this.form.get('confirm') as FormControl;
+  }
+
+  passwordData = {
+    icon: 'visibility_off',
+    type: 'password',
+    messageError: ''
+  };
+  changePasswordData(): void {
+    this.passwordData.icon = this.passwordData.icon === 'visibility_off' ?
+                             'visibility_off' : 'visibility';
+    this.passwordData.type = this.passwordData.type === 'password' ?
+                             'text' : 'password';
   }
 
   constructor(
@@ -32,6 +59,22 @@ export class UserFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.formOnChanges();
+  }
+
+  formOnChanges(): void {
+    this.confirm.valueChanges.pipe(
+      debounceTime(2000),
+      distinctUntilChanged(),
+    ).subscribe(
+      (valConfirm: string) => {
+        if (this.password.value !== valConfirm) {
+          const confirmValue = 'confirm';
+          this.passwordData.messageError = 'Passwords are not the same!!';
+          this.form.controls[confirmValue].setErrors({ incorrect : true });
+        }
+      }
+    );
   }
 
 

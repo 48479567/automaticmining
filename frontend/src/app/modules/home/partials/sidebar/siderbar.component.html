@@ -1,6 +1,6 @@
 <mat-nav-list role="navigator">
   <mat-list-item *ngFor="let page of pagesIcon"
-    [routerLink]="'./'+page.path">
+    [routerLink]="'./'+page.path" routerLinkActive="active">
   <mat-icon mat-list-icon>{{ page.icon }}</mat-icon>
   <span mat-list>{{ page.title }}</span>
   </mat-list-item>

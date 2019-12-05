@@ -27,7 +27,6 @@ export interface IUser {
   updatedat?: string;
 }
 
-
 export class UserSchema {
   constructor(
     public fistname: string,

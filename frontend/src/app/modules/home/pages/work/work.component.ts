@@ -13,6 +13,7 @@ import { WorkFormComponent } from './work-form/work-form.component';
 export class WorkComponent implements OnInit {
   works: WorkSchema[];
   workCreate: WorkSchemaForm = new WorkSchemaForm();
+  displayedColumns = ['customer', 'companyid', 'name'];
   mainName = 'work';
 
   constructor(

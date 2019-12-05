@@ -47,6 +47,8 @@ export const typesObject = {
 export const iconsObject = {
   name: 'folder_shared',
   fullname: 'folder_shared',
+  firstname: 'folder_shared',
+  lastname: 'folder_shared',
   mine: 'home_work',
   providerid: 'supervised_user_circle',
   username: 'assignment_ind',
@@ -69,7 +71,9 @@ export const iconsObject = {
   firstprice: 'attach_money',
   aditionalprice: 'monetization_on',
   capacity: 'storage',
+  customer: 'person_pin',
   mark: 'atm',
+  companyid: 'apartment',
   plaque: 'font_download',
   extension: 'unfold_more',
   capacityextension: 'table_chart'

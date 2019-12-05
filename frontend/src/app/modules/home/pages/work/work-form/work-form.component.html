@@ -8,24 +8,33 @@
   <form [formGroup]="form">
     <app-textbox-control
       className="username"
+      label="curtomer"
+      controlName="customer"
+      errorMessage="Customer is Required!!"
+      matIconPrefix="person_pin"
+      [form]="form"
+      [required]="true"
+    ></app-textbox-control>
+    <app-select-control
+      className="username"
+      label="company"
+      controlName="companyid"
+      errorMessage="Company is Required"
+      matIconPrefix="apartment"
+      [dataOptions]="companies"
+      [required]="true"
+      [form]="form"
+      [value]="data.content.companyid"
+      selectValueAnchor="name"
+    ></app-select-control>
+    <app-textbox-control
+      className="username"
       label="name"
       controlName="name"
       errorMessage="Name is Required!!"
       matIconPrefix="folder_shared"
       [form]="form"
       [required]="true"
-    ></app-textbox-control>
-    <app-textbox-control
-      className="username"
-      label="RUC"
-      controlName="ruc"
-      [minLength]="11"
-      [maxLength]="11"
-      [matHintEnd]="ruc.value.length+'/'+'11'"
-      [errorMessage]="'Invalid RUC:  '+ruc.value.length+'/'+'11'"
-      matIconPrefix="business"
-      [required]="true"
-      [form]="form"
     ></app-textbox-control>
     <app-textbox-control
       className="username"

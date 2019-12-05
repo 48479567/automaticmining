@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Validators as v, FormControl, FormBuilder } from '@angular/forms';
+import { Validators as v, FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { IDialogData, ICarrier } from 'src/app/shared/models';
@@ -15,7 +15,7 @@ import { GeneralService } from 'src/app/core/services/schema/general.service';
 export class TruckFormComponent implements OnInit {
   carriers: ICarrier[];
 
-  form = this.fb.group({
+  form: FormGroup = this.fb.group({
     carrierid: this.fb.control(this.data.content.carrierid,
       v.required),
     capacity: this.fb.control(this.data.content.capacity,
