@@ -2,8 +2,8 @@
   <mat-toolbar-row>
     <app-filter #filterChart [filtersSources]="filtersCharts"></app-filter>
     <app-filter-list
-      #schemaSelect
-      [filterSourcesList]="filterSourceList"
+      #selector
+      [filterSourceList]="filterSourceList"
     ></app-filter-list>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -11,39 +11,36 @@
   <ng-container>
   <mat-card>
     <mat-card-content>
-      <ng-container
-        *ngFor="let item of items; index as i">
-      <mat-chip-list aria-label="Color selection">
-        <mat-chip  selected [style.backgroundColor]="item.bg">
-          <mat-icon>web_asset</mat-icon> {{ i }} - {{ item.name }}
-        </mat-chip>
-        <mat-chip mat-line>Investment: {{ item.investment }}</mat-chip>
-        <mat-chip mat-line
-          clas="bg-success"
-        >Sale: {{ item.sale }}</mat-chip>
-        <mat-chip
-          mat-line
-          class="bg-primary"
-        >Gain: {{ item.sale - item.investment }}</mat-chip>
-      </mat-chip-list>
-    </ng-container>
+      <div class="result-view"
+        *ngFor="let item of dataToReport[selector.selectValue]?.schema; index as i">
+          <mat-chip-list aria-label="Color selection">
+            <mat-chip  selected [style.backgroundColor]="getColorHex(i)"
+                      [style.color]="getColorHex(999 - i)">
+              <mat-icon>web_asset</mat-icon> {{ selector.selectValue }} # {{ i + 1 }}
+            </mat-chip>
+            <mat-chip *ngFor="let dataShow of gs.dataInResultChart[selector.selectValue]; index as j"
+              selected [style.backgroundColor]="getColorHex(i + (j * 0.5))"
+                      [style.color]="getColorHex(999 - (i + j))"
+              mat-line>{{ dataShow | titlecase }}: {{ item[dataShow] }}</mat-chip>
+          </mat-chip-list>
+        <div>
+          <img [src]="item.image" alt="Image Result"
+          width="45" height="45" />
+        </div>
+    </div>
   </mat-card-content>
-  <mat-card-footer>
+  <!-- <mat-card-footer>
     <ul *ngFor="let t of total | keyvalue">
         <h6 mat-subtitle>{{ t.key | titlecase }}</h6>
       <ol>Sale: {{ t.value.sale }}</ol>
       <ol>Investment: {{ t.value.investment }}</ol>
     </ul>
-  </mat-card-footer>
+  </mat-card-footer> -->
   </mat-card>
     <app-report
-      [data$]="[
-        { data: [26, 26, -4, -7, 10, 39],
-          backgroundColor: ['#252525', '#580043', '#262625', '#242556', '#565400'],
-          label: 'Ganancia'
-        }
-      ]"
-      [barChartLabels]="['Work 1', 'Work 2', 'Work 3', 'Work 4', 'Work 5']"
+      *ngIf="selector.selectValue"
+      [data]="dataToReport[selector.selectValue]?.chart.data"
+      [barChartLabels]="dataToReport[selector.selectValue]?.chart.labels"
       [type]="filterChart.value"></app-report>
   </ng-container>
 </div>

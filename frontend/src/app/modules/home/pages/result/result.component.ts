@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FilterService } from '../../../../core/services/filter/filter.service';
 
 import { FilterToggle, ChartReportModel } from '../../../../shared/models';
-import { Observable, of } from 'rxjs';
+import { of, Observable } from 'rxjs';
 import { GeneralService } from 'src/app/core/services/schema/general.service';
-import { map } from 'rxjs/operators';
+import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
 
 @Component({
   selector: 'app-result',
@@ -17,70 +17,87 @@ export class ResultComponent implements OnInit {
   filtersSources: FilterToggle[];
   filtersCharts: FilterToggle[];
   ChartsLabel: string[];
-  filterSourceList = [];
-  total = {
-    product: { investment: 0, sale: 0 },
-    category: { investmenet: 0, sale: 0 }
-  };
-
-  dataOfSchema = {
-    distance: of(ChartReportModel),
-    price: of(ChartReportModel),
-    travel: of(ChartReportModel),
-    truck: of(ChartReportModel),
-  };
-
-  items = [
-    { bg: '#252525', investment: 300, sale: 274, name: 'Work 1' },
-    { bg: '#580043', investment: 525, sale: 499, name: 'Work 2' },
-    { bg: '#262625', investment: 150, sale: 154, name: 'Work 3' },
-    { bg: '#242556', investment: 82, sale: 75, name: 'Work 4' },
-    { bg: '#565400', investment: 100, sale: 61, name: 'Work 5' },
+  filterSourceList = [
+    { key: 'Distance', value: 'distance' },
+    { key: 'Price', value: 'price' },
+    { key: 'Travel', value: 'travel' },
+    { key: 'Truck', value: 'truck' },
   ];
+
+  dataToReport = {
+    distance: { chart: {}, schema: [] },
+    price: { chart: {}, schema: [] },
+    travel: { chart: {}, schema: [] },
+    truck: { chart: {}, schema: [] },
+  };
 
   constructor(
     private filterService: FilterService,
-    private gs: GeneralService<any>
+    public gs: GeneralService<any>,
+    private ghs: GeneralHttpService<any>
   ) { }
 
   ngOnInit() {
     this.getFiltersCharts();
     this.getFiltersSources();
-    this.getProducts();
+    this.getDataOneToChart('distance', this.gs.dataInResultChart.distance);
+    this.getDataOneToChart('price', this.gs.dataInResultChart.price);
+    this.getDataTwoToChart('travel', this.gs.dataInResultChart.travel);
+    this.getDataTwoToChart('truck', this.gs.dataInResultChart.truck);
   }
 
-  getProducts(): any {
-    this.filterSourceList.push({
-      key: 'Products',
-      value: {
-        data: [
-          { data: [26, 26, -4, -7, 10, 39],
-            backgroundColor: ['#252525', '#580043', '#262625', '#242556', '#565400'],
-            label: 'Ganancia'
-          }
-        ],
-        labels: ['Work 1', 'Work 2', 'Work 3', 'Work 4', 'Work 5'],
+
+  getDataOfSchema(module: string): Observable<Array<any>> {
+    if (this.gs.data[module].length) {
+      return of(this.gs.data[module]);
+    }
+    return this.ghs.getData(module);
+  }
+
+  getDataOneToChart(module: string, selector: string[]): void {
+    const dataS: ChartReportModel = {
+      data: [
+        { data: [], backgroundColor: [], label: selector[0] }
+      ],
+      labels: []
+    };
+    this.getDataOfSchema(module).subscribe(
+      (data: any[]) => {
+        this.dataToReport[module].schema = data;
+        data.forEach((d: any, i: number) => {
+          dataS.data[0].data[i] = d[selector[0]];
+          dataS.data[0].backgroundColor[i] = this.getColorHex(i);
+          dataS.labels[i] = `* ${module} - ${i + 1}`;
+          this.dataToReport[module].chart = dataS;
+          console.log(`${module}:`, this.dataToReport[module].chart);
+        });
       }
-    });
+    );
   }
 
-  // getDataOfSchema(module: string): void {
-  //   const DataOfData = [];
-  //   if (this.gs.data[module].length) {
-  //     this.dataOfSchema[module] = of(this.gs.data[module]).pipe(
-  //       map(
-  //         (dataSource, index: number) => ({
-  //           data: [{ data: this.gs.dataInResultChart[module].map((drc: any) => [
-  //             dataSource[drc]
-  //           ]),
-  //           backgroundColor: [this.getColorHex(index)],
-  //           label: [...this.gs.dataInResultChart[module]]
-  //           }]
-  //         ])
-  //         )
-  //     );
-  //   }
-  // }
+  getDataTwoToChart(module: string, selector: string[]): void {
+    const dataS: ChartReportModel = {
+      data: [
+        { data: [], backgroundColor: [], label: selector[0] },
+        { data: [], backgroundColor: [], label: selector[1] },
+      ],
+      labels: []
+    };
+    this.getDataOfSchema(module).subscribe(
+      (data: any[]) => {
+        this.dataToReport[module].schema = data;
+        data.forEach((d: any, i: number) => {
+          dataS.data[0].data[i] = d[selector[0]];
+          dataS.data[0].backgroundColor[i] = this.getColorHex(i);
+          dataS.data[1].data[i] = d[selector[1]];
+          dataS.data[1].backgroundColor[i] = this.getColorHex(i + .5);
+          dataS.labels[i] = `* ${module} - ${i + 1}`;
+          this.dataToReport[module].chart = dataS;
+          console.log(`${module}:`, this.dataToReport[module].chart);
+        });
+      }
+    );
+  }
 
   getFiltersSources(): void {
     this.filterService.getFiltersSources().subscribe(

@@ -1,12 +1,12 @@
 <div
   class="canvas-content"
-  *ngIf="data$"
+  *ngIf="data"
 >
   <canvas
     height="380px"
     width="345px"
     baseChart
-    [datasets]="data$ | async"
+    [datasets]="data"
     [labels]="barChartLabels"
     [options]="barChartOptions"
     [legend]="barChartLegend"

@@ -10,7 +10,7 @@ export class DataChartReportModel {
 export class ChartReportModel {
   constructor(
     public data: DataChartReportModel[],
-    public label: string[]
+    public labels: string[]
   ) { }
 
 }

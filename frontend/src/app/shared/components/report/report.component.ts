@@ -8,14 +8,13 @@ import { of, Observable } from 'rxjs';
   styleUrls: ['./report.component.scss']
 })
 export class ReportComponent implements OnInit {
-  @Input() data$: Observable<any[]> = of([]);
+  @Input() data: Observable<any[]> = of([]);
   @Input() barChartLabels: string[] = [];
   @Input() type: string;
 
   public barChartOptions: ChartOptions = {
     showLines: true,
     responsive: true,
-
   };
 
 
@@ -25,7 +24,7 @@ export class ReportComponent implements OnInit {
 
   ngOnInit() {
     this.type = 'line';
-    console.log('data in OnInit', this.data$);
+    console.log('data in OnInit', this.data);
   }
 
 }

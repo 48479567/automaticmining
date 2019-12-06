@@ -12,16 +12,20 @@ mat-card, div {
   overflow-x: auto;
 }
 
-mat-chip-list {
+.result-view {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: unset;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+mat-chip-list {
+  width: 1200px;
   margin: 2px 0;
 }
 
 mat-card mat-card-content {
   width: 100%;
-  max-height: 500px;
   overflow-x: auto;
 }
 

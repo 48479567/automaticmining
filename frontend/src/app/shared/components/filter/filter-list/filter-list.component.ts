@@ -7,14 +7,9 @@ import { SelectOption } from '../../../../shared/models';
   styleUrls: ['./filter-list.component.scss']
 })
 export class FilterListComponent implements OnInit {
-  @Input() filterSourcesList: SelectOption[] = [];
+  @Input() filterSourceList: SelectOption[] = [];
   @Input() filterLabel = '';
-  selectValue = {
-    data: [],
-    backgroundColor: [],
-    labels: [],
-    items: []
-  };
+  selectValue = '';
 
   constructor(
   ) { }
