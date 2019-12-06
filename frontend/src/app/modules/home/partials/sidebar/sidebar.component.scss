@@ -7,23 +7,35 @@ mat-nav-list {
 }
 
 .active mat-icon {
-  animation: 16s linear infinite spin;
+  animation: 32s linear infinite spin;
 }
 
 @keyframes spin {
   0% {
     transform: rotate3d(1, 1, 1, 0deg);
   }
-  40% {
+  20% {
+    transform: rotate3d(1, 1, 1, 45deg);
+  }
+  31% {
     transform: rotate3d(1, 1, 1, 90deg);
   }
-  60% {
-    transform: rotate3d(1, 1, 1, 180deg);
+  42% {
+    transform: rotate3d(1, 1, 1, 45deg);
   }
-  80% {
-    transform: rotate3d(1, 1, 1, 270deg);
+  53% {
+    transform: rotateZ(1, 1, 1, 0deg);
+  }
+  64% {
+    transform: rotate3d(1, 1, 1, -45deg);
+  }
+  75% {
+    transform: rotate3d(1, 1, 1, -90deg);
+  }
+  86% {
+    transform: rotate3d(1, 1, 1, -45deg);
   }
   100% {
-    transform: rotateZ(1, 1, 1, 360deg);
+    transform: rotateZ(1, 1, 1, 0deg);
   }
 }

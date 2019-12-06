@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserSchemaForm, IUser } from '../../../../shared/models';
 import { GeneralService } from '../../../../core/services/schema/general.service';
 import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
-import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
+import { ObjectRefService } from '../../../../core/services/schema/object-ref.service';
 import { UserFormComponent } from './user-form/user-form.component';
 
 @Component({

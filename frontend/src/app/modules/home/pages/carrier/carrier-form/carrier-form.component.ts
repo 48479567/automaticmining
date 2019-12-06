@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, Validators as v, FormControl } from '@angular/forms';
-import { IProvider, IDialogData } from 'src/app/shared/models';
-import { GeneralService } from 'src/app/core/services/schema/general.service';
-import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
+import { IProvider, IDialogData } from '../../../../../shared/models';
+import { GeneralService } from '../../../../../core/services/schema/general.service';
+import { GeneralHttpService } from '../../../../../core/http/schema/general.http.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 @Component({

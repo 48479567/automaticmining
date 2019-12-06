@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
+import { ObjectRefService } from '../../../core/services/schema/object-ref.service';
 import { IDialogData } from '../../models';
 
 @Component({

@@ -4,8 +4,8 @@ import { FilterService } from '../../../../core/services/filter/filter.service';
 
 import { FilterToggle, ChartReportModel } from '../../../../shared/models';
 import { of, Observable } from 'rxjs';
-import { GeneralService } from 'src/app/core/services/schema/general.service';
-import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
+import { GeneralService } from '../../../../core/services/schema/general.service';
+import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
 
 @Component({
   selector: 'app-result',

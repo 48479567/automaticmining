@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Validators as v, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { IDialogData } from 'src/app/shared/models';
-import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
+import { IDialogData } from '../../../../../shared/models';
+import { GeneralHttpService } from '../../../../../core/http/schema/general.http.service';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({

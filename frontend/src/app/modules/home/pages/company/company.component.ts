@@ -3,7 +3,7 @@ import { CompanySchema, CompanySchemaForm, ICompany } from '../../../../shared/m
 import { GeneralService } from '../../../../core/services/schema/general.service';
 import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
 import { CompanyFormComponent } from './company-form/company-form.component';
-import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
+import { ObjectRefService } from '../../../../core/services/schema/object-ref.service';
 
 @Component({
   selector: 'app-company',

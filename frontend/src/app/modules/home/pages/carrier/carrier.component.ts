@@ -3,7 +3,7 @@ import { CarrierSchema, CarrierSchemaForm, ICarrier } from '../../../../shared/m
 import { GeneralService } from '../../../../core/services/schema/general.service';
 import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
 import { CarrierFormComponent } from './carrier-form/carrier-form.component';
-import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
+import { ObjectRefService } from '../../../../core/services/schema/object-ref.service';
 
 @Component({
   selector: 'app-carrier',

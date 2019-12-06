@@ -3,7 +3,7 @@ import { LocationSchema, LocationSchemaForm } from '../../../../shared/models';
 import { GeneralService } from '../../../../core/services/schema/general.service';
 import { GeneralHttpService } from '../../../../core/http/schema/general.http.service';
 import { ILocation } from 'selenium-webdriver';
-import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
+import { ObjectRefService } from '../../../../core/services/schema/object-ref.service';
 import { LocationFormComponent } from './location-form/location-form.component';
 
 @Component({

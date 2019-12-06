@@ -1,9 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Validators as v, FormControl, FormBuilder } from '@angular/forms';
-import { GeneralHttpService } from 'src/app/core/http/schema/general.http.service';
+import { GeneralHttpService } from '../../../../../core/http/schema/general.http.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { IDialogData, IMaterial, ICarrier } from 'src/app/shared/models';
-import { GeneralService } from 'src/app/core/services/schema/general.service';
+import { IDialogData, IMaterial, ICarrier } from '../../../../../shared/models';
+import { GeneralService } from '../../../../../core/services/schema/general.service';
 
 @Component({
   selector: 'app-price-form',
