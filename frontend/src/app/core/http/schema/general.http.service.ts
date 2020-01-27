@@ -35,17 +35,18 @@ export class GeneralHttpService<T> {
     action: 'post' | 'put',
     data: any,
     index: number,
-    id?: string
-  ): Observable<any> {
+    id?: string): Observable<any> {
+
     return this.http[action](`${URL}/${module}${id}`, data)
       .pipe(
         tap((newData: any) => {
           this.logger.log(`Insert ${newData._id}`, `bg-action-${action}`);
           if (action === 'post') {
             this.generalService.data[module].push(newData);
-          } else {
-            this.generalService.data[module][index] = newData;
+            return;
           }
+
+          this.generalService.data[module][index] = newData;
         }),
         catchError(
           this.handleErrorService.handleError<Array<T>>(

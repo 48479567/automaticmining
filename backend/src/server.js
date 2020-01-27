@@ -10,10 +10,18 @@ const MONGO_URI = 'mongodb+srv://admin:admin@cluster0-hpdpw.mongodb.net/automati
 app.set('port', process.env.PORT || 3000)
 app.set('connectdb', process.env.DATABASE_URL || MONGO_URI)
 
-app.use((req, res, next) => { 
-  res.header('Access-Control-Allow-Origin', '*')
+app.use((req, res, next) => {
+  const whiteList = [
+    'http://localhost:3000',
+    'http://automaticmining.herokuapp.com',
+    'https://mining-management.herokuapp.com/'
+  ];
+  const { origin } = req.headers;
+  if (whiteList.indexOf(origin) > - 1) {
+    res.setHeader('Access-Control-Allow-Origin', origin)
+  }
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
   next()
 })
 
